@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aqidah Islam - Fondasi Remaja Modern</title>
+    <title>Aqidah Islam - Avito Deanova</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,53 +26,44 @@
         .custom-scrollbar::-webkit-scrollbar { width: 6px; }
         .custom-scrollbar::-webkit-scrollbar-track { background: #f1f5f9; }
         .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        .animate-bounce-slow { animation: bounce 3s infinite; }
         
-        /* Premium Soft Mesh Gradient Background */
-        body {
-            background: linear-gradient(135deg, #f0fdfa 0%, #eef2ff 50%, #fff7ed 100%);
-            background-attachment: fixed;
-        }
-
-        .bg-mesh {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            z-index: -1;
-            opacity: 0.5;
-            background-image: 
-                radial-gradient(at 0% 0%, hsla(161, 72%, 85%, 1) 0, transparent 55%), 
-                radial-gradient(at 50% 100%, hsla(225, 72%, 86%, 1) 0, transparent 55%), 
-                radial-gradient(at 100% 0%, hsla(38, 72%, 85%, 1) 0, transparent 55%);
-        }
-
-        .animate-fade-in { animation: fadeIn 0.5s ease-out forwards; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        /* Style tambahan untuk rendering materi Markdown agar rapi */
+        .md-content h1 { font-size: 1.5rem; font-weight: 800; color: #0f172a; margin-top: 1.5rem; margin-bottom: 0.5rem; font-family: 'Bricolage Grotesque', sans-serif; }
+        .md-content h2 { font-size: 1.25rem; font-weight: 700; color: #1e293b; margin-top: 1.25rem; margin-bottom: 0.5rem; font-family: 'Bricolage Grotesque', sans-serif; }
+        .md-content h3 { font-size: 1.1rem; font-weight: 700; color: #334155; margin-top: 1rem; margin-bottom: 0.25rem; }
+        .md-content p { margin-bottom: 1rem; text-align: justify; line-height: 1.7; color: #334155; }
+        .md-content blockquote { border-left: 4px solid #f59e0b; background-color: #fef3c7; padding: 0.75rem 1rem; font-style: italic; border-radius: 0.375rem; margin: 1rem 0; color: #78350f; }
+        .md-content ul { list-style-type: decimal; padding-left: 1.25rem; margin-bottom: 1rem; space-y: 0.25rem; }
+        .md-content li { margin-bottom: 0.25rem; }
+        .md-content hr { border: 0; border-top: 2px dashed #e2e8f0; margin: 1.5rem 0; }
     </style>
 </head>
-<body class="text-slate-800 font-sans min-h-screen flex flex-col antialiased">
-    <div class="bg-mesh"></div>
+<body class="bg-gradient-to-br from-slate-50 via-teal-50/20 to-indigo-50/30 text-slate-800 font-sans min-h-screen flex flex-col antialiased">
 
-    <header class="bg-white/80 backdrop-blur-xl border-b border-teal-500/10 sticky top-0 z-50 px-4 lg:px-8 py-4 shadow-sm flex justify-between items-center">
+    <header class="bg-white/90 backdrop-blur-md border-b-2 border-teal-500/20 sticky top-0 z-50 px-4 lg:px-8 py-4 shadow-md flex justify-between items-center">
         <div class="flex items-center space-x-3 cursor-pointer" onclick="navigateTo('beranda')">
-            <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-teal-600 to-emerald-500 flex items-center justify-center text-white shadow-lg transform hover:rotate-12 transition">
-                <i class="fa-solid fa-kaaba text-xl"></i>
+            <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-amber-500 via-emerald-500 to-teal-600 flex items-center justify-center text-white shadow-lg shadow-teal-500/20 transform hover:rotate-12 transition">
+                <i class="fa-solid fa-book-quran text-xl"></i>
             </div>
             <div>
-                <h1 class="text-xl font-extrabold text-teal-800 font-heading tracking-tight leading-tight">Aqidah Muda</h1>
-                <p class="text-[10px] text-amber-600 font-bold tracking-widest uppercase">Penyelamat Jiwa Modern</p>
+                <h1 class="text-xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-emerald-700 to-teal-600 font-heading tracking-tight leading-tight">Aqidah Islam</h1>
+                <p class="text-[11px] text-amber-600 font-bold tracking-wider uppercase">Generasi Berkarakter Rabbani</p>
             </div>
         </div>
 
         <div class="relative">
-            <button onclick="toggleGlobalMenu()" class="w-10 h-10 rounded-full bg-slate-100 hover:bg-teal-500 hover:text-white transition flex items-center justify-center">
-                <i class="fa-solid fa-bars-staggered"></i>
+            <button onclick="toggleGlobalMenu()" class="w-11 h-11 rounded-xl bg-gradient-to-r from-slate-100 to-slate-50 hover:from-teal-500 hover:to-emerald-500 hover:text-white border border-slate-200 shadow-sm transition flex items-center justify-center focus:outline-none group">
+                <i class="fa-solid fa-ellipsis-vertical text-lg group-hover:scale-110 transition"></i>
             </button>
-            <div id="global-dropdown" class="hidden absolute right-0 mt-3 w-60 bg-white border border-slate-100 rounded-2xl shadow-2xl z-50 overflow-hidden">
-                <div class="p-2 space-y-1">
-                    <button onclick="navigateTo('beranda')" class="w-full text-left px-4 py-3 hover:bg-teal-50 rounded-xl flex items-center gap-3 transition"><i class="fa-solid fa-house text-teal-500"></i> Beranda</button>
-                    <button onclick="navigateTo('materi')" class="w-full text-left px-4 py-3 hover:bg-teal-50 rounded-xl flex items-center gap-3 transition"><i class="fa-solid fa-book-open text-emerald-500"></i> Baca Materi</button>
-                    <button onclick="navigateTo('tracker')" class="w-full text-left px-4 py-3 hover:bg-teal-50 rounded-xl flex items-center gap-3 transition"><i class="fa-solid fa-check-double text-amber-500"></i> Daily Tracker</button>
-                    <button onclick="navigateTo('kuis')" class="w-full text-left px-4 py-3 hover:bg-teal-50 rounded-xl flex items-center gap-3 transition"><i class="fa-solid fa-brain text-indigo-500"></i> Menu Kuis</button>
-                    <button onclick="navigateTo('kisah')" class="w-full text-left px-4 py-3 hover:bg-teal-50 rounded-xl flex items-center gap-3 transition"><i class="fa-solid fa-heart text-rose-500"></i> Kisah Inspiratif</button>
+            <div id="global-dropdown" class="hidden absolute right-0 mt-3 w-60 bg-white/95 backdrop-blur-md border border-teal-500/20 rounded-2xl shadow-2xl z-50 overflow-hidden transform origin-top-right transition-all">
+                <div class="p-2 font-bold text-xs text-slate-400 uppercase tracking-widest bg-slate-50 border-b border-slate-100 px-4 py-2">Navigasi Utama</div>
+                <div class="p-1.5 font-semibold text-sm text-slate-700 space-y-0.5">
+                    <button onclick="navigateTo('beranda')" class="w-full text-left px-4 py-3 hover:bg-gradient-to-r hover:from-emerald-50 hover:to-teal-50/50 rounded-xl flex items-center gap-3 transition text-slate-800"><i class="fa-solid fa-house text-emerald-500 w-5 text-base"></i> Beranda</button>
+                    <button onclick="navigateTo('materi')" class="w-full text-left px-4 py-3 hover:bg-gradient-to-r hover:from-emerald-50 hover:to-teal-50/50 rounded-xl flex items-center gap-3 transition text-slate-800"><i class="fa-solid fa-book-open text-teal-500 w-5 text-base"></i> Baca Materi</button>
+                    <button onclick="navigateTo('tracker')" class="w-full text-left px-4 py-3 hover:bg-gradient-to-r hover:from-emerald-50 hover:to-teal-50/50 rounded-xl flex items-center gap-3 transition text-slate-800"><i class="fa-solid fa-calendar-check text-amber-500 w-5 text-base"></i> Tracker Harian</button>
+                    <button onclick="navigateTo('kuis')" class="w-full text-left px-4 py-3 hover:bg-gradient-to-r hover:from-emerald-50 hover:to-teal-50/50 rounded-xl flex items-center gap-3 transition text-slate-800"><i class="fa-solid fa-graduation-cap text-indigo-500 w-5 text-base"></i> Menu Kuis</button>
+                    <button onclick="navigateTo('kisah')" class="w-full text-left px-4 py-3 hover:bg-gradient-to-r hover:from-emerald-50 hover:to-teal-50/50 rounded-xl flex items-center gap-3 transition text-slate-800"><i class="fa-solid fa-star text-rose-500 w-5 text-base"></i> Kisah Inspiratif</button>
                 </div>
             </div>
         </div>
@@ -81,714 +72,1024 @@
     <main class="flex-grow max-w-6xl w-full mx-auto px-4 lg:px-8 py-8">
 
         <section id="view-beranda" class="app-view block space-y-8 animate-fade-in">
-            <div class="bg-gradient-to-br from-teal-900 to-slate-900 rounded-[2.5rem] p-8 lg:p-14 text-white shadow-2xl relative overflow-hidden">
-                <div class="absolute -right-20 -bottom-20 opacity-10 text-[300px] pointer-events-none transform rotate-12"><i class="fa-solid fa-star-and-crescent"></i></div>
-                <div class="max-w-2xl space-y-6 relative z-10">
-                    <span class="bg-amber-500 text-slate-900 px-4 py-1.5 rounded-full text-[10px] font-black tracking-widest uppercase">Edisi Generasi Rabbani</span>
-                    <h2 class="text-4xl sm:text-6xl font-extrabold tracking-tight font-heading leading-[1.1]">Aqidah: Kompas Di Tengah Badai Modernisasi</h2>
-                    <p class="text-teal-100/80 text-base sm:text-lg leading-relaxed">
-                        Bukan sekadar teori, tapi pondasi rasa. Temukan bagaimana Tauhid Rububiyah & Uluhiyah menghancurkan overthinking, krisis identitas, dan rasa insecure-mu.
+            <div class="bg-gradient-to-br from-slate-900 via-emerald-950 to-teal-900 rounded-3xl p-8 lg:p-12 text-white shadow-2xl relative overflow-hidden border-b-4 border-emerald-500 shadow-emerald-950/20">
+                <div class="absolute -right-16 -bottom-16 opacity-10 text-[240px] pointer-events-none text-teal-400 animate-pulse"><i class="fa-solid fa-mosque"></i></div>
+                <div class="max-w-2xl space-y-5 relative z-10">
+                    <span class="bg-gradient-to-r from-amber-500 to-orange-500 text-white px-4 py-1.5 rounded-full text-xs font-black tracking-widest uppercase border border-amber-400/30 inline-block shadow-md">✨ PENYALUR IMAN MUDA</span>
+                    <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight font-heading">Kokohkan Tiang Aqidah di Era Digital</h2>
+                    <p class="text-slate-200 text-sm sm:text-base leading-relaxed font-medium">
+                        Tempat belajar interaktif khusus remaja untuk memurnikan tauhid, menghancurkan kecemasan hidup, serta membangun mentalitas juara berlandaskan tuntunan murni Al-Quran dan Sunnah.
                     </p>
-                    <div class="flex flex-wrap gap-4 pt-4">
-                        <button onclick="navigateTo('materi')" class="bg-white text-teal-900 px-8 py-4 rounded-2xl font-bold hover:bg-amber-400 transition-all flex items-center gap-2 shadow-lg">
-                            Mulai Belajar <i class="fa-solid fa-arrow-right"></i>
+                    <div class="flex flex-wrap gap-4 pt-3">
+                        <button onclick="navigateTo('materi')" class="bg-gradient-to-r from-amber-400 to-orange-500 text-slate-950 px-6 py-3.5 rounded-xl font-extrabold text-sm shadow-xl hover:scale-105 transition-all flex items-center gap-2 border-b-2 border-orange-600">
+                            <i class="fa-solid fa-book-open"></i> Baca Materi
+                        </button>
+                        <button onclick="navigateTo('tracker')" class="bg-white/10 backdrop-blur-md hover:bg-white/20 text-white px-6 py-3.5 rounded-xl font-extrabold text-sm shadow-md transition-all flex items-center gap-2 border border-white/20">
+                            <i class="fa-solid fa-calendar-check text-amber-400"></i> Tracker Harian
                         </button>
                     </div>
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
-                <div onclick="navigateTo('tracker')" class="bg-white/60 backdrop-blur-md p-8 rounded-[2rem] border border-white shadow-sm hover:shadow-xl transition-all cursor-pointer group">
-                    <div class="w-14 h-14 rounded-2xl bg-teal-100 text-teal-600 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition"><i class="fa-solid fa-calendar-check"></i></div>
-                    <h4 class="font-bold text-xl mb-2 font-heading">Progress Amal</h4>
-                    <p class="text-sm text-slate-500">Pantau 10 amalan harianmu secara otomatis.</p>
+            <div class="bg-gradient-to-r from-amber-500/10 via-orange-500/10 to-yellow-500/5 border border-amber-500/30 rounded-3xl p-6 shadow-xl relative overflow-hidden backdrop-blur-sm">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-amber-500/10 rounded-full blur-2xl pointer-events-none"></div>
+                <div class="flex justify-between items-center border-b border-amber-500/20 pb-3">
+                    <div class="flex items-center space-x-2">
+                        <span class="text-amber-500 text-2xl animate-bounce-slow"><i class="fa-solid fa-bolt-lightning"></i></span>
+                        <h3 class="font-extrabold text-slate-900 text-xs sm:text-sm uppercase tracking-widest font-heading">Mood Booster Penolak Galau Hari Ini</h3>
+                    </div>
+                    <button onclick="refreshMoodBooster()" class="text-xs font-black text-white bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 px-3 py-2 rounded-xl transition shadow-md flex items-center gap-1.5">
+                        <i class="fa-solid fa-rotate text-xs"></i> Acak Quote
+                    </button>
                 </div>
-                <div onclick="navigateTo('kuis')" class="bg-white/60 backdrop-blur-md p-8 rounded-[2rem] border border-white shadow-sm hover:shadow-xl transition-all cursor-pointer group">
-                    <div class="w-14 h-14 rounded-2xl bg-indigo-100 text-indigo-600 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition"><i class="fa-solid fa-vial"></i></div>
-                    <h4 class="font-bold text-xl mb-2 font-heading">Evaluasi Kuis</h4>
-                    <p class="text-sm text-slate-500">Uji kekuatan aqidahmu dengan 12 level kuis.</p>
+                <div class="mt-4 p-5 bg-white/80 rounded-2xl border border-amber-500/10 shadow-inner min-h-[90px] flex flex-col justify-center">
+                    <p id="mood-text" class="text-slate-800 italic font-semibold text-base sm:text-lg leading-relaxed font-serif text-center"></p>
+                    <span class="block text-xs font-black text-amber-600 mt-2 text-center" id="mood-source">— Penguat Jiwa Pemuda</span>
                 </div>
-                <div class="bg-amber-400 p-8 rounded-[2rem] shadow-lg flex flex-col justify-center">
-                    <p class="text-amber-900/60 font-black text-[10px] uppercase tracking-widest mb-2">Quote Hari Ini</p>
-                    <p id="mood-text" class="text-amber-950 font-bold text-lg leading-snug italic">"Allah tidak melihat casing-mu, tapi isi hatimu."</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
+                <div onclick="navigateTo('kuis')" class="bg-white border-2 border-indigo-100 p-6 rounded-2xl shadow-lg hover:border-indigo-500 cursor-pointer transform hover:-translate-y-1 transition-all group relative overflow-hidden">
+                    <div class="absolute -right-4 -bottom-4 text-indigo-100 text-7xl group-hover:scale-120 transition"><i class="fa-solid fa-graduation-cap"></i></div>
+                    <div class="w-12 h-12 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-xl mb-4 group-hover:bg-indigo-600 group-hover:text-white transition shadow-md"><i class="fa-solid fa-graduation-cap"></i></div>
+                    <h4 class="font-extrabold text-slate-900 mb-1.5 font-heading text-lg">Evaluasi Kuis</h4>
+                    <p class="text-xs text-slate-500 leading-relaxed font-medium">Uji pemahaman aqidahmu lewat 12 kuis interaktif dengan 25 soal per tingkat.</p>
+                </div>
+                <div onclick="navigateTo('kisah')" class="bg-white border-2 border-rose-100 p-6 rounded-2xl shadow-lg hover:border-rose-500 cursor-pointer transform hover:-translate-y-1 transition-all group relative overflow-hidden">
+                    <div class="absolute -right-4 -bottom-4 text-rose-100 text-7xl group-hover:scale-120 transition"><i class="fa-solid fa-star"></i></div>
+                    <div class="w-12 h-12 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center text-xl mb-4 group-hover:bg-rose-600 group-hover:text-white transition shadow-md"><i class="fa-solid fa-star"></i></div>
+                    <h4 class="font-extrabold text-slate-900 mb-1.5 font-heading text-lg">Kisah Inspiratif</h4>
+                    <p class="text-xs text-slate-500 leading-relaxed font-medium">Telusuri rekam jejak perjuangan pemuda pembela panji Islam terdahulu.</p>
+                </div>
+                <div class="bg-gradient-to-br from-teal-500 to-emerald-600 p-6 rounded-2xl shadow-lg text-white flex flex-col justify-center relative overflow-hidden border-b-4 border-emerald-700">
+                    <div class="text-[10px] font-black uppercase tracking-widest text-emerald-100 bg-emerald-700/40 px-2 py-1 rounded-md w-max mb-3">Penyusun Aplikasi</div>
+                    <p class="text-xl font-extrabold font-heading">Avito Deanova</p>
+                    <p class="text-xs text-teal-100 font-semibold font-mono mt-0.5">NIM: K2525072</p>
                 </div>
             </div>
         </section>
 
-        <section id="view-materi" class="app-view hidden space-y-8 animate-fade-in">
-            <div class="max-w-2xl">
-                <h2 class="text-3xl font-extrabold text-slate-900 font-heading">Kurikulum Aqidah Penyelamat</h2>
-                <p class="text-slate-500 mt-2">Selesaikan setiap modul untuk membuka akses kuis dan memperkuat pemahaman tauhidmu.</p>
+        <section id="view-materi" class="app-view hidden space-y-6 animate-fade-in">
+            <div class="border-b-2 border-teal-500/20 pb-4">
+                <h2 class="text-3xl font-extrabold text-slate-900 font-heading">Daftar Baca Materi Utama</h2>
+                <p class="text-sm text-slate-500 font-medium">Klik dan selesaikan bacaan materi untuk membuka kunci akses pengerjaan kuis materi tersebut.</p>
             </div>
-            <div id="materi-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
+            <div id="materi-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                </div>
         </section>
 
         <section id="view-materi-detail" class="app-view hidden space-y-6 animate-fade-in">
-            <button onclick="navigateTo('materi')" class="text-slate-500 hover:text-teal-600 font-bold flex items-center gap-2 mb-4">
-                <i class="fa-solid fa-chevron-left"></i> Kembali ke Kurikulum
+            <button onclick="navigateTo('materi')" class="inline-flex items-center gap-2 text-sm font-black text-slate-600 hover:text-emerald-600 bg-white border border-slate-200 px-5 py-2.5 rounded-xl shadow-sm transition">
+                <i class="fa-solid fa-arrow-left"></i> Kembali ke Daftar Materi
             </button>
-            <div class="bg-white rounded-[2.5rem] shadow-2xl overflow-hidden border border-slate-100">
-                <div id="detail-header-color" class="h-4 w-full bg-teal-500"></div>
-                <div class="p-8 lg:p-16 space-y-10">
-                    <div class="space-y-4">
-                        <span id="detail-materi-badge" class="bg-teal-100 text-teal-700 px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest">Modul Pembelajaran</span>
-                        <h2 id="detail-materi-title" class="text-3xl sm:text-4xl font-extrabold text-slate-900 font-heading leading-tight"></h2>
+            <div class="bg-white border-2 border-teal-500/10 rounded-3xl p-6 lg:p-12 shadow-xl space-y-6 relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-amber-500 via-emerald-500 to-indigo-500"></div>
+                <div class="space-y-2 border-b border-slate-100 pb-5">
+                    <span id="detail-materi-badge" class="bg-gradient-to-r from-emerald-500 to-teal-600 text-white px-3 py-1 rounded-md text-xs font-black uppercase tracking-wider shadow-sm">Modul</span>
+                    <h2 id="detail-materi-title" class="text-2xl sm:text-4xl font-extrabold text-slate-900 font-heading leading-tight pt-2">Judul</h2>
+                </div>
+
+                <div class="bg-gradient-to-br from-slate-900 to-teal-950 text-white rounded-2xl p-6 shadow-xl border-l-8 border-amber-500 space-y-4">
+                    <div class="flex items-center gap-2 text-amber-400 text-xs font-black uppercase tracking-widest">
+                        <i class="fa-solid fa-scroll"></i> Landasan Dalil Hadis Shahih
+                    </div>
+                    <p id="detail-materi-hadis-arab" class="text-right text-xl sm:text-2xl font-arabic leading-loose text-emerald-200" dir="rtl"></p>
+                    <div class="border-t border-white/10 pt-3">
+                        <p id="detail-materi-hadis-arti" class="text-xs sm:text-sm text-slate-200 italic leading-relaxed"></p>
+                        <span id="detail-materi-hadis-perawi" class="block text-[11px] font-bold text-amber-400 mt-1"></span>
+                    </div>
+                </div>
+
+                <div id="detail-materi-body" class="text-slate-700 text-sm sm:text-base leading-relaxed space-y-5 text-justify md-content">
                     </div>
 
-                    <div id="detail-materi-hadis-box" class="bg-slate-50 rounded-3xl p-8 border-l-4 border-amber-500 space-y-4 hidden">
-                        <div class="flex items-center gap-3 text-amber-600 font-black text-xs uppercase tracking-tighter">
-                            <i class="fa-solid fa-quote-left text-xl"></i> Landasan Dalil / Hadis Utama
-                        </div>
-                        <p id="detail-materi-hadis-arab" class="text-slate-800 text-lg leading-relaxed font-medium"></p>
-                    </div>
-
-                    <div id="detail-materi-body" class="prose prose-slate max-w-none space-y-6 text-slate-700 leading-relaxed text-base text-justify"></div>
-
-                    <div class="pt-10 border-t border-slate-100 flex flex-col sm:flex-row justify-between items-center gap-6">
-                        <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center"><i class="fa-solid fa-check"></i></div>
-                            <p class="text-sm font-bold text-slate-500">Materi tuntas dipelajari.</p>
-                        </div>
-                        <button id="detail-materi-quiz-btn" class="w-full sm:w-auto bg-indigo-600 text-white px-10 py-5 rounded-2xl font-black shadow-xl shadow-indigo-200 hover:bg-indigo-700 transition-all"></button>
-                    </div>
+                <div id="detail-materi-action" class="pt-6 border-t border-slate-100 flex flex-col sm:flex-row gap-4 justify-between items-center bg-slate-50 p-6 rounded-2xl">
+                    <p class="text-xs text-emerald-700 font-extrabold flex items-center gap-2"><i class="fa-solid fa-circle-check text-base"></i> Selamat! Anda tuntas membaca. Modul kuis ini kini telah terbuka penuh.</p>
+                    <button id="detail-materi-quiz-btn" class="w-full sm:w-auto bg-gradient-to-r from-indigo-500 to-violet-600 hover:from-indigo-600 hover:to-violet-700 text-white font-black text-sm px-6 py-3.5 rounded-xl transition shadow-lg shadow-indigo-500/20"></button>
                 </div>
             </div>
         </section>
 
         <section id="view-tracker" class="app-view hidden space-y-6 animate-fade-in">
-            <div class="bg-white rounded-[2.5rem] p-8 lg:p-12 shadow-xl border border-slate-50">
-                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 mb-10">
+            <div class="bg-white border-2 border-amber-500/20 rounded-3xl p-6 lg:p-10 shadow-xl space-y-6 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-48 h-48 bg-amber-400/5 rounded-full blur-3xl pointer-events-none"></div>
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-b border-slate-100 pb-5">
                     <div>
-                        <h2 class="text-3xl font-extrabold font-heading text-slate-900">Checklist Iman Harian</h2>
-                        <p class="text-slate-500">Reset otomatis setiap jam 00:00. Jaga konsistensimu!</p>
+                        <h2 class="text-3xl font-extrabold text-slate-900 font-heading">Tracker Progress Amal Sholeh</h2>
+                        <p class="text-xs text-slate-500 font-medium mt-1">Isi 10 amalan harianmu. Sistem otomatis melakukan refresh total ke 0% setiap hari pada pukul 00.00 malam.</p>
                     </div>
-                    <div class="bg-slate-900 text-white p-6 rounded-3xl text-center min-w-[140px]">
-                        <span class="text-[10px] uppercase font-black tracking-widest text-teal-400 block mb-1">Capaian</span>
-                        <span id="tracker-percentage" class="text-4xl font-black">0%</span>
+                    <div class="bg-gradient-to-r from-amber-500 to-orange-500 px-5 py-2.5 rounded-xl font-black text-sm text-white flex items-center gap-2 shadow-md">
+                        <span>Capaian Hari Ini:</span>
+                        <span id="tracker-percentage" class="font-mono text-lg font-black bg-black/20 px-2 py-0.5 rounded">0%</span>
                     </div>
                 </div>
-                <div id="tracker-items-box" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+
+                <div class="w-full h-4 bg-slate-100 rounded-full overflow-hidden p-0.5 border border-slate-200">
+                    <div id="tracker-bar" class="h-full bg-gradient-to-r from-amber-400 via-orange-500 to-emerald-500 w-0 transition-all duration-700 rounded-full shadow-inner"></div>
+                </div>
+
+                <div id="tracker-items-box" class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+                    </div>
             </div>
         </section>
 
-        <section id="view-kuis" class="app-view hidden space-y-8 animate-fade-in">
-            <h2 class="text-3xl font-extrabold font-heading text-slate-900">Pusat Evaluasi Aqidah</h2>
-            <div id="quiz-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+        <section id="view-kuis" class="app-view hidden space-y-6 animate-fade-in">
+            <div class="border-b-2 border-indigo-500/20 pb-4">
+                <h2 class="text-3xl font-extrabold text-slate-900 font-heading">Pusat Evaluasi Kuis Aqidah</h2>
+                <p class="text-sm text-slate-500 font-medium">Selesaikan Kuis 1 sampai 10 dengan skor sempurna 100% (Benar Semua) untuk membuka 2 Akses Kuis Akhir.</p>
+            </div>
+            <div id="quiz-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
+                </div>
         </section>
 
-        <section id="view-kuis-play" class="app-view hidden max-w-3xl mx-auto space-y-6 animate-fade-in">
-            <div class="bg-white rounded-[2.5rem] p-8 sm:p-12 shadow-2xl border border-indigo-50">
-                <div class="flex justify-between items-center mb-10">
-                    <span id="play-quiz-title" class="font-black text-indigo-600 text-[10px] uppercase tracking-widest"></span>
-                    <span id="play-quiz-counter" class="bg-slate-100 text-slate-600 px-4 py-1 rounded-full text-xs font-bold"></span>
+        <section id="view-kuis-play" class="app-view hidden max-w-2xl mx-auto space-y-6 animate-fade-in">
+            <div class="bg-white border-2 border-indigo-500/20 rounded-3xl p-6 sm:p-8 shadow-2xl space-y-6 relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-indigo-500 to-violet-500"></div>
+                <div class="flex justify-between items-center border-b border-slate-100 pb-4">
+                    <span id="play-quiz-title" class="font-black text-slate-900 text-sm tracking-wide font-heading uppercase text-indigo-600">Kuis</span>
+                    <span id="play-quiz-counter" class="text-xs font-black text-white bg-gradient-to-r from-indigo-500 to-violet-500 px-3 py-1 rounded-full font-mono">Soal 1 / 25</span>
                 </div>
-                <div class="space-y-8">
-                    <h3 id="play-quiz-question-text" class="text-xl sm:text-2xl font-bold text-slate-900 leading-snug"></h3>
-                    <div id="play-quiz-options" class="grid grid-cols-1 gap-4"></div>
+                <div class="space-y-4">
+                    <p id="play-quiz-question-text" class="font-extrabold text-base sm:text-lg text-slate-900 leading-snug">Pertanyaan...</p>
+                    <div id="play-quiz-options" class="space-y-3 pt-2">
+                        </div>
                 </div>
             </div>
         </section>
 
-        <section id="view-kuis-result" class="app-view hidden max-w-md mx-auto text-center space-y-8 animate-fade-in">
-            <div class="bg-white rounded-[3rem] p-12 shadow-2xl">
-                <div id="quiz-result-icon" class="w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-6 text-4xl"></div>
-                <h3 class="text-2xl font-bold font-heading mb-2">Hasil Evaluasi</h3>
-                <div class="bg-slate-50 rounded-3xl p-8 mb-8">
-                    <span id="quiz-result-score" class="text-6xl font-black text-slate-900"></span>
-                    <span class="block text-slate-400 font-bold mt-2">Score</span>
+        <section id="view-kuis-result" class="app-view hidden max-w-md mx-auto text-center space-y-6 animate-fade-in">
+            <div class="bg-white border-2 border-slate-200 rounded-3xl p-8 shadow-2xl space-y-5 relative overflow-hidden">
+                <div id="quiz-result-icon" class="w-24 h-24 bg-emerald-50 text-emerald-500 text-5xl rounded-full flex items-center justify-center mx-auto shadow-inner">
+                    <i class="fa-solid fa-medal"></i>
                 </div>
-                <p id="quiz-result-message" class="text-slate-500 text-sm leading-relaxed mb-8"></p>
-                <button onclick="navigateTo('kuis')" class="w-full bg-slate-900 text-white py-5 rounded-2xl font-bold hover:bg-teal-600 transition-all">Selesai & Kembali</button>
+                <h3 id="quiz-result-title" class="text-2xl font-extrabold text-slate-900 font-heading">Hasil Ujian</h3>
+                <div class="p-5 bg-gradient-to-br from-slate-900 to-slate-800 text-white rounded-2xl shadow-inner">
+                    <span class="text-[10px] font-black text-amber-400 block uppercase tracking-widest mb-1">Skor Diperoleh</span>
+                    <span id="quiz-result-score" class="text-5xl font-mono font-black text-white">100 / 100</span>
+                </div>
+                <p id="quiz-result-message" class="text-xs text-slate-500 font-semibold leading-relaxed px-2"></p>
+                <button onclick="navigateTo('kuis')" class="w-full py-3.5 bg-gradient-to-r from-slate-900 to-slate-800 hover:from-slate-800 hover:to-slate-700 text-white font-black text-xs rounded-xl transition shadow-md tracking-wider uppercase">Kembali ke Menu Kuis</button>
             </div>
         </section>
 
-        <section id="view-kisah" class="app-view hidden space-y-8 animate-fade-in">
-            <h2 class="text-3xl font-extrabold font-heading text-slate-900">Teladan Emas Pemuda Islam</h2>
-            <div id="kisah-container" class="grid grid-cols-1 md:grid-cols-2 gap-8"></div>
+        <section id="view-kisah" class="app-view hidden space-y-6 animate-fade-in">
+            <div class="border-b-2 border-rose-500/20 pb-4">
+                <h2 class="text-3xl font-extrabold text-slate-900 font-heading">Kisah Inspiratif Pemuda Islam</h2>
+                <p class="text-sm text-slate-500 font-medium">Ambil keteladanan emas dan kobarkan gairah imanmu dari perjalanan sejarah para pemuda agung di sekitar Rasulullah SAW.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="kisah-container">
+                </div>
         </section>
 
     </main>
 
-    <footer class="bg-white/50 backdrop-blur-md border-t border-slate-200 py-12 mt-20">
-        <div class="max-w-6xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center gap-8">
-            <div class="text-center md:text-left">
-                <p class="font-black text-teal-800 font-heading text-xl">Aqidah Muda App</p>
-                <p class="text-slate-400 text-sm mt-1">Platform Edukasi Karakter Rabbani & Tauhid Modern.</p>
+    <footer class="bg-white border-t-2 border-slate-200 text-slate-400 text-xs py-8 mt-12 shadow-inner">
+        <div class="max-w-6xl mx-auto px-4 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+            <div class="text-center md:text-left space-y-2">
+                <p class="font-extrabold text-slate-900 text-base font-heading tracking-wide">Ecosystem Aplikasi Aqidah Islam</p>
+                <p class="font-medium text-slate-500 text-xs leading-relaxed">Media Edukasi & Evaluasi Terstruktur Nilai Kemurnian Tauhid dan Peningkatan Kapasitas Batin Remaja Masa Kini.</p>
             </div>
-            <div class="flex items-center gap-4 bg-white p-4 rounded-2xl shadow-sm border border-slate-100">
-                <div class="w-12 h-12 bg-teal-600 rounded-xl flex items-center justify-center text-white font-bold">AD</div>
-                <div class="text-left">
-                    <p class="text-xs font-black text-slate-900">Avito Deanova</p>
-                    <p class="text-[10px] text-teal-600 font-mono font-bold">NIM: K2525072</p>
-                </div>
+            <div class="bg-gradient-to-br from-slate-50 to-teal-50/30 p-5 rounded-2xl border-2 border-teal-500/10 font-semibold text-slate-700 text-xs grid grid-cols-2 gap-4 shadow-sm">
+                <div><span class="text-slate-400 block text-[10px] uppercase font-black tracking-widest">Nama Lengkap</span> <span class="font-extrabold text-slate-900 text-sm">Avito Deanova</span></div>
+                <div><span class="text-slate-400 block text-[10px] uppercase font-black tracking-widest">Nomor Induk Mahasiswa</span> <span class="font-mono font-black text-slate-900 text-sm text-teal-600">K2525072</span></div>
+                <div><span class="text-slate-400 block text-[10px] uppercase font-black tracking-widest">Surat Elektronik</span> <a href="mailto:avitodeanova@gmail.com" class="text-emerald-600 font-bold hover:underline block truncate">avitodeanova@gmail.com</a></div>
+                <div><span class="text-slate-400 block text-[10px] uppercase font-black tracking-widest">Kontak WhatsApp</span> <span class="font-mono font-black text-slate-900 block">082135340794</span></div>
             </div>
         </div>
     </footer>
 
     <script>
-        // --- DATA MATERI DIUBAH TOTAL SESUAI DENGAN DOKUMEN BARU ---
+        // --- DATA STATE APP ENGINE ---
+        const appState = {
+            unlockedQuizzes: { 1: false, 2: false, 3: false, 4: false, 5: false, 6: false, 7: false, 8: false, 9: false, 10: false, 11: false, 12: false },
+            quizPerfectScores: { 1: false, 2: false, 3: false, 4: false, 5: false, 6: false, 7: false, 8: false, 9: false, 10: false },
+            activeQuizId: null,
+            activeQuizIndex: 0,
+            activeQuizScore: 0,
+            trackerData: [
+                { id: 1, title: "Sholat fardhu 5 waktu tepat waktu", desc: "Komitmen utama penegakan tiang tauhid uluhiyah.", checked: false },
+                { id: 2, title: "Membaca Al-Qur'an dan tadabbur makna", desc: "Nutrisi akal harian agar pikiran tidak kosong.", checked: false },
+                { id: 3, title: "Bersedekah secara sembunyi-sembunyi", desc: "Melatih keikhlasan serta memotong sifat tamak duniawi.", checked: false },
+                { id: 4, title: "Membaca Dzikir Pagi dan Petang", desc: "Benteng gaib penangkal anxiety, hasad, dan bisikan syetan.", checked: false },
+                { id: 5, title: "Menahan jempol dari ghibah/debat medsos", desc: "Menjaga lisan digital demi kemurnian pahala iman.", checked: false },
+                { id: 6, title: "Berbakti penuh kepada Ayah dan Ibu", desc: "Mencari ridho Allah melalui kepatuhan adab bersosial.", checked: false },
+                { id: 7, title: "Sabar dan ridho atas ketentuan takdir buruk", desc: "Mekanisme pertahanan batin menerima ketetapan Allah.", checked: false },
+                { id: 8, title: "Menjaga batasan pergaulan lawan jenis", desc: "Menghidupkan sifat rasa malu sebagai cabang keimanan vital.", checked: false },
+                { id: 9, title: "Membaca istighfar minimal 100 kali sehari", desc: "Membersihkan flek hitam batin akibat residu khilaf.", checked: false },
+                { id: 10, title: "Menuntut ilmu agama atau membaca buku", desc: "Memperkuat amunisi ilmu pembasmi racun syubhat zaman.", checked: false }
+            ]
+        };
+
+        // --- 25 MOOD BOOSTERS POOL DATA ---
+        const moodBoosters = [
+            "Jangan overthinking soal masa depan. Allah yang menggenggam hari esokmu sudah merancang skenario terbaik. Jalani hari ini dengan ridho.",
+            "Insecure melihat pencapaian orang lain di Instagram? Ingat, Allah membagi rezeki dan porsi ujian hidup dengan sangat adil tanpa ketukar.",
+            "Ketika sirkel pertemanan menjauhimu karena kamu mempertahankan prinsip syariat, ketahuilah Allah sedang melindungimu dari pengaruh buruk.",
+            "Allah tidak melihat seberapa estetik rupa atau seberapa kaya latar belakangmu. Allah melihat ketulusan niat dan ketakwaan di hatimu.",
+            "Air mata yang jatuh dalam keheningan doa sepertiga malam jauh lebih berharga daripada jutaan likes dan validasi manusia di media sosial.",
+            "Bila rencana besarmu gagal total, ucapkan Alhamdulillah. Itu tanda proteksi Allah agar kamu tidak jatuh ke lubang yang lebih berbahaya.",
+            "Kamu tidak diciptakan sebagai produk gagal. Al-Khaliq telah membentuk desain fisik dan potensimu secara sempurna. Berhentilah mengeluh.",
+            "Dunia ini hanyalah tempat mampir minum yang singkat. Jangan korbankan aqidah abadimu demi kenikmatan tren pergaulan yang fana.",
+            "Rasulullah dulu juga dihina dan dikucilkan remaja sebayanya karena membawa kebenaran. Kamu tidak sendirian saat memilih jalan hijrah.",
+            "Ingatlah Al-Alim. Allah tahu persis seberapa berat perjuanganmu menahan diri dari godaan maksiat remaja zaman sekarang.",
+            "Satu kali sujud yang khusyuk sanggup memberikan ketenangan jiwa yang tidak akan pernah bisa kamu beli di klinik psikologi manapun.",
+            "Jangan biarkan bisikan kecemasan merusak imanmu kepada takdir baik. Allah Mahatahu sedangkan kamu sama sekali tidak mengetahui.",
+            "Kunci kebahagiaan itu sederhana: kurangi ekspektasi berlebih pada manusia, dan naikkan tingkat ketergantungan (tawakal) hanya pada Allah.",
+            "Istidraj itu nyata. Jangan iri pada mereka yang hidup bebas bermaksiat tapi hartanya lancar. Itu adalah jebakan pelan menuju kebinasaan.",
+            "Malaikat pencatat amal tidak pernah absen mengetik aktivitas jempolmu di internet. Gunakan akunmu sebagai ladang dakwah, bukan dosa.",
+            "Setiap kali kamu merasa kesepian di kamar, ingatlah Allah itu Al-Wanis (Maha Menemani). Dia lebih dekat daripada urat nadimu sendiri.",
+            "Patah hati karena urusan cinta yang belum halal? Itu tanda cemburu Allah padamu agar kamu kembali memurnikan kasih sayang hanya untuk-Nya.",
+            "Standar sukses seorang pemuda muslim sejati adalah ketika dia mampu menaklukkan nafsu egonya demi berkumandangnya adzan subuh.",
+            "Sifat Qana'ah adalah kekayaan sejati. Menikmati apa yang ada tanpa sibuk melirik piring makanan milik orang lain.",
+            "Ketika hatimu mulai ragu akan janji Allah, bukalah kembali mushaf Al-Quran. Di sana tersimpan semua jawaban atas keraguan logismu.",
+            "Jadikan sabar dan sholat sebagai penolongmu. Dua kombinasi obat anti stres paling ampuh yang diwariskan langsung sejak 1400 tahun lalu.",
+            "Kamu lelah karena terus mencari pengakuan manusia. Begitu kamu ubah niat mencari wajah Allah, lelah itu otomatis berubah jadi lillahi.",
+            "Jika seluruh manusia di bumi berkumpul untuk menjatuhkanmu, mereka tidak akan sanggup melakukanya kecuali atas izin takdir Allah.",
+            "Jangan menunda tobat hanya karena merasa usiamu masih muda. Ketahuilah, syarat mati tidak harus menunggu kamu menjadi tua keriput.",
+            "Senyum ramahmu kepada teman setongkrongan bernilai sedekah di mata Allah. Sebarkan aura positif berbasis aqidah akhlak yang mulia."
+        ];
+
+        // --- AUTHENTIC REPLACEMENT PAGE CONTENT: KISAH INSPIRATIF ---
+        const kisahData = [
+            { nama: "Ali bin Abi Thalib", peran: "Gerbang Ilmu & Keberanian Belia", teks: "Masuk Islam pada usia sangat muda (sekitar 10 tahun). Menunjukkan kesetiaan aqidah tingkat tinggi dengan rela tidur di ranjang Rasulullah SAW saat malam hijrah untuk mengelabui kepungan algojo kafir Quraisy yang siap menghunus pedang.", icon: "fa-shield-halved", color: "from-blue-500 to-indigo-600" },
+            { nama: "Mus'ab bin Umair", peran: "Duta Dakwah Pertama Islam", teks: "Meninggalkan seluruh fasilitas kemewahan, pakaian sutra, dan gelimang harta keluarga demi mempertahankan kalimat tauhid. Beliau diutus menjadi guru ngaji pertama di Madinah dan berhasil mengislamkan kota tersebut lewat kelembutan adabnya.", icon: "fa-feather", color: "from-emerald-500 to-teal-600" },
+            { nama: "Usamah bin Zaid", peran: "Panglima Perang Berusia 18 Tahun", teks: "Meskipun sangat muda, beliau ditunjuk langsung oleh Rasulullah SAW untuk memimpin pasukan militer muslim yang di dalamnya terdapat sahabat senior seperti Abu Bakar dan Umar, membuktikan bahwa pemuda bertauhid memiliki kelayakan memimpin.", icon: "fa-chess-knight", color: "from-amber-500 to-orange-600" },
+            { nama: "Zaid bin Tsabit", peran: "Master Kodifikasi Al-Qur'an", teks: "Anak muda cerdas yang menguasai bahasa asing (Suryani dan Ibrani) hanya dalam hitungan minggu atas perintah Nabi. Beliau dipercaya memegang amanah super krusial sebagai ketua tim pengumpul dan penulisan lembaran suci Al-Qur'an.", icon: "fa-pen-fancy", color: "from-purple-500 to-violet-600" }
+        ];
+
+        // --- AUTHENTIC HADITH DATA POOL ---
+        const hadisPool = [
+            { arab: "إِنَّمَا الأَعْمَالُ بِالنِّيَّاتِ وَإِنَّمَا لِكُلِّ امْرِئٍ مَا نَوَى", arti: "Sesungguhnya setiap amalan tergantung pada niatnya, dan setiap orang akan mendapatkan apa yang ia niatkan.", perawi: "HR. Bukhari no. 1 & Muslim no. 1907" },
+            { arab: "احْفَظِ اللَّهَ يَحْفَظْكَ احْفَظِ اللَّهَ تَجِدْهُ تُجَاهَكَ", arti: "Jagalah Allah, niscaya Allah akan menjagamu. Jagalah Allah, niscaya kamu akan mendapati-Nya di hadapanmu.", perawi: "HR. Tirmidzi no. 2516, ia berkata: Hadis Hasan Shahih" },
+            { arab: "مَنْ رَضِيَ فَلَهُsummary الرِّضَا وَمَنْ سَخِطَ فَلَهُ السَّخَطُ", arti: "Barangsiapa yang ridho (terhadap keputusan takdir Allah) maka baginya keridhoan-Nya, dan barangsiapa yang membenci maka baginya kemurkaan-Nya.", perawi: "HR. Tirmidzi no. 2396 & Ibnu Majah no. 4031, dishahihkan Al-Albani" },
+            { arab: "فَإِنَّ حَقَّ اللَّهِ عَلَى الْعِبَادِ أَنْ يَعْبُدُوهُ وَلاَ يُشْرِكُوا بِهِ شَيْئًا", arti: "Sesungguhnya hak Allah atas para hamba-Nya adalah mereka beribadah kepada-Nya semata dan tidak menyekutukan-Nya dengan sesuatu pun.", perawi: "HR. Bukhari no. 2856 & Muslim no. 30" },
+            { arab: "إِنَّ لِلَّهِ تِسْعَةً وَتِسْعِينَ اسْمًا مِائَةً إِلاَّ وَاحِدًا مَنْ أَحْصَاهَا دَخَلَ الْجَنَّةَ", arti: "Sesungguhnya Allah memiliki 99 nama, seratus kurang satu; barangsiapa yang menghafal/menjaganya maka ia pasti masuk surga.", perawi: "HR. Bukhari no. 2736 & Muslim no. 2677" },
+            { arab: "يَتَعَاقَبُونَ فِيكُمْ مَلاَئِكَةٌ بِاللَّيْلِ وَمَلاَئِكَةٌ بِالنَّهَارِ", arti: "Para malaikat menyertai kalian secara bergantian di malam hari dan di siang hari.", perawi: "HR. Bukhari no. 555 & Muslim no. 632" },
+            { arab: "تَرَكْتُ فِيكُمْ أَمْرَيْنِ لَنْ تَضِلُw مَا تَمَسَّكْتُمْ بِهِمَا كِتَابَ اللَّهِ وَسُنَّةَ نَبِيِّهِ", arti: "Aku tinggalkan bersama kalian dua perkara yang kalian tidak akan tersesat selama-lamanya jika berpegang teguh pada keduanya: Kitab Allah dan Sunnah Nabi-Nya.", perawi: "HR. Malik dalam Al-Muwatta no. 1622, dishahihkan Al-Albani" },
+            { arab: "لاَ يُؤْمِنُ أَحَدُكُمْ حَتَّى أَكُونَ أَحَبَّ إِلَيْهِ مِنْ وَالِدِهِ وَوَلَدِهِ وَالنَّاسِ أَجْمَعِينَ", arti: "Tidak beriman salah seorang di antara kalian sampai aku (Rasulullah) lebih dicintainya daripada orang tuanya, anaknya, dan seluruh manusia.", perawi: "HR. Bukhari no. 15 & Muslim no. 44" },
+            { arab: "جَفَّتِ الأَقْلاَمُ وَطُوِيَتِ الصُّحُفُ", arti: "Pena-pena takdir telah diangkat dan lembaran-lembaran catatan telah kering.", perawi: "HR. Tirmidzi no. 2516, shahih" },
+            { arab: "الْكَيِّسُ مَنْ دَانَ نَفْسَهُ وَعَمِلَ لِمَا بَعْدَ الْمَوْتِ", arti: "Orang yang cerdas dan bijak adalah orang yang mampu mengoreksi dirinya sendiri serta beramal untuk kehidupan setelah kematian.", perawi: "HR. Tirmidzi no. 2459, ia berkata: Hadis Hasan" }
+        ];
+
+        // --- NEW ENHANCED CORE MATERIAL DATA DATABASE ---
         const materiData = [
             {
                 id: 1,
                 title: "Pondasi Utama Aqidah: Penyelamat Jiwa Remaja Modern",
-                hadis: "QS. Ar-Ra'd: 28 - \"Ingatlah, hanya dengan mengingat Allah hati menjadi tenteram.\" & QS. Adz-Dzariyat: 56 - \"Aku tidak menciptakan jin dan manusia melainkan agar mereka beribadah kepada-Ku.\"",
-                body: `
-                    <h3>Pendahuluan</h3>
-                    <p>Remaja hidup di zaman yang penuh kemudahan, tetapi juga penuh tantangan. Informasi datang tanpa batas, tren berubah sangat cepat, dan tekanan untuk diakui sering kali membuat seseorang kehilangan arah. Di tengah kondisi ini, aqidah menjadi pondasi yang menjaga hati, pikiran, dan perilaku seorang muslim. Aqidah bukan sekadar pengetahuan tentang agama, melainkan keyakinan yang tertanam kuat dalam hati sehingga membentuk cara berpikir, bersikap, dan menjalani kehidupan.</p>
-                    <blockquote>"Jika bangunan membutuhkan pondasi yang kokoh, maka kehidupan membutuhkan aqidah yang kuat."</blockquote>
-                    
-                    <h3>1. Apa Itu Aqidah?</h3>
-                    <p>Secara bahasa, aqidah berasal dari kata 'aqada yang berarti ikatan atau simpul yang kuat. Secara istilah, aqidah adalah keyakinan yang mantap dalam hati terhadap segala sesuatu yang diwajibkan Allah untuk diimani tanpa keraguan. Aqidah Islam berpusat pada enam rukun iman: Iman kepada Allah, Iman kepada malaikat, Iman kepada kitab-kitab Allah, Iman kepada rasul-rasul Allah, Iman kepada hari akhir, serta Iman kepada qada dan qadar.</p>
-                    
-                    <h3>2. Mengapa Remaja Modern Membutuhkan Aqidah yang Kuat?</h3>
-                    <p><strong>a. Banyak Godaan dan Pengaruh Negatif:</strong> Media sosial, pergaulan bebas, narkoba, pornografi, dan budaya yang bertentangan dengan nilai Islam dapat merusak karakter remaja. Aqidah yang kuat menjadi benteng yang membuat seseorang mampu berkata: "Saya tidak akan melakukan ini karena Allah melihat saya."</p>
-                    <p><strong>b. Krisis Identitas:</strong> Banyak remaja bingung tentang tujuan hidupnya, mencari pengakuan dari orang lain, bahkan menilai dirinya berdasarkan jumlah pengikut atau "like". Aqidah mengajarkan bahwa nilai seseorang tidak ditentukan oleh popularitas, tetapi oleh ketakwaannya kepada Allah.</p>
-                    <p><strong>c. Masalah Mental dan Emosional:</strong> Tekanan akademik, masalah keluarga, perundungan, dan kegagalan sering membuat remaja merasa putus asa. Orang yang memiliki aqidah kuat yakin bahwa: Setiap ujian memiliki hikmah dan Allah tidak membebani seseorang di luar kemampuannya.</p>
-                    
-                    <h3>3. Aqidah sebagai Penyelamat Jiwa</h3>
-                    <p><strong>A. Menumbuhkan Ketenangan Hati:</strong> Ketika seseorang mengenal Allah dengan benar, ia menyadari bahwa hidupnya berada dalam pengawasan dan kasih sayang-Nya. Firman Allah: "Ingatlah, hanya dengan mengingat Allah hati menjadi tenteram." (QS. Ar-Ra'd: 28). Ketenangan ini tidak dapat dibeli dengan uang ataupun popularitas.</p>
-                    <p><strong>B. Memberikan Tujuan Hidup:</strong> Banyak orang hidup tanpa arah sehingga mudah terjerumus pada hal-hal yang merugikan. Aqidah mengajarkan bahwa tujuan hidup manusia adalah beribadah kepada Allah. Firman Allah: "Aku tidak menciptakan jin dan manusia melainkan agar mereka beribadah kepada-Ku." (QS. Adz-Dzariyat: 56). Dengan tujuan yang jelas, hidup menjadi lebih bermakna.</p>
-                    <p><strong>C. Menjaga dari Perilaku Menyimpang:</strong> Remaja yang memahami aqidah akan sadar bahwa setiap perbuatan akan dimintai pertanggungjawaban. Kesadaran ini menjadi kontrol diri yang kuat, bahkan ketika tidak ada orang yang melihat.</p>
-                    <p><strong>D. Membentuk Karakter Mulia:</strong> Aqidah yang benar melahirkan kejujuran, tanggung jawab, disiplin, kesabaran, rendah hati, dan kepedulian terhadap sesama. Karakter tersebut sangat dibutuhkan dalam kehidupan modern.</p>
-                    
-                    <h3>4. Ciri-Ciri Remaja yang Memiliki Aqidah Kuat</h3>
-                    <p>1. Rajin Beribadah: Ia menjaga salat, membaca Al-Qur'an, dan berusaha mendekatkan diri kepada Allah.<br>
-                    2. Memiliki Prinsip Hidup: Tidak mudah terbawa arus pergaulan atau tren yang bertentangan dengan syariat.<br>
-                    3. Optimis dan Tidak Mudah Putus Asa: Yakin bahwa Allah selalu memberikan jalan keluar bagi hamba-Nya.<br>
-                    4. Menjaga Akhlak: Bersikap sopan kepada orang tua, guru, dan teman-temannya.<br>
-                    5. Bijak Menggunakan Media Sosial: Menggunakan teknologi untuk hal yang bermanfaat dan menghindari konten yang merusak iman.</p>
-                    
-                    <h3>5. Cara Memperkuat Aqidah di Era Modern</h3>
-                    <p>a. Memperdalam Ilmu Agama: Belajar Al-Qur'an, hadis, dan ilmu tauhid dari guru yang terpercaya.<br>
-                    b. Memilih Lingkungan yang Baik: Teman yang baik akan membantu menjaga iman dan akhlak.<br>
-                    c. Membiasakan Ibadah Harian: Salat tepat waktu, membaca Al-Qur'an, berzikir, dan berdoa.<br>
-                    d. Mengontrol Penggunaan Media Sosial: Saring informasi dan hindari konten yang dapat melemahkan iman.<br>
-                    e. Merenungkan Tanda-Tanda Kekuasaan Allah: Melihat alam, kehidupan, dan berbagai nikmat yang Allah berikan akan memperkuat keyakinan kepada-Nya.</p>
-                    
-                    <h3>Kisah Inspiratif Singkat</h3>
-                    <p>Seorang remaja pernah ditawari untuk ikut dalam pergaulan yang buruk. Saat teman-temannya mengajak, ia menolak dengan berkata: "Mungkin orang tua saya tidak melihat, guru saya tidak melihat, tetapi Allah selalu melihat saya." Keyakinan sederhana itu menyelamatkannya dari banyak kesalahan yang dapat merusak masa depannya. Inilah kekuatan aqidah: menjaga seseorang bahkan ketika ia sedang sendirian.</p>
-                    
-                    <h3>Penutup & Pesan Utama</h3>
-                    <p>Aqidah adalah pondasi utama kehidupan seorang muslim. Di tengah derasnya arus modernisasi, aqidah menjadi penyelamat jiwa remaja dari kebingungan, penyimpangan, dan keputusasaan. Remaja yang memiliki aqidah kuat akan memiliki tujuan hidup yang jelas, hati yang tenang, akhlak yang baik, serta keteguhan dalam menghadapi berbagai tantangan zaman.</p>
-                    <p><strong>"Remaja yang kuat bukan hanya yang kuat fisiknya, tetapi yang kokoh aqidahnya. Karena aqidah yang benar akan menjaga hati, mengarahkan langkah, dan menyelamatkan kehidupan dunia serta akhirat."</strong></p>
-                `,
-                questions: [
-                    { q: "Secara bahasa, kata aqidah berasal dari 'aqada' yang berarti...", a: ["Ikatan atau simpul yang kuat", "Pelepasan ikatan", "Pikiran yang bebas", "Keraguan hati"], c: 0 },
-                    { q: "Apa landasan utama dari pusat Aqidah Islam?", a: ["Adat kebiasaan", "Enam rukun iman", "Teknologi modern", "Opini masyarakat"], c: 1 },
-                    { q: "Ayat yang menyatakan bahwa dengan mengingat Allah hati menjadi tenteram adalah...", a: ["QS. Ar-Ra'd: 28", "QS. Adz-Dzariyat: 56", "QS. At-Tin: 4", "QS. Ath-Thur: 35"], c: 0 }
-                ]
+                hadis: hadisPool[0],
+                markdown: `# Pendahuluan
+Remaja hidup di zaman yang penuh kemudahan, tetapi juga penuh tantangan. Informasi datang tanpa batas, tren berubah sangat cepat, dan tekanan untuk diakui sering kali membuat seseorang kehilangan arah. Di tengah kondisi ini, aqidah menjadi pondasi yang menjaga hati, pikiran, dan perilaku seorang muslim. Aqidah bukan sekadar pengetahuan tentang agama, melainkan keyakinan yang tertanam kuat dalam hati sehingga membentuk cara berpikir, bersikap, dan menjalani kehidupan.
+
+> "Jika bangunan membutuhkan pondasi yang kokoh, maka kehidupan membutuhkan aqidah yang kuat."
+
+---
+
+# 1. Apa Itu Aqidah?
+Secara bahasa, aqidah berasal dari kata *'aqada* yang berarti ikatan atau simpul yang kuat. Secara istilah, aqidah adalah keyakinan yang mantap dalam hati terhadap segala sesuatu yang diwajibkan Allah untuk diimani tanpa keraguan. Aqidah Islam berpusat pada enam rukun iman:
+1. Iman kepada Allah
+2. Iman kepada malaikat
+3. Iman kepada kitab-kitab Allah
+4. Iman kepada rasul-rasul Allah
+5. Iman kepada hari akhir
+6. Iman kepada qada dan qadar
+
+---
+
+# 2. Mengapa Remaja Modern Membutuhkan Aqidah yang Kuat?
+### a. Banyak Godaan dan Pengaruh Negatif
+Media sosial, pergaulan bebas, narkoba, pornografi, dan budaya yang bertentangan dengan nilai Islam dapat merusak karakter remaja. Aqidah yang kuat menjadi benteng yang membuat seseorang mampu berkata: *"Saya tidak akan melakukan ini karena Allah melihat saya."*
+
+### b. Krisis Identitas
+Banyak remaja bingung tentang tujuan hidupnya, mencari pengakuan dari orang lain, bahkan menilai dirinya berdasarkan jumlah pengikut atau "like". Aqidah mengajarkan bahwa nilai seseorang tidak ditentukan oleh popularitas, tetapi oleh ketakwaannya kepada Allah.
+
+### c. Masalah Mental dan Emosional
+Tekanan akademik, masalah keluarga, perundungan, dan kegagalan sering membuat remaja merasa putus asa. Orang yang memiliki aqidah kuat yakin bahwa setiap ujian memiliki hikmah dan Allah tidak membebani seseorang di luar kemampuannya.
+
+---
+
+# 3. Aqidah sebagai Penyelamat Jiwa
+## A. Menumbuhkan Ketenangan Hati
+Ketika seseorang mengenal Allah dengan benar, ia menyadari bahwa hidupnya berada dalam pengawasan dan kasih sayang-Nya. Firman Allah: *"Ingatlah, hanya dengan mengingat Allah hati menjadi tenteram."* (QS. Ar-Ra'd: 28).
+
+## B. Memberikan Tujuan Hidup
+Banyak orang hidup tanpa arah sehingga mudah terjerumus pada hal-hal yang merugikan. Aqidah mengajarkan bahwa tujuan hidup manusia adalah beribadah kepada Allah. Firman Allah: *"Aku tidak menciptakan jin dan manusia melainkan agar mereka beribadah kepada-Ku."* (QS. Adz-Dzariyat: 56).
+
+## C. Menjaga dari Perilaku Menyimpang
+Remaja yang memahami aqidah akan sadar bahwa setiap perbuatan akan dimintai pertanggungjawaban. Kesadaran ini menjadi kontrol diri yang kuat, bahkan ketika tidak ada orang yang melihat.
+
+## D. Membentuk Karakter Mulia
+Aqidah yang benar melahirkan kejujuran, tanggung jawab, disiplin, kesabaran, rendah hati, dan kepedulian terhadap sesama.
+
+---
+
+# 4. Ciri-Ciri Remaja yang Memiliki Aqidah Kuat
+1. **Rajin Beribadah:** Ia menjaga salat, membaca Al-Qur'an, dan berusaha mendekatkan diri kepada Allah.
+2. **Memiliki Prinsip Hidup:** Tidak mudah terbawa arus pergaulan atau tren yang bertentangan dengan syariat.
+3. **Optimis dan Tidak Mudah Putus Asa:** Yakin bahwa Allah selalu memberikan jalan keluar bagi hamba-Nya.
+4. **Menjaga Akhlak:** Bersikap sopan kepada orang tua, guru, dan teman-temannya.
+5. **Bijak Menggunakan Media Sosial:** Menggunakan teknologi untuk hal yang bermanfaat dan menghindari konten yang merusak iman.
+
+---
+
+# 5. Cara Memperkuat Aqidah di Era Modern
+* Memperdalam ilmu agama dari guru yang terpercaya.
+* Memilih lingkungan pertemanan yang baik yang menjaga iman.
+* Membiasakan ibadah harian seperti zikir dan membaca Al-Qur'an.
+* Mengontrol dan menyaring penggunaan media sosial.
+* Merenungkan tanda-tanda kekuasaan Allah di alam semesta.
+
+---
+
+# Penutup
+Aqidah adalah pondasi utama kehidupan seorang muslim. Di tengah derasnya arus modernisasi, aqidah menjadi penyelamat jiwa remaja dari kebingungan, penyimpangan, dan keputusasaan. Remaja yang memiliki aqidah kuat akan memiliki tujuan hidup yang jelas, hati yang tenang, akhlak yang baik, serta keteguhan dalam menghadapi berbagai tantangan zaman.`
             },
             {
                 id: 2,
                 title: "Mengenal Allah melalui Logika, Ilmu Pengetahuan, Dalil Al-Qur’an dan Hadis",
-                hadis: "QS. Ali ‘Imran: 190–191 | QS. Ath-Thur: 35 | QS. Al-Mulk: 3 | QS. Fussilat: 53 | HR. Bukhari & Muslim tentang Fitrah",
-                body: `
-                    <h3>1. Pendahuluan</h3>
-                    <p>Islam menempatkan akal dan ilmu pada posisi penting. Banyak ayat Al-Qur’an yang mengajak manusia untuk berpikir, mengamati alam, dan menggunakan logika untuk sampai pada pengakuan akan keberadaan Allah (وجود Allah).</p>
-                    
-                    <h3>2. Alam sebagai Tanda Kebesaran Allah (Ayat Kauniyah)</h3>
-                    <p><strong>Dalil (QS. Ali ‘Imran: 190–191):</strong> “Sesungguhnya dalam penciptaan langit dan bumi, dan pergantian malam dan siang terdapat tanda-tanda bagi orang yang berakal… (yaitu) orang-orang yang mengingat Allah sambil berdiri, duduk, dan berbaring, dan mereka memikirkan penciptaan langit dan bumi…”</p>
-                    <p>Maknanya, Allah secara langsung memerintahkan manusia untuk berpikir (tafakkur). Alam semesta adalah “bukti terbuka” yang bisa dipahami dengan akal dan observasi.</p>
-                    
-                    <h3>3. Argumen Kausalitas (Sebab-Akibat)</h3>
-                    <p><strong>Dalil (QS. Ath-Thur: 35):</strong> “Apakah mereka tercipta tanpa sesuatu pun ataukah mereka yang menciptakan (diri mereka sendiri)?”</p>
-                    <p>Ayat ini mengajak berpikir logis: Tidak mungkin sesuatu ada tanpa sebab, tidak mungkin manusia menciptakan dirinya sendiri, maka harus ada Pencipta pertama.</p>
-                    
-                    <h3>4. Keteraturan Alam Semesta</h3>
-                    <p><strong>Dalil (QS. Al-Mulk: 3):</strong> “Engkau tidak akan melihat ketidakseimbangan pada ciptaan Ar-Rahman…”</p>
-                    <p>Alam semesta memiliki keteraturan sempurna dan sistem kosmos berjalan konsisten. Secara logika ilmiah, hukum alam yang stabil menunjukkan adanya Pengatur yang Maha Bijaksana.</p>
-                    
-                    <h3>5. Ilmu Pengetahuan sebagai Jalan Tafakkur</h3>
-                    <p><strong>Dalil (QS. Fussilat: 53):</strong> “Kami akan memperlihatkan kepada mereka tanda-tanda Kami di segenap ufuk dan pada diri mereka sendiri, hingga jelas bagi mereka bahwa itu adalah Al-Haqq (kebenaran).”</p>
-                    <p>Sains dan penelitian alam adalah bagian dari proses mengenal Allah. Semakin dalam ilmu, semakin jelas tanda-tanda ketuhanan.</p>
-                    
-                    <h3>6. Fitrah Manusia Mengenal Tuhan</h3>
-                    <p><strong>Hadis Sahih:</strong> Rasulullah ﷺ bersabda: “Setiap anak dilahirkan dalam keadaan fitrah…” (HR. Bukhari & Muslim). Manusia memiliki kecenderungan alami untuk mengenal Tuhan, dan logika akal bekerja sejalan dengan fitrah ini.</p>
-                    
-                    <h3>7. Perintah Menggunakan Akal & Hadis Tafakkur</h3>
-                    <p>Banyak ayat berulang menggunakan kalimat “Afala ta’qilun” (Apakah kamu tidak berpikir?) atau “Afala tatafakkarun” (Apakah kamu tidak merenung?) seperti pada QS. Al-Baqarah: 164. Rasulullah ﷺ juga bersabda: “Berpikir sejenak tentang ciptaan Allah lebih baik daripada ibadah 60 tahun.” (Atsar/Hadis disepakati keutamaannya).</p>
-                    
-                    <h3>8. Ilmu Pengetahuan Modern sebagai Penguat</h3>
-                    <p>Walaupun bukan dalil agama langsung, sains modern (Teori Big Bang, kode informasi DNA, presisi Hukum Fisika) memperkuat proses tafakkur dan selaras dengan janji Allah dalam QS. Fussilat: 53.</p>
-                `,
-                questions: [
-                    { q: "Surat dan ayat mana yang memerintahkan manusia bertafakkur merenungkan penciptaan langit dan bumi serta pergantian malam dan siang?", a: ["QS. Ali 'Imran: 190-191", "QS. At-Tin: 4", "QS. Al-Hujurat: 13", "QS. Qaf: 18"], c: 0 },
-                    { q: "Argumen logika sebab-akibat yang menanyakan apakah manusia tercipta tanpa sesuatu pun tercantum dalam...", a: ["QS. Ath-Thur: 35", "QS. Al-Mulk: 3", "QS. Al-Baqarah: 164", "QS. Yunus: 61"], c: 0 },
-                    { q: "Menurut hadis sahih, setiap anak dilahirkan dalam keadaan...", a: ["Penuh dosa", "Fitrah (kecenderungan alami mengenal Tuhan)", "Sombong", "Pintar sains"], c: 1 }
-                ]
+                hadis: hadisPool[1],
+                markdown: `# 1. Pendahuluan
+Islam menempatkan akal dan ilmu pada posisi penting. Banyak ayat Al-Qur’an yang mengajak manusia untuk berpikir, mengamati alam, dan menggunakan logika untuk sampai pada pengakuan akan keberadaan Allah (وجود Allah).
+
+---
+
+# 2. Alam sebagai Tanda Kebesaran Allah (Ayat Kauniyah)
+### Dalil Al-Qur’an (QS. Ali ‘Imran 3:190–191):
+> “Sesungguhnya dalam penciptaan langit dan bumi, dan pergantian malam dan siang terdapat tanda-tanda bagi orang yang berakal… (yaitu) orang-orang yang mengingat Allah sambil berdiri, duduk, dan berbaring, dan mereka memikirkan penciptaan langit dan bumi…”
+
+### Makna:
+Allah secara langsung memerintahkan manusia untuk berpikir (*tafakkur*). Alam semesta adalah “bukti terbuka” yang bisa dipahami dengan akal dan observasi.
+
+---
+
+# 3. Argumen Kausalitas (Sebab-Akibat)
+### Dalil Al-Qur’an (QS. Ath-Thur 52:35):
+> “Apakah mereka tercipta tanpa sesuatu pun ataukah mereka yang menciptakan (diri mereka sendiri)?”
+
+### Makna Logis:
+Ayat ini mengajak berpikir secara jernih: Tidak mungkin sesuatu ada tanpa sebab, dan tidak mungkin manusia menciptakan dirinya sendiri. Maka harus ada Pencipta Pertama.
+
+---
+
+# 4. Keteraturan Alam Semesta
+### Dalil Al-Qur’an (QS. Al-Mulk 67:3):
+> “Engkau tidak akan melihat ketidakseimbangan pada ciptaan الرحمن…”
+
+### Makna:
+Alam semesta memiliki keteraturan sempurna dan sistem kosmos berjalan konsisten tanpa kacau. Secara logika ilmiah, hukum alam yang stabil menunjukkan adanya Pengatur yang Maha Bijaksana.
+
+---
+
+# 5. Ilmu Pengetahuan sebagai Jalan Tafakkur
+### Dalil Al-Qur’an (QS. Fussilat 41:53):
+> “Kami akan memperlihatkan kepada mereka tanda-tanda Kami di segenap ufuk dan pada diri mereka sendiri, hingga jelas bagi mereka bahwa itu adalah الحق (kebenaran).”
+
+### Makna:
+Sains dan penelitian alam adalah bagian dari proses mengenal Allah. Semakin dalam ilmu seseorang, semakin jelas pula tanda-tanda ketuhanan terpampang nyata.
+
+---
+
+# 6. Perintah Menggunakan Akal
+Banyak ayat yang berulang dengan kalimat retoris yang menantang akal manusia, seperti:
+* **“Afala ta’qilun”** (Apakah kamu tidak berpikir?)
+* **“Afala tatafakkarun”** (Apakah kamu tidak merenung?)
+
+---
+
+# 7. Ilmu Pengetahuan Modern sebagai Penguat
+Sains modern menguatkan dalil tafakkur: alam semesta memiliki awal (teori Big Bang), DNA mengandung struktur kode informasi rahasia, dan hukum fisika sangat presisi (Fine-Tuned Universe).
+
+---
+
+# 8. Kesimpulan
+Dari dalil Al-Qur’an dan logika sains, dapat disimpulkan bahwa Allah memerintahkan manusia menggunakan akal, alam semesta adalah media tanda keberadaan Allah, dan ilmu pengetahuan sejati akan memperkuat fondasi keimanan seseorang.`
             },
             {
                 id: 3,
                 title: "Menghentikan Overthinking dengan Tauhid Rububiyah",
-                hadis: "QS. Al-Fatihah: 2 | QS. At-Tawbah: 51 | QS. At-Talaq: 3 | HR. Tirmidzi tentang Ketetapan Allah",
-                body: `
-                    <h3>1. Apa itu Tauhid Rububiyah?</h3>
-                    <p>Tauhid rububiyah adalah keyakinan bahwa Allah adalah satu-satunya Rabb (Pengatur, Pencipta, Pemilik, dan Pengendali seluruh alam semesta). Sesuai <strong>QS. Al-Fatihah: 2</strong>: “Segala puji bagi Allah, Rabb semesta alam.” Makna “Rabb” mencakup Pencipta, Pengatur, Pemberi rezeki, dan Pengendali segala kejadian.</p>
-                    
-                    <h3>2. Akar Overthinking: Ingin Mengontrol Segalanya</h3>
-                    <p>Overthinking sering muncul dari keinginan mengendalikan masa depan, takut kehilangan hasil, dan merasa semua bergantung pada diri sendiri. Secara psikologis, pikiran menjadi kacau ketika beban kontrol terasa terlalu besar.</p>
-                    
-                    <h3>3. Tauhid Rububiyah Menghancurkan Ilusi Kontrol</h3>
-                    <p>Ketika seseorang memahami rububiyah, ia sadar masa depan dan hasil akhir bukan sepenuhnya di tangan atau tanggung jawab manusia. Skema hidup diatur oleh Allah. <strong>QS. At-Tawbah: 51</strong> menyatakan: “Katakanlah: tidak akan menimpa kami kecuali apa yang telah Allah tetapkan bagi kami…” Kekhawatiran berlebihan tidak mengubah ketetapan, melainkan hanya menguras pikiran.</p>
-                    
-                    <h3>4. Rasulullah ﷺ dan Ketenteraman Qadar</h3>
-                    <p>Rasulullah ﷺ bersabda: “Ketahuilah, jika seluruh umat berkumpul untuk memberi manfaat kepadamu, mereka tidak akan bisa kecuali apa yang Allah telah tetapkan untukmu…” (HR. Tirmidzi). Ini secara langsung memotong sumber overthinking yaitu rasa takut terhadap berbagai kemungkinan.</p>
-                    
-                    <h3>5. Overthinking vs Tawakal Berbasis Rububiyah</h3>
-                    <p>Overthinking dipenuhi ketakutan gagal atau salah. Sementara Tawakal menyerahkan hasil akhir kepada pengaturan Allah setelah berusaha maksimal. Sesuai <strong>QS. At-Talaq: 3</strong>: “Barang siapa bertawakal kepada Allah, maka Allah akan mencukupkannya.”</p>
-                    
-                    <h3>6. Langkah Praktis Menanamkan Tauhid Rububiyah</h3>
-                    <p>1. Ubah kalimat kontrol: Dari "Aku harus memastikan semua aman" menjadi "Aku berusaha, Allah yang mengatur hasil".<br>
-                    2. Pisahkan tugas dan takdir: Tugasmu hanya ikhtiar dan keputusan, hasil akhir adalah tugas Allah.<br>
-                    3. Resapi <strong>QS. Al-Baqarah: 286</strong>: “Allah tidak membebani seseorang melainkan sesuai kesanggupannya…”<br>
-                    4. Stop mencoba menjadi "Tuhan kecil" dalam pikiran dengan mensimulasikan skenario tak berujung.</p>
-                `,
-                questions: [
-                    { q: "Keyakinan bahwa Allah adalah satu-satunya Pencipta, Pemilik, dan Pengendali alam semesta disebut...", a: ["Tauhid Uluhiyah", "Tauhid Rububiyah", "Tauhid Asma' wa Shifat", "Ihsan"], c: 1 },
-                    { q: "Kutipan ayat 'Katakanlah: tidak akan menimpa kami kecuali apa yang telah Allah tetapkan bagi kami' berasal dari...", a: ["QS. At-Tawbah: 51", "QS. Al-Fatihah: 2", "QS. At-Talaq: 3", "QS. Al-Baqarah: 286"], c: 0 },
-                    { q: "Menurut psikologi tauhid, overthinking bermula dari...", a: ["Ilusi ingin mengontrol segala hasil masa depan", "Malas berusaha", "Kurang tidur malam", "Terlalu banyak berdzikir"], c: 0 }
-                ]
+                hadis: hadisPool[2],
+                markdown: `# 1. Apa itu Tauhid Rububiyah?
+Tauhid rububiyah adalah keyakinan mutlak bahwa Allah adalah satu-satunya Rabb yang menciptakan, mengatur, memiliki, dan mengendalikan seluruh alam semesta tanpa sekutu.
+
+### Dalil Al-Qur’an (QS. Al-Fatihah 1:2):
+> “Segala puji bagi Allah, Rabb semesta alam.”
+
+---
+
+# 2. Akar Overthinking: Ingin Mengontrol Segalanya
+Secara psikologis, *overthinking* atau kecemasan berlebih sering muncul dari keinginan manusia untuk mengendalikan masa depan, takut akan ketidakpastian hasil, dan merasa semua beban hidup bergantung pada dirinya sendiri. Pikiran menjadi kacau ketika beban kontrol yang dipikul terlalu besar.
+
+---
+
+# 3. Tauhid Rububiyah Menghancurkan Ilusi Kontrol
+Ketika seorang muslim benar-benar memahami rububiyah Allah, ia menyadari bahwa masa depan dan hasil akhir bukan berada di bawah kendalinya. Skema hidup tidak berjalan liar, melainkan sudah diatur dalam ketetapan-Nya.
+
+### Dalil Al-Qur’an (QS. At-Tawbah 9:51):
+> “Katakanlah: tidak akan menimpa kami kecuali apa yang telah Allah tetapkan bagi kami…”
+
+---
+
+# 4. Overthinking vs Tawakal
+* **Overthinking:** Memunculkan pertanyaan cemas *"Bagaimana kalau gagal?"*, *"Bagaimana kalau berantakan?"*
+* **Tawakal berbasis Rububiyah:** Berprinsip *"Apa pun hasilnya, itu dalam pengaturan terbaik Allah. Aku bertugas berusaha, Allah bertugas menentukan."*
+
+### Dalil Al-Qur’an (QS. At-Talaq 65:3):
+> “Barang siapa bertawakal kepada Allah, maka Allah akan mencukupkannya.”
+
+---
+
+# 5. Cara Praktis Menanamkan Tauhid Rububiyah Saat Overthinking
+1. **Ubah Kalimat Kontrol:** Ganti kalimat *"Aku harus memastikan semuanya aman"* menjadi *"Aku berikhtiar maksimal, dan menyerahkan pengaturan hasilnya kepada Allah."*
+2. **Pisahkan Tugas dan Takdir:** Tugasmu hanyalah melakukan usaha dan ikhtiar yang benar, sedangkan takdir adalah wilayah hak mutlak Allah.
+3. **Latih Penghentian Skenario:** Berhentilah mensimulasikan skenario buruk tak berujung di dalam pikiranmu. Tauhid rububiyah mengembalikan posisimu sebagai hamba, bukan pengatur takdir.`
             },
             {
                 id: 4,
                 title: "Merdeka dari Kecanduan Validasi Makhluk melalui Tauhid Uluhiyah",
-                hadis: "QS. Adz-Dzariyat: 56 | QS. Al-Ma’un: 6 | QS. Al-Hujurat: 13 | HR. Muslim tentang Hati dan Amal",
-                body: `
-                    <h3>1. Apa itu Tauhid Uluhiyah?</h3>
-                    <p>Tauhid uluhiyah adalah keyakinan dan penghambaan bahwa hanya Allah yang berhak disembah, dicintai secara absolut, ditaati secara mutlak, dan dijadikan tujuan utama ibadah. <strong>QS. Adz-Dzariyat: 56</strong>: “Tidaklah Aku menciptakan jin dan manusia kecuali untuk beribadah kepada-Ku.” Fokus hidup dialihkan dari manusia menuju Allah, sehingga nilai diri tidak lagi ditentukan makhluk.</p>
-                    
-                    <h3>2. Akar Kecanduan Validasi: Salah “Arah Ibadah”</h3>
-                    <p>Kecanduan validasi terjadi ketika pujian manusia dan penilaian orang menjadi standar nilai diri atau tujuan tersembunyi. Ulama menyebut ini sebagai <strong>riya’ (ingin dilihat manusia)</strong>. Allah memperingatkan dalam <strong>QS. Al-Ma’un: 6</strong>: “Celakalah orang-orang yang shalat, yang lalai dari shalatnya, yang berbuat riya’.”</p>
-                    
-                    <h3>3. Tauhid Uluhiyah Memutus Ketergantungan</h3>
-                    <p>Dengan memprioritaskan ridha Allah, pujian manusia menjadi bonus saja, penilaian menjadi sekadar informasi, dan penolakan bukan lagi kehinaan. Standar nilai diri dipindahkan ke penilaian Allah sesuai <strong>QS. Al-Hujurat: 49:13</strong>: “Sesungguhnya yang paling mulia di sisi Allah adalah yang paling bertakwa.”</p>
-                    
-                    <h3>4. Rasulullah ﷺ: Tidak Tergantung Pujian</h3>
-                    <p>Rasulullah ﷺ menghadapi penolakan, hinaan, dan fitnah tanpa mengubah orientasi dakwah beliau. Beliau bersabda: “Sesungguhnya Allah tidak melihat rupa dan harta kalian, tetapi Dia melihat hati dan amal kalian.” (HR. Muslim).</p>
-                    
-                    <h3>5. Logika Tauhid dan Detoks Validasi</h3>
-                    <p>Menggantungkan nilai diri pada makhluk adalah sistem yang rapuh karena manusia berubah-ubah dan subjektif. Langkah praktisnya adalah: mengubah pertanyaan kepala menjadi "Allah ridha atau tidak?", melatih ibadah tanpa penonton (sedekah diam-diam), serta menyadari bahwa pujian adalah ujian.</p>
-                `,
-                questions: [
-                    { q: "Menjadikan hanya Allah sebagai tujuan utama ibadah, kecintaan absolut, dan ketaatan mutlak adalah esensi...", a: ["Tauhid Rububiyah", "Tauhid Uluhiyah", "Iman kepada Malaikat", "Sains Islam"], c: 1 },
-                    { q: "Istilah bagi perbuatan ibadah yang ditujukan agar dilihat atau dipuji oleh manusia dinamakan...", a: ["Riya'", "Tawakal", "Ihsan", "Itqan"], c: 0 },
-                    { q: "Berdasarkan HR. Muslim, apa yang sejatinya dilihat oleh Allah dari diri manusia?", a: ["Rupa dan bentuk fisik", "Harta dan popularitas", "Hati dan amal perbuatan", "Jumlah pengikut media sosial"], c: 2 }
-                ]
+                hadis: hadisPool[3],
+                markdown: `# 1. Apa itu Tauhid Uluhiyah?
+Tauhid uluhiyah adalah keyakinan dan perwujudan nyata bahwa hanya Allah yang berhak disembah, dicintai secara absolut, ditaati secara mutlak, dan dijadikan sebagai satu-satunya tujuan utama dalam segala bentuk ibadah.
+
+### Dalil Al-Qur’an (QS. Adz-Dzariyat 51:56):
+> “Tidaklah Aku menciptakan jin dan manusia kecuali untuk beribadah kepada-Ku.”
+
+---
+
+# 2. Akar Kecanduan Validasi: Salah “Arah Ibadah”
+Secara spiritual, kecanduan validasi sosial (haus pujian, takut dikritik, butuh pengakuan) terjadi ketika penilaian makhluk dijadikan standar nilai diri. Dalam istilah ulama, ini condong pada penyakit **riya’** (beramal agar dilihat manusia).
+
+### Dalil Al-Qur’an (QS. Al-Ma’un 107:6):
+> “Celakalah orang-orang yang shalat... yang berbuat riya’.”
+
+---
+
+# 3. Tauhid Uluhiyah Memutus Ketergantungan Makhluk
+Saat seseorang berfokus mencari rida Allah semata, pola pikir logisnya akan merdeka:
+* Pujian manusia hanyalah bonus sementara, bukan tujuan hidup.
+* Penilaian manusia hanyalah informasi kosmetik, bukan identitas diri yang asli.
+* Penolakan makhluk tidak akan pernah menghinakan kedudukan kita di sisi Allah.
+
+### Dalil Al-Qur’an (QS. Al-Hujurat 49:13):
+> “Sesungguhnya yang paling mulia di sisi Allah adalah yang paling bertakwa.”
+
+---
+
+# 4. Logika Tauhid dalam Hubungan Sosial
+Secara logis, mengikatkan kebahagiaan pada validasi manusia adalah sistem yang rapuh karena manusia itu dinamis, berubah-ubah, bersifat subjektif, dan mustahil untuk dipuaskan semuanya. Tauhid uluhiyah mengganti pusat labil tersebut dengan satu poros yang stabil: Rida Allah SWT.
+
+---
+
+# 5. Cara Praktis Detoks Validasi
+1. **Ubah Orientasi Pertanyaan Batin:** Dari *"Orang-orang akan berkomentar apa tentang penampilanku?"* menjadi *"Apakah Allah rida dengan apa yang aku lakukan ini?"*
+2. **Latih Ibadah Rahasia:** Biasakan melakukan kebaikan tanpa dokumentasi, sedekah sembunyi-sembunyi, atau salat malam sunnah tanpa perlu diumumkan di media sosial.
+3. **Sadari Pujian Sebagai Ujian:** Pujian sering kali menggemukkan ego. Amalkan doa sahabat: *"Ya Allah, jadikan aku lebih baik daripada apa yang mereka kira, dan ampuni aku dari apa yang mereka tidak tahu."*`
             },
             {
                 id: 5,
-                title: "Mengobati Insecure Memakai Pendekatan Asma' wa Shifat",
-                hadis: "QS. At-Tin: 4 | QS. Hud: 6 | QS. Al-Hujurat: 13 | Hadits Qudsi HR. Bukhari tentang Kedekatan Allah",
-                body: `
-                    <h3>1. Menyembuhkan Insecure terhadap Fisik & Potensi Diri</h3>
-                    <p>Rasa minder terhadap fisik atau potensi diobati dengan memahami Allah sebagai <strong>Al-Khaliq</strong> (Maha Pencipta) dan <strong>Al-Mushawwir</strong> (Maha Membentuk Rupa). <strong>QS. At-Tin: 4</strong>: “Sungguh, Kami telah menciptakan manusia dalam bentuk yang sebaik-baiknya.” Setiap desain ciptaan Allah tidak ada yang gagal; kita indah dengan cara yang Allah kehendaki.</p>
-                    
-                    <h3>2. Menyembuhkan Insecure tentang Rezeki & Masa Depan</h3>
-                    <p>Takut tidak sukses, miskin, atau tertinggal secara materi disembuhkan dengan mengenal Allah sebagai <strong>Ar-Razzaq</strong> (Maha Pemberi Rezeki) dan <strong>Al-Basith</strong> (Maha Melapangkan Rezeki). <strong>QS. Hud: 6</strong>: “Dan tidak satu pun makhluk bergerak (bernyawa) di bumi melainkan semuanya dijamin Allah rezekinya...” Jatah rezeki kita sudah dijamin dan tidak akan tertukar.</p>
-                    
-                    <h3>3. Menyembuhkan Insecure karena Sering Merasa Sendiri</h3>
-                    <p>Kesepian atau merasa tidak berharga dipulihkan dengan mendekat kepada Allah <strong>Al-Wadud</strong> (Maha Pencinta) dan <strong>Al-Karim</strong> (Maha Mulia). Allah berfirman dalam Hadits Qudsi (HR. Bukhari): “Jika ia mendekat kepada-Ku sejengkal, Aku mendekat kepadanya sehasta... Jika ia datang kepada-Ku dengan berjalan, Aku datang kepadanya dengan berlari.”</p>
-                    
-                    <h3>4. Menyembuhkan Insecure atas Penilaian & Cemoohan Orang Lain</h3>
-                    <p>Ingatlah sifat Allah <strong>Al-Hakam</strong> (Maha Menetapkan Hukum/Adil) dan <strong>Al-Alim</strong> (Maha Mengetahui). Manusia hanya melihat casing luar melalui asumsi, sedangkan Allah tahu isi hati dan perjuanganmu. Sesuai <strong>QS. Al-Hujurat: 13</strong>, yang paling mulia adalah yang paling bertakwa.</p>
-                    
-                    <h3>Kesimpulan & Langkah Praktis (3M)</h3>
-                    <p>1. Mengenal (Ma'rifat): Pelajari makna mendalam 99 Asmaul Husna.<br>
-                    2. Menghayati (Tadabbur): Sebut nama Allah yang sesuai saat minder (misal sebut <i>Ya Qawiyyu</i> saat merasa lemah).<br>
-                    3. Menerima (Ridha): Menyadari pilihan Allah adalah kunci ketenangan tertinggi.</p>
-                `,
-                questions: [
-                    { q: "Nama Allah (Asmaul Husna) yang bermakna Maha Membentuk Rupa makhluk-Nya adalah...", a: ["Ar-Razzaq", "Al-Mushawwir", "Al-Alim", "Al-Hakam"], c: 1 },
-                    { q: "Ayat yang menegaskan bahwa Allah telah menjamin rezeki setiap makhluk bernyawa di bumi adalah...", a: ["QS. Hud: 6", "QS. At-Tin: 4", "QS. Qaf: 18", "QS. Al-Mulk: 3"], c: 0 },
-                    { q: "Metode 3M untuk mengatasi insecure meliputi...", a: ["Membaca, Menulis, Menghafal", "Mengenal, Menghayati, Menerima", "Melihat, Membandingkan, Menangis", "Membeli, Memakai, Memamerkan"], c: 1 }
-                ]
+                title: "Menyembuhkan Insecure dengan Pendekatan Asma' wa Shifat",
+                hadis: hadisPool[4],
+                markdown: `# Pendahuluan
+Perasaan *insecure* biasanya muncul saat kita membandingkan kekurangan diri sendiri dengan kelebihan kosmetik makhluk lain, merasa serba kurang, atau cemas berlebih terhadap masa depan. Dengan memahami Asma' wa Shifat Allah, kita mengalihkan fokus dari kelemahan makhluk menuju kesempurnaan Sang Pencipta.
+
+---
+
+# 1. Insecure Terhadap Fisik dan Potensi Diri
+Obat utamanya adalah mengenal Allah sebagai **Al-Khaliq** (Maha Pencipta) dan **Al-Mushawwir** (Maha Membentuk Rupa). Allah tidak pernah melakukan kesalahan desain pada hamba-Nya.
+
+### Dalil Al-Qur’an (QS. At-Tin: 4):
+> *"Sungguh, Kami telah menciptakan manusia dalam bentuk yang sebaik-baiknya."*
+
+* **Penerapan Jiwa:** Katakan pada dirimu sendiri: *"Allah yang mendesain diriku, dan ciptaan Allah tidak ada yang gagal. Aku indah dan berharga dengan cara yang Allah kehendaki."*
+
+---
+
+# 2. Insecure Tentang Rezeki dan Masa Depan
+Penawarnya adalah menghayati nama Allah **Ar-Razzaq** (Maha Pemberi Rezeki) dan **Al-Basith** (Maha Melapangkan). Jatah rezeki dan kesuksesan setiap manusia sudah dijamin dan tidak akan pernah tertukar.
+
+### Dalil Al-Qur’an (QS. Hud: 6):
+> *"Dan tidak satu pun makhluk bergerak (bernyawa) di bumi melainkan semuanya dijamin Allah rezekinya..."*
+
+---
+
+# 3. Insecure Karena Merasa Sendiri dan Tidak Berharga
+Mendekatlah kepada Allah yang memiliki sifat **Al-Wadud** (Maha Pencinta) dan **Al-Karim** (Maha Mulia). Cinta manusia sering kali bersyarat dan transaksional, sedangkan kasih sayang dan ampunan Allah begitu luas tak bertepi bagi hamba yang mau kembali.
+
+---
+
+# 4. Langkah Praktis Menyembuhkan Insecure (Metode 3M)
+1. **Mengenal (Ma'rifat):** Pelajari makna di balik 99 Asmaul Husna secara mendalam, bukan sekadar menghafal lafalnya.
+2. **Menghayati (Tadabbur):** Saat rasa minder atau *insecure* datang menyerang batin, langsung sebut nama Allah yang relevan (Contoh: Saat merasa lemah, sebut *Ya Qawiyyu*, saat merasa buntu sebut *Ya Fattah*).
+3. **Menerima (Ridha):** Memahami bahwa rida dan menyukai apa yang telah Allah takdirkan serta pilihkan untuk kita adalah kunci ketenangan hati tertinggi.`
             },
             {
                 id: 6,
-                title: "Integritas Karakter Unggul Lewat Iman Kepada Malaikat",
-                hadis: "QS. Qaf: 18 | QS. At-Tahrim: 6 | QS. As-Saffat: 1 | Hadits Bukhari & Muslim tentang Kesucian Malaikat",
-                body: `
-                    <h3>1. Menumbuhkan Muraqabah (Kesadaran Selalu Diawasi)</h3>
-                    <p>Integritas berarti melakukan hal benar meski tak ada orang yang melihat. Iman kepada Malaikat <strong>Raqib dan Atid</strong> memotong sifat oportunis (jujur hanya saat diawasi manusia). Seseorang yang beriman tahu bahwa hidupnya direkam real-time melalui "CCTV langit" tanpa blind spot. <strong>QS. Qaf: 18</strong>: “Tidak ada suatu kata pun yang diucapkannya melainkan ada di sisinya malaikat pengawas yang selalu siap (mencatat).”</p>
-                    
-                    <h3>2. Profesionalisme dan Totalitas dalam Tugas</h3>
-                    <p>Malaikat adalah contoh etos kerja (work ethic) yang sempurna. Mereka tidak menunda pekerjaan, tidak mengeluh, dan selalu totalitas menyelesaikan tugas. <strong>QS. At-Tahrim: 6</strong>: “...yang tidak mendurhakai Allah terhadap apa yang diperintahkan-Nya kepada mereka dan selalu mengerjakan apa yang diperintahkan.”</p>
-                    
-                    <h3>3. Disiplin dan Keteraturan Hidup</h3>
-                    <p>Kehidupan malaikat sangat terstruktur dan presisi (pergantian tugas Malaikat Subuh & Ashar, ketepatan Malaikat Mikail, dll). Tidak ada kata terlambat. <strong>QS. As-Saffat: 1</strong>: “Demi (rombongan malaikat) yang berbaris bersaf-saf.” Keimanan ini mendidik manusia menghargai waktu dan aturan.</p>
-                    
-                    <h3>4. Menjaga Kebersihan Pikiran dan Lingkungan</h3>
-                    <p>Malaikat menyukai kesucian hati, lisan, serta kebersihan fisik. Rasulullah SAW bersabda: “Sesungguhnya malaikat itu merasa terganggu (dengan bau tidak sedap) sebagaimana manusia terganggu.” (HR. Bukhari & Muslim). Karakter iman ini menjauhkan manusia dari hoaks, ghibah, dan fitnah.</p>
-                `,
-                questions: [
-                    { q: "Ayat yang menjelaskan bahwa ada malaikat pengawas yang selalu siap mencatat setiap ucapan manusia adalah...", a: ["QS. Qaf: 18", "QS. At-Tahrim: 6", "QS. As-Saffat: 1", "QS. Ali 'Imran: 190"], c: 0 },
-                    { q: "Sifat mutlak malaikat dalam menjalankan perintah Allah tanpa ingkar dijelaskan dalam...", a: ["QS. At-Tahrim: 6", "QS. Al-Baqarah: 282", "QS. Ar-Ra'd: 28", "QS. Ath-Thur: 35"], c: 0 },
-                    { q: "Iman kepada malaikat mengubah motif takut pada hukum manusia menjadi takut pada...", a: ["Hukum adat", "Konsekuensi Ilahi", "Opini media", "Kehilangan jabatan"], c: 1 }
-                ]
+                title: "Membangun Integritas Karakter Unggul lewat Iman kepada Malaikat",
+                hadis: hadisPool[5],
+                markdown: `# Pendahuluan
+Malaikat memiliki karakteristik mutlak patuh, tidak dibekali nafsu syahwat, dan selalu loyal menjalankan tugas dari Allah tanpa pernah berkhianat sedikit pun. Menanamkan keimanan ini dalam kehidupan sehari-hari akan melahirkan karakter pemuda berintegritas tinggi.
+
+---
+
+# 1. Menumbuhkan Muraqabah (Kesadaran Selalu Diawasi)
+Integritas sejati adalah tetap konsisten melakukan hal yang benar, bahkan ketika tidak ada satu pun manusia atau kamera CCTV dunia yang mengawasi. Iman kepada Malaikat **Raqib dan Atid** membangun kesadaran bahwa hidup kita direkam secara *real-time* tanpa ada *blind spot*.
+
+### Dalil Al-Qur’an (QS. Qaf: 18):
+> *"Tidak ada suatu kata pun yang diucapkannya melainkan ada di sisinya malaikat pengawas yang selalu siap (mencatat)."*
+
+* **Dampak Karakter:** Melahirkan kejujuran absolut. Seorang pelajar yang bertauhid tidak akan menyontek saat ujian meski pengawas keluar kelas, karena ia tahu catatan malaikat tidak pernah libur.
+
+---
+
+# 2. Profesionalisme dan Etos Kerja Sempurna
+Malaikat adalah contoh nyata dari makhluk yang memiliki etos kerja (*work ethic*) yang sempurna. Mereka tidak pernah menunda pekerjaan, mengeluh, ataupun korupsi waktu.
+
+### Dalil Al-Qur’an (QS. At-Tahrim: 6):
+> *"...yang tidak mendurhakai Allah terhadap apa yang diperintahkan-Nya kepada mereka dan selalu mengerjakan apa yang diperintahkan."*
+
+---
+
+# 3. Alur Pembentukan Karakter Berintegritas
+Keimanan kepada malaikat mengubah paradigma kontrol sosial dalam diri manusia:
+1. **Iman:** Percaya secara sadar bahwa malaikat mencatat setiap detail amalan secara objektif.
+2. **Internalisasi:** Muncul rasa malu spiritual dan tanggung jawab mendalam di dalam lubuk hati.
+3. **Integritas Konkret:** Menjelma menjadi pribadi yang jujur, disiplin, tepat waktu, dan tepercaya di mana pun berada.`
             },
             {
                 id: 7,
-                title: "Menjadikan Al-Qur'an Petunjuk Operasional Kehidupan",
-                hadis: "QS. Al-Isra': 9 | QS. Al-Hujurat: 6 | QS. Al-Muthaffifin: 1-3 | QS. Al-Baqarah: 282 | HR. Muslim \"Akhlak Beliau Al-Qur'an\"",
-                body: `
-                    <h3>1. Memahami Fungsi Al-Qur'an sebagai \"SOP\" Kehidupan</h3>
-                    <p>Sama seperti membeli barang elektronik yang membutuhkan manual book agar tidak rusak, manusia membutuhkan Al-Qur'an sebagai peta jalan aktif agar hidupnya tidak error. <strong>QS. Al-Isra': 9</strong>: “Sesungguhnya Al-Qur'an ini memberikan petunjuk kepada (jalan) yang lebih lurus...”</p>
-                    
-                    <h3>2. Implementasi dalam Berbagai Aspek Operasional</h3>
-                    <p><strong>A. SOP Komunikasi & Manajemen Konflik:</strong> Mengatur gaya bicara spesifik (<i>Qaulan Sadida</i>/jujur tepat sasaran, <i>Qaulan Layyina</i>/lemah lembut, <i>Qaulan Ma'rufa</i>/santun). Mengatur SOP validasi informasi (Anti-Hoaks) lewat tabayyun di <strong>QS. Al-Hujurat: 6</strong>.</p>
-                    <p><strong>B. SOP Bisnis & Finansial:</strong> Larangan menipu dalam deskripsi produk atau mengurangi timbangan (<strong>QS. Al-Muthaffifin: 1-3</strong>). Perintah administrasi pencatatan utang-piutang di <strong>QS. Al-Baqarah: 282</strong> (ayat terpanjang).</p>
-                    <p><strong>C. SOP Kesehatan Mental & Stres:</strong> Stabilisasi psikologis dengan mengombinasikan ikhtiar, sabar, dan salat (<strong>QS. Al-Baqarah: 45</strong>) serta mengingat Allah sebagai tombol refresh hati (<strong>QS. Ar-Ra'd: 28</strong>).</p>
-                    
-                    <h3>3. Formula 4T: Teks Menjadi Tindakan</h3>
-                    <p>Proses membumikan Al-Qur'an melalui empat tahapan: <strong>Tilawah</strong> (Membaca), <strong>Tadabbur</strong> (Meresapi makna), <strong>Tafahhum</strong> (Memahami hukum & asbabun nuzul), dan <strong>Tanfidz</strong> (Aksi nyata/eksekusi harian).</p>
-                    <p>Ummul Mukminin Aisyah radhiyallahu 'anha menyatakan tentang akhlak Nabi: “Akhlak beliau adalah Al-Qur'an.” (HR. Muslim). Beliau adalah bukti hidup "Al-Qur'an berjalan".</p>
-                `,
-                questions: [
-                    { q: "Formula 4T untuk mengubah teks Al-Qur'an menjadi aksi nyata secara berurutan adalah...", a: ["Tilawah, Tadabbur, Tafahhum, Tanfidz", "Tadabbur, Tilawah, Tanfidz, Tafahhum", "Tanfidz, Tafahhum, Tilawah, Tadabbur", "Tilawah, Tanfidz, Tadabbur, Tafahhum"], c: 0 },
-                    { q: "SOP tabayyun (cek & ricek informasi) untuk menangkal berita hoaks berada pada...", a: ["QS. Al-Hujurat: 6", "QS. Al-Muthaffifin: 1-3", "QS. Al-Baqarah: 282", "QS. Al-Isra': 9"], c: 0 },
-                    { q: "Siapa nama periwayat hadis yang merekam kutipan bahwa 'Akhlak Rasulullah adalah Al-Qur'an'?", a: ["HR. Muslim", "HR. Tirmidzi", "HR. Thabrani", "HR. Ahmad"], c: 0 }
-                ]
+                title: "Menjadikan Al-Qur'an sebagai Petunjuk Operasional Kehidupan",
+                hadis: hadisPool[6],
+                markdown: `# 1. Al-Qur'an sebagai "SOP" Kehidupan
+Al-Qur'an bukanlah kitab suci yang sekadar dibaca sebagai ritual mistis atau pelengkap saat acara kematian. Al-Qur'an adalah sebuah peta jalan (*roadmap*) aktif yang menjadi SOP (*Standard Operating Procedure*) operasional dalam setiap jengkal keputusan hidup manusia.
+
+### Dalil Al-Qur’an (QS. Al-Isra': 9):
+> *"Sesungguhnya Al-Qur'an ini memberikan petunjuk kepada (jalan) yang lebih lurus..."*
+
+---
+
+# 2. Implementasi Al-Qur'an dalam Berbagai Aspek Operasional
+### A. SOP Komunikasi & Manajemen Konflik
+* **SOP Validasi Informasi:** Wajib melakukan *tabayyun* (cek, ricek, kroscek) ketika menerima berita miring atau hoaks agar tidak menimbulkan fitnah (**QS. Al-Hujurat: 6**).
+* **SOP Gaya Bicara:** Menggunakan prinsip *Qaulan Sadida* (bicara jujur), *Qaulan Layyina* (lemah lembut), dan *Qaulan Ma'rufa* (perkataan yang pantun dan baik).
+
+### B. SOP Bisnis, Finansial, dan Etos Kerja
+* **SOP Transaksi Dagang:** Larangan keras mengurangi timbangan, memanipulasi deskripsi produk, atau menipu konsumen (**QS. Al-Muthaffifin: 1-3**).
+* **SOP Administrasi Keuangan:** Perintah untuk mencatat setiap transaksi utang-piutang secara tertulis demi menghindari sengketa di masa depan (**QS. Al-Baqarah: 282**).
+
+### C. SOP Kesehatan Mental & Manajemen Stres
+* **SOP Regulasi Emosi:** Menjadikan zikir dan mengingat Allah sebagai tombol *refresh* utama saat hati didera kegelisahan dan kecemasan (**QS. Ar-Ra'd: 28**).
+
+---
+
+# 3. Tahapan Mengubah Teks Menjadi Tindakan (Formula 4T)
+Untuk membumikan Al-Qur'an, jalani formula terstruktur ini:
+\`\`\`
+[Tilawah] (Membaca) ➔ [Tadabbur] (Meresapi) ➔ [Tafahhum] (Memahami) ➔ [Tanfidz] (Aksi Nyata)
+\`\`\`
+* **Tilawah:** Membaca dengan tajwid dan tartil yang benar.
+* **Tadabbur:** Merenungkan makna dan mengaitkan pesan ayat dengan realitas problem hidup.
+* **Tafahhum:** Membaca kitab tafsir ringkas (seperti Tafsir Jalalain atau Ibnu Katsir) agar tidak salah paham.
+* **Tanfidz:** Menurunkan pemahaman ayat tersebut ke dalam tindakan konkret nyata hari itu juga.`
             },
             {
                 id: 8,
-                title: "Nabi Muhammad SAW Sebagai Idola Hakiki Pemuda",
-                hadis: "QS. Al-Ahzab: 21 | HR. Bukhari & Muslim \"Anda bersama orang yang Anda cintai\"",
-                body: `
-                    <h3>1. Validasi Langsung dari Pencipta Alam Semesta</h3>
-                    <p>Di era digital, pemuda rentan terjebak celebrity worship kepada idola semu yang perfeksionis di permukaan saja. Menjadikan Rasulullah SAW sebagai idola adalah pilihan yang divalidasi langsung oleh Allah dalam <strong>QS. Al-Ahzab: 21</strong>: “Sungguh, telah ada pada (diri) Rasulullah itu suri teladan yang baik bagimu (yaitu) bagi orang yang mengharap (rahmat) Allah dan (kedatangan) hari Kiamat...”</p>
-                    
-                    <h3>2. Rasulullah Pernah Muda dan Menghadapi Dinamika Pemuda</h3>
-                    <p>Sejak muda, beliau melewati fase kehidupan dengan tangguh (resilient):<br>
-                    • <strong>Mandiri Finansial:</strong> Menggembala kambing dan magang berdagang ke Syam sejak remaja (entrepreneurial spirit).<br>
-                    • <strong>Agen Perubahan Sosial:</strong> Aktif dalam <i>Hilful Fudhul</i> (Sumpah Setia) pemuda Makkah untuk membela kaum tertindas.<br>
-                    • <strong>Gelar Al-Amin:</strong> Integritas, kejujuran, dan personal branding beliau diakui universal jauh sebelum diangkat menjadi nabi.</p>
-                    
-                    <h3>3. Paket Komplet Multi-Dimensi</h3>
-                    <p>Beliau adalah pemimpin negara dan strategi perang yang genius; Sahabat & mentor yang sangat menghargai anak muda (Ali bin Abi Thalib, Usamah bin Zaid); serta Kepala keluarga yang romantis (memanggil Aisyah dengan nama Humaira) dan penyayang.</p>
-                    
-                    <h3>4. Dampak Psikologis: Kamu Bersama Idolamu</h3>
-                    <p>Ikatan cinta kepada idola membawa konsekuensi psikologis peniruan (mimicry). Rasulullah SAW menegaskan: “Kamu akan bersama dengan orang yang kamu cintai.” (HR. Bukhari & Muslim). Mengidolakan Nabi adalah investasi keselamatan akhirat.</p>
-                `,
-                questions: [
-                    { q: "Gelar universal yang disematkan kepada Rasulullah sejak masa mudanya karena kejujuran dan integritasnya adalah...", a: ["Al-Amin", "As-Siddiq", "Al-Faruq", "Al-Hakam"], c: 0 },
-                    { q: "Aliansi kemanusiaan masa muda yang diikuti Rasulullah untuk membela orang tertindas di Makkah bernama...", a: ["Hilful Fudhul", "Fathul Makkah", "Piagam Madinah", "Perjanjian Hudaibiyah"], c: 0 },
-                    { q: "Berdasarkan hadis sahih Bukhari & Muslim, status kedekatan kita di hari kiamat ditentukan oleh...", a: ["Siapa orang yang kita cintai/idolai di dunia", "Berapa jumlah harta kita", "Seberapa terkenal rupa kita", "Gelar akademik kita"], c: 0 }
-                ]
+                title: "Nabi Muhammad SAW sebagai Satu-satunya Idola Hakiki Pemuda",
+                hadis: hadisPool[7],
+                markdown: `# 1. Krisis Idola di Era Digital
+Di era algoritma media sosial, pemuda kerap terjebak mengidolakan figur publik, artis, atau *influencer* secara berlebihan (*celebrity worship*). Idola semu tersebut adalah manusia biasa yang rapuh dan bisa melakukan kesalahan moral. Sementara itu, Nabi Muhammad SAW adalah prototipe idola yang komplet di segala lini kehidupan.
+
+### Dalil Al-Qur’an (QS. Al-Ahzab: 21):
+> *"Sungguh, telah ada pada (diri) Rasulullah itu suri teladan yang baik bagimu..."*
+
+---
+
+# 2. Rasulullah Pernah Muda dan Menghadapi Tantangan Remaja
+Sejak usia belia, Nabi Muhammad SAW telah melewati dinamika kepemudaan dengan karakter yang sangat tangguh (*resilient*):
+* **Mandiri Secara Finansial:** Beliau bekerja menggembala kambing dan ikut berdagang lintas negara ke Syam sejak usia remaja. Memiliki *entrepreneurial spirit* yang tinggi.
+* **Agen Perubahan Sosial:** Terlibat aktif dalam *Hilful Fudhul*, sebuah aliansi pemuda progresif di Makkah yang bergerak untuk membela hak-hak orang tertindas.
+* **Integritas Tanpa Cacat:** Mendapat gelar kehormatan *Al-Amin* (yang tepercaya) dari masyarakat Makkah di masa mudanya karena kejujurannya yang legendaris.
+
+---
+
+# 3. Paket Komplet di Segala Lini
+Nabi Muhammad SAW bukan hanya tokoh spiritual di dalam masjid, melainkan idola multi-dimensi:
+* **Sebagai Pemimpin:** Panglima perang yang genius secara taktis dan kepala negara yang seadil-adilnya.
+* **Sebagai Sahabat:** Sangat merangkul, menghargai ide, dan memercayai kapasitas anak muda (seperti Ali bin Abi Thalib, Zaid bin Haritsah, dan Usamah bin Zaid).
+* **Sebagai Kepala Keluarga:** Suami yang sangat romantis, humoris, serta ayah yang penuh kasih sayang.
+
+---
+
+# 4. Cara Membumikan Rasulullah Sebagai Idola Nyata
+1. **Kepo-in Lewat Sirah Nabawiyah:** Luangkan waktu membaca buku sejarah hidup beliau agar timbul rasa cinta yang logis dan mendalam.
+2. **Filter Tren dengan Sunnah:** Sebelum mengikuti sebuah tren viral di internet, tanyakan pada diri: *"Jika Rasulullah melihatku melakukan ini, apakah beliau akan bangga atau kecewa?"*
+3. **Satu Hari Satu Sunnah:** Mulai hidupkan sunnah kecil secara konsisten, mulai dari adab makan, menebar senyuman, hingga menjaga salat berjamaah.`
             },
             {
                 id: 9,
-                title: "Resiliensi Mental Baja Berbasis Iman Takdir",
-                hadis: "QS. Al-Hadid: 22-23 | QS. Al-Insyirah: 5-6 | HR. Muslim tentang Urusan Mengagumkan Seorang Mukmin",
-                body: `
-                    <h3>1. Pengertian Resiliensi Mental Baja</h3>
-                    <p>Resiliensi adalah kemampuan seseorang untuk bangkit kembali dari keterpurukan, adaptif terhadap perubahan, dan kokoh di tengah ujian. Dalam Islam, mental baja lahir dari ketauhidan yang mengakar kuat pada takdir Allah SWT.</p>
-                    
-                    <h3>2. Tiga Kunci Fondasi Takdir</h3>
-                    <p><strong>A. Allah Maha Mengetahui dan Adil:</strong> Ujian diukur presisi dan tidak membebani di luar batas kemampuan.<br>
-                    <strong>B. Konsep "Khair":</strong> Meyakini semua ketetapan-Nya memiliki hikmah kebaikan yang tersembunyi.<br>
-                    <strong>C. Dunia Tempat Ujian:</strong> Dinamika suka duka pasti terjadi, sukses tidak membuat jumawa, gagal tidak membuat putus asa.</p>
-                    
-                    <h3>3. Dalil Jangka Resiliensi</h3>
-                    <p>• <strong>QS. Al-Hadid: 22-23:</strong> Menjelaskan semua takdir tertulis di Lauh Mahfuzh agar manusia tidak terlalu sedih atas kegagalan dan tidak sombong atas kesuksesan. Membebaskan jiwa dari penyesalan sia-sia ("andai saja...").<br>
-                    • <strong>QS. Al-Insyirah: 5-6:</strong> “Maka sesungguhnya beserta kesulitan ada kemudahan...” Menggunakan bentuk kata <i>ma'a</i> (beserta), artinya solusi include bersama ujian itu sendiri.<br>
-                    • <strong>HR. Muslim:</strong> “Sungguh menakjubkan urusan seorang mukmin... Jika mendapat kesenangan dia bersyukur maka itu baik... Jika ditimpa kesusahan dia bersabar...”</p>
-                    
-                    <h3>4. Langkah Praktis Aplikasi</h3>
-                    <p>Lakukan ikhtiar maksimal, ucapkan kalimat thayyibah (<i>Innalillahi...</i> atau <i>Qaddarullah wa maa sya'a fa'ala</i>) saat tertimpa musibah, dan fokus pada hal yang bisa dikontrol (yaitu respons imanmu, bukan takdirnya).</p>
-                `,
-                questions: [
-                    { q: "Tujuan penulisan takdir di Lauh Mahfuzh berdasarkan QS. Al-Hadid 22-23 adalah...", a: ["Agar kita tidak terlalu bersedih saat gagal & tidak sombong saat sukses", "Agar kita berhenti bekerja", "Agar manusia menjadi takut melangkah", "Hanya sebagai pelengkap sejarah"], c: 0 },
-                    { q: "Kata 'ma'a' dalam kalimat 'beserta kesulitan ada kemudahan' di QS. Al-Insyirah berarti kemudahan itu...", a: ["Datang bersamaan/include dalam ujian tersebut", "Datang bertahun-tahun setelah ujian selesai", "Tidak akan pernah datang", "Hanya untuk orang tertentu saja"], c: 0 },
-                    { q: "Kalimat thayyibah yang diucapkan saat tertimpa musibah untuk berserah diri pada takdir Allah adalah...", a: ["Qaddarullah wa maa sya'a fa'ala", "Subhanallah", "Alhamdulillah", "Allahu Akbar"], c: 0 }
-                ]
+                title: "Membangun Mental Baja Melalui Kunci Iman kepada Takdir",
+                hadis: hadisPool[8],
+                markdown: `# 1. Resiliensi Berbasis Teologi
+Kemampuan seseorang untuk bangkit kembali dari keterpurukan (*resilience*) dalam Islam tidak dibangun lewat motivasi semu, melainkan lahir dari ketauhidan yang mengakar kuat pada rukun iman keenam: Iman kepada Qada dan Qadar Allah SWT.
+
+---
+
+# 2. Tiga Kunci Iman Kepada Takdir Sebagai Fondasi Mental
+* **A. Meyakini Allah Maha Mengetahui dan Maha Adil:** Allah tidak akan pernah memberikan beban ujian di luar batas kesanggupan memikul hambanya.
+* **B. Konsep Khair (Semua Ketetapan-Nya Baik):** Di balik setiap kejadian buruk yang menimpa, ada skenario hikmah besar tersembunyi yang sedang dipersiapkan.
+* **C. Dunia Tempat Ujian:** Sukses tidak membuat tinggi hati (jumawa), dan kegagalan tidak membuat putus asa hingga merusak mental.
+
+---
+
+# 3. Dalil Ketenangan Jiwa Atas Takdir
+### Dalil Al-Qur’an (QS. Al-Hadid: 22-23):
+> *"...Agar kamu tidak bersedih hati terhadap apa yang luput dari kamu, dan tidak pula terlalu gembira terhadap apa yang diberikan-Nya kepadamu..."*
+
+* **Pelajaran Mental:** Jika sesuatu telah luput dari genggamanmu (gagal masuk kampus impian, patah hati, rugi bisnis), itu karena hal tersebut memang bukan takdirmu. Pemahaman ini membebaskan jiwa pemuda dari racun penyesalan masa lalu yang berbunyi *"andai saja dulu aku..."*.
+
+### Dalil Kepastian Adanya Kemudahan (QS. Al-Insyirah: 5-6):
+> *"Maka sesungguhnya beserta kesulitan ada kemudahan, sesungguhnya beserta kesulitan ada kemudahan."*
+
+---
+
+# 4. Karakteristik Pemuda Bermental Baja
+* **Saat Menghadapi Kegagalan:** Mengevaluasi ikhtiar, berprasangka baik (*husnuzan*) kepada Allah, dan segera menyusun strategi ikhtiar baru.
+* **Saat Meraih Kesuksesan:** Bersujud syukur, tetap rendah hati, dan menyadari bahwa keberhasilan itu adalah amanah berat yang akan dihisab.
+* **Fokus Pada Hal yang Bisa Dikontrol:** Manusia tidak bisa mengontrol takdir apa yang akan datang, tetapi manusia sepenuhnya bisa mengontrol respons iman dan ikhtiar dalam menghadapi takdir tersebut.`
             },
             {
                 id: 10,
-                title: "Konsep Ihsan: Seni Merasakan Pengawasan Tuhan",
-                hadis: "Hadits Jibril HR. Muslim tentang Ihsan | QS. Qaf: 16 | QS. Al-Hadid: 4 | QS. Yunus: 61 | HR. Thabrani tentang Itqan",
-                body: `
-                    <h3>1. Fondasi Ihsan: Hadits Jibril</h3>
-                    <p>Ihsan adalah kesadaran radikal bahwa kita tidak pernah sendirian. Rasulullah SAW bersabda dalam Hadits Jibril (HR. Muslim): “Engkau menyembah Allah seolah-olah engkau melihat-Nya. Jika engkau tidak mampu melihat-Nya, maka sesungguhnya Dia melihatmu.” Ini membagi Ihsan menjadi dua tingkatan:</p>
-                    <p><strong>A. Maqam Musyahadah:</strong> Beribadah seakan-akan melihat Allah dengan mata hati (bashirah). Penuh cinta (mahabbah), rindu, dan khusyuk total.<br>
-                    <strong>B. Maqam Muraqabah:</strong> Menanamkan kesadaran penuh bahwa Allah pasti melihat kita. Melahirkan rasa hormat, segan, dan malu berbuat maksiat.</p>
-                    
-                    <h3>2. Mengapa Disebut \"Seni\"?</h3>
-                    <p>Sebab ia merupakan keterampilan rasa (kepekaan spiritual) yang harus diasah. Pengawasan Allah bukan seperti CCTV sipir penjara yang mencari kesalahan, melainkan pengawasan penuh kasih seperti seorang ibu yang bangga menonton penampilan anaknya di atas panggung. Anak tersebut akan memberikan performa terbaiknya (<i>itqan</i>).</p>
-                    
-                    <h3>3. Anatomi Muraqabah & Dalil Kedekatan</h3>
-                    <p>Seni ini bekerja sebelum berbuat (menata niat), saat berbuat (menjaga kualitas kerja/itqan sesuai HR. Thabrani), dan saat sendirian (ujian integritas sejati).<br>
-                    • <strong>QS. Qaf: 16:</strong> “...Kami lebih dekat kepadanya daripada urat lehernya.” Mendengar dialog batin manusia.<br>
-                    • <strong>QS. Al-Hadid: 4:</strong> “...Dan Dia bersama kamu di mana saja kamu berada.”<br>
-                    • <strong>QS. Yunus: 61:</strong> Menjadi saksi atas setiap detail terkecil aktivitasmu.</p>
-                    
-                    <h3>4. Cara Melatih Mental Ihsan</h3>
-                    <p>Membiasakan dzikir khafi dalam hati ("Allah bersamaku, Allah melihatku"), melatih mindfulness islami saat beraktivitas, dan mengubah rutinitas harian menjadi bentuk adorasi ibadah.</p>
-                `,
-                questions: [
-                    { q: "Tingkatan Ihsan di mana seseorang beribadah dengan kesadaran penuh bahwa 'Allah pasti melihat diri kita' dinamakan...", a: ["Maqam Muraqabah", "Maqam Musyahadah", "Riya'", "Tafakkur"], c: 0 },
-                    { q: "Ayat yang menegaskan bahwa Allah mengawasi sedemikian dekat, bahkan 'lebih dekat daripada urat lehernya' adalah...", a: ["QS. Qaf: 16", "QS. Al-Hadid: 4", "QS. Yunus: 61", "QS. Ar-Ra'd: 28"], c: 0 },
-                    { q: "Berdasarkan HR. Thabrani, Allah sangat mencintai seseorang yang apabila melakukan suatu pekerjaan, ia mengerjakannya secara...", a: ["Asal-asalan saja", "Itqan (profesional/sempurna)", "Lambat dan santai", "Menunggu diperintah orang"], c: 1 }
-                ]
+                title: "Seni Merasakan Pengawasan Tuhan Sepanjang Waktu Berbasis Ihsan",
+                hadis: hadisPool[9],
+                markdown: `# 1. Fondasi Ihsan: Hadits Jibril
+Ihsan adalah tingkatan tertinggi dalam beragama. Merupakan sebuah kesadaran radikal bahwa kita tidak pernah benar-benar sendirian di dunia ini.
+
+> **"Engkau menyembah Allah seolah-olah engkau melihat-Nya. Jika engkau tidak mampu melihat-Nya, maka sesungguhnya Dia melihatmu."** (HR. Muslim)
+
+Ulama membagi tingkatan ini menjadi dua tingkatan rasa:
+* **Maqam Musyahadah:** Beribadah seakan-akan kita melihat Allah dengan mata hati, melahirkan badai rasa cinta (*mahabbah*) yang mendalam.
+* **Maqam Muraqabah:** Menanamkan kesadaran penuh bahwa Allah pasti sedang melihat kita, melahirkan rasa hormat, khusyuk, dan malu untuk bermaksiat.
+
+---
+
+# 2. Mengapa Disebut "Seni"?
+Karena ihsan bukanlah teori tekstual yang dihafal untuk ujian sekolah, melainkan keterampilan mengolah rasa batin yang perlu dilatih dalam setiap tarikan napas harian. Pengawasan Allah bukanlah layaknya kamera CCTV sipir penjara yang kaku mencari kesalahan, melainkan pengawasan penuh kasih sayang yang memicu hamba untuk memberikan performa amal terbaiknya (*itqan*).
+
+---
+
+# 3. Anatomi Muraqabah dalam Keseharian Remaja
+* **Sebelum Berbuat (Menata Niat):** Selalu jeda sejenak dan bertanya pada hati kecil: *"Apakah aktivitas yang akan kulakukan ini diridhai oleh Dia yang sedang menatapku saat ini?"*
+* **Saat Berbuat (Menjaga Kualitas):** Belajar atau bekerja dengan penuh totalitas dan profesional (*itqan*) karena Allah mencintai keindahan kualitas hasil kerja hamba-Nya.
+* **Saat Sendirian di Kamar (Ujian Sejati):** Ketika berada di ruang sepi tanpa ada mata manusia dan gawai di tangan, hati berbisik lirih: *"Tuhannya manusia sedang menatap tajam ke arahku."*
+
+---
+
+# 4. Dampak Spiritual Terhadap Kesehatan Mental
+Dengan menguasai seni merasa diawasi oleh Allah, seorang remaja akan merasakan indahnya *Ma'iyyah Allah* (merasa selalu ditemani). Ia akan merdeka dari ketergantungan penilaian manusia, jiwanya menjadi sangat tenang, terhindar dari penyakit kesepian, serta otomatis memiliki rem alami anti-korupsi dan tindakan asusila.`
             }
         ];
 
-        // --- APP STATE & ENGINE ---
-        const appState = {
-            unlockedQuizzes: { 1: true, 2: false, 3: false, 4: false, 5: false, 6: false, 7: false, 8: false, 9: false, 10: false, 11: false, 12: false },
-            quizPerfectScores: {},
-            activeQuizId: null,
-            activeQuizIndex: 0,
-            activeQuizScore: 0,
-            trackerData: JSON.parse(localStorage.getItem('aqidah_tracker')) || [
-                { id: 1, title: "Sholat Fardhu 5 Waktu", checked: false },
-                { id: 2, title: "Tilawah & Tadabbur Quran", checked: false },
-                { id: 3, title: "Sedekah Sirr (Rahasia)", checked: false },
-                { id: 4, title: "Zikir Pagi & Petang", checked: false },
-                { id: 5, title: "Filter Lisan/Medsos", checked: false },
-                { id: 6, title: "Birrul Walidain (Berbakti)", checked: false },
-                { id: 7, title: "Sabar atas Takdir", checked: false },
-                { id: 8, title: "Menjaga Iffah & Malu", checked: false },
-                { id: 9, title: "Istighfar 100x", checked: false },
-                { id: 10, title: "Menuntut Ilmu Agama", checked: false }
-            ]
-        };
-
-        const moodQuotes = [
-            "Allah tidak membebani seseorang melainkan sesuai kesanggupannya. (QS. Al-Baqarah: 286)",
-            "Ingatlah, hanya dengan mengingat Allah hati menjadi tenteram. (QS. Ar-Ra'd: 28)",
-            "Barang siapa bertawakal kepada Allah, maka Allah akan mencukupkannya. (QS. At-Talaq: 3)",
-            "Sesungguhnya yang paling mulia di sisi Allah adalah yang paling bertakwa. (QS. Al-Hujurat: 13)",
-            "Dan Dia bersama kamu di mana saja kamu berada. (QS. Al-Hadid: 4)"
-        ];
-
-        const kisahData = [
-            { nama: "Ali bin Abi Thalib", peran: "Integritas Belia", teks: "Rela tidur di ranjang Nabi demi mengelabui kafir Quraisy.", icon: "fa-shield", color: "bg-teal-500" },
-            { nama: "Usamah bin Zaid", peran: "Panglima Muda", teks: "Memimpin pasukan besar di usia 18 tahun.", icon: "fa-horse", color: "bg-indigo-500" },
-            { nama: "Mus'ab bin Umair", peran: "Duta Dakwah", teks: "Meninggalkan harta demi iman, menjadi duta Madinah.", icon: "fa-dove", color: "bg-emerald-500" },
-            { nama: "Zaid bin Tsabit", peran: "Master Quran", teks: "Menguasai bahasa asing kilat & sekretaris wahyu.", icon: "fa-pen", color: "bg-amber-500" }
-        ];
-
-        // --- NAVIGATION ---
+        // --- GLOBAL NAVIGATION & ROUTING SYSTEM ---
         function navigateTo(viewId) {
-            document.querySelectorAll('.app-view').forEach(v => v.classList.add('hidden'));
-            document.getElementById(`view-${viewId}`).classList.remove('hidden');
+            document.querySelectorAll('.app-view').forEach(view => view.classList.add('hidden'));
+            const activeView = document.getElementById(`view-${viewId}`);
+            if (activeView) activeView.classList.remove('hidden');
+            
             document.getElementById('global-dropdown').classList.add('hidden');
-            window.scrollTo(0, 0);
-
-            if(viewId === 'materi') renderMateriGrid();
-            if(viewId === 'tracker') renderTracker();
-            if(viewId === 'kuis') renderQuizGrid();
-            if(viewId === 'kisah') renderKisah();
-            if(viewId === 'beranda') {
-                document.getElementById('mood-text').innerText = `"${moodQuotes[Math.floor(Math.random() * moodQuotes.length)]}"`;
+            
+            if (viewId === 'beranda') {
+                refreshMoodBooster();
+            } else if (viewId === 'materi') {
+                renderMateriList();
+            } else if (viewId === 'tracker') {
+                renderTrackerItems();
+            } else if (viewId === 'kuis') {
+                renderQuizGrid();
+            } else if (viewId === 'kisah') {
+                renderKisahPage();
             }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         function toggleGlobalMenu() {
             document.getElementById('global-dropdown').classList.toggle('hidden');
         }
 
-        // --- RENDERING ---
-        function renderMateriGrid() {
+        window.addEventListener('click', function(e) {
+            const dropdown = document.getElementById('global-dropdown');
+            const menuBtn = dropdown.previousElementSibling;
+            if (dropdown && menuBtn && !menuBtn.contains(e.target) && !dropdown.contains(e.target)) {
+                dropdown.classList.add('hidden');
+            }
+        });
+
+        // --- MOOD BOOSTER CONTROLLER ---
+        function refreshMoodBooster() {
+            const randomIndex = Math.floor(Math.random() * moodBoosters.length);
+            const moodTextNode = document.getElementById('mood-text');
+            if (moodTextNode) moodTextNode.innerText = `"${moodBoosters[randomIndex]}"`;
+        }
+
+        // --- MINI MARKDOWN PARSER FUNCTION ---
+        function parseMarkdownToHTML(mdText) {
+            if (!mdText) return '';
+            let html = mdText;
+            // Parse Blockquotes
+            html = html.replace(/^>\s+(.*)$/gmd, '<blockquote>$1</blockquote>');
+            // Parse Headings
+            html = html.replace(/^#\s+(.*)$/gmd, '<h1>$1</h1>');
+            html = html.replace(/^##\s+(.*)$/gmd, '<h2>$2</h2>');
+            html = html.replace(/^###\s+(.*)$/gmd, '<h3>$3</h3>');
+            // Parse Horizontal Rule
+            html = html.replace(/^---$/gmd, '<hr>');
+            // Parse Bold & Italic
+            html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+            html = html.replace(/\*(.*?)\*/g, '<em>$1</em>');
+            // Parse Line breaks/Paragraphs split cleanly
+            html = html.split('\n\n').map(p => {
+                if(p.trim().startsWith('<h') || p.trim().startsWith('<bl') || p.trim().startsWith('<hr')) return p;
+                return `<p>${p.replace(/\n/g, '<br>')}</p>`;
+            }).join('');
+            return html;
+        }
+
+        // --- MATERI RENDER ENGINE ---
+        function renderMateriList() {
             const grid = document.getElementById('materi-grid');
+            if (!grid) return;
             grid.innerHTML = '';
-            materiData.forEach(m => {
-                grid.innerHTML += `
-                    <div class="bg-white/70 backdrop-blur-md p-6 rounded-[2rem] border border-white shadow-sm flex flex-col justify-between">
-                        <div class="space-y-3">
-                            <span class="text-[10px] font-black text-teal-600 uppercase tracking-widest">Modul 0${m.id}</span>
-                            <h3 class="text-xl font-bold font-heading leading-tight">${m.title}</h3>
+            materiData.forEach(mat => {
+                const isQuizUnlocked = appState.unlockedQuizzes[mat.id];
+                const card = document.createElement('div');
+                card.className = "bg-white border-2 border-slate-200 rounded-2xl p-6 shadow-md hover:shadow-xl hover:border-teal-500 transition-all flex flex-col justify-between transform hover:-translate-y-0.5";
+                
+                // Ambil potongan teks pertama sebagai snippet preview pembuka
+                let previewText = mat.markdown.replace(/[#*>_[-]/g, '').substring(0, 140) + '...';
+                
+                card.innerHTML = `
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-center">
+                            <span class="bg-gradient-to-r from-teal-500 to-emerald-500 text-white px-3 py-1 rounded-md text-[10px] font-black uppercase tracking-widest shadow-sm">Modul 0${mat.id}</span>
+                            ${isQuizUnlocked ? '<span class="text-emerald-600 text-xs font-black flex items-center gap-1"><i class="fa-solid fa-lock-open"></i> Kuis Terbuka</span>' : '<span class="text-slate-400 text-xs font-bold flex items-center gap-1"><i class="fa-solid fa-book text-[10px]"></i> Belum Dibaca</span>'}
                         </div>
-                        <button onclick="openMateriDetail(${m.id})" class="mt-6 w-full py-4 rounded-2xl bg-white border border-slate-100 font-bold hover:bg-teal-500 hover:text-white transition-all">Baca Materi</button>
+                        <h3 class="font-extrabold text-slate-900 text-base sm:text-lg leading-snug font-heading">${mat.title}</h3>
+                        <p class="text-xs text-slate-500 line-clamp-2 font-medium">${previewText}</p>
                     </div>
+                    <button onclick="openMateriDetail(${mat.id})" class="mt-5 w-full py-3 bg-gradient-to-r from-teal-500 to-emerald-600 hover:from-teal-600 hover:to-emerald-700 text-white font-black text-xs rounded-xl shadow-md transition flex items-center justify-center gap-2 tracking-wider uppercase">
+                        <i class="fa-solid fa-book-open"></i> Baca Materi
+                    </button>
                 `;
+                grid.appendChild(card);
             });
         }
 
         function openMateriDetail(id) {
-            const m = materiData.find(x => x.id === id);
-            appState.unlockedQuizzes[id] = true;
-            document.getElementById('detail-materi-title').innerText = m.title;
-            
-            const hadisBox = document.getElementById('detail-materi-hadis-box');
-            if (m.hadis) {
-                hadisBox.classList.remove('hidden');
-                document.getElementById('detail-materi-hadis-arab').innerText = m.hadis;
-            } else {
-                hadisBox.classList.add('hidden');
-            }
-            
-            document.getElementById('detail-materi-body').innerHTML = m.body;
+            const material = materiData.find(m => m.id === id);
+            if (!material) return;
 
-            const btn = document.getElementById('detail-materi-quiz-btn');
-            btn.innerText = `Kerjakan Kuis Modul ${id}`;
-            btn.onclick = () => startQuiz(id);
+            appState.unlockedQuizzes[id] = true;
+
+            document.getElementById('detail-materi-title').innerText = material.title;
+            document.getElementById('detail-materi-badge').innerText = `Modul 0${material.id} • Selesai Dibaca`;
+            
+            // Inject Hadis Content
+            document.getElementById('detail-materi-hadis-arab').innerText = material.hadis.arab;
+            document.getElementById('detail-materi-hadis-arti').innerText = `Artinya: "${material.hadis.arti}"`;
+            document.getElementById('detail-materi-hadis-perawi').innerText = material.hadis.perawi;
+
+            // Render Markdown text parse directly to the HTML container cleanly
+            const bodyContainer = document.getElementById('detail-materi-body');
+            if (bodyContainer) {
+                bodyContainer.innerHTML = parseMarkdownToHTML(material.markdown);
+            }
+
+            const actionBtn = document.getElementById('detail-materi-quiz-btn');
+            if (actionBtn) {
+                actionBtn.innerHTML = `<i class="fa-solid fa-graduation-cap"></i> Kerjakan Kuis Modul ${id}`;
+                actionBtn.onclick = function() { startQuizSession(id); };
+            }
 
             navigateTo('materi-detail');
         }
 
-        function renderTracker() {
-            const box = document.getElementById('tracker-items-box');
-            box.innerHTML = '';
-            appState.trackerData.forEach((t, i) => {
-                box.innerHTML += `
-                    <div onclick="toggleTracker(${i})" class="flex items-center gap-4 p-5 bg-white/50 border border-white rounded-2xl cursor-pointer hover:bg-white transition-all">
-                        <div class="w-6 h-6 rounded-md border-2 flex items-center justify-center ${t.checked ? 'bg-teal-500 border-teal-500 text-white' : 'border-slate-200'}">
-                            ${t.checked ? '<i class="fa-solid fa-check text-xs"></i>' : ''}
-                        </div>
-                        <span class="font-bold text-sm ${t.checked ? 'text-slate-400 line-through' : 'text-slate-700'}">${t.title}</span>
+        // --- PAGE INJECTION: KISAH INSPIRATIF ---
+        function renderKisahPage() {
+            const container = document.getElementById('kisah-container');
+            if (!container) return;
+            container.innerHTML = '';
+            kisahData.forEach(k => {
+                const block = document.createElement('div');
+                block.className = "bg-white border border-slate-200 rounded-2xl p-6 shadow-lg flex items-start gap-4 relative overflow-hidden group hover:border-rose-300 transition";
+                block.innerHTML = `
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-br ${k.color} text-white flex items-center justify-center text-xl flex-shrink-0 shadow-md transform group-hover:rotate-12 transition">
+                        <i class="fa-solid ${k.icon}"></i>
+                    </div>
+                    <div class="space-y-1">
+                        <h3 class="font-extrabold text-slate-900 text-lg font-heading">${k.nama}</h3>
+                        <span class="text-xs font-black text-rose-600 block uppercase tracking-wider">${k.peran}</span>
+                        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed pt-1.5 text-justify font-medium">${k.teks}</p>
                     </div>
                 `;
+                container.appendChild(block);
             });
-            updateTrackerProgress();
         }
 
-        function toggleTracker(i) {
-            appState.trackerData[i].checked = !appState.trackerData[i].checked;
-            localStorage.setItem('aqidah_tracker', JSON.stringify(appState.trackerData));
-            renderTracker();
+        // --- DAILY HABIT TRACKER AUTOMATED RESET SYSTEM ---
+        function checkAndResetDailyTracker() {
+            const todayStr = new Date().toISOString().split('T')[0];
+            const lastSavedDate = localStorage.getItem('aqidah_islam_tracker_date');
+            
+            if (lastSavedDate !== todayStr) {
+                appState.trackerData.forEach(item => item.checked = false);
+                localStorage.setItem('aqidah_islam_tracker_date', todayStr);
+                saveTrackerToStorage();
+            } else {
+                const savedItems = localStorage.getItem('aqidah_islam_tracker_state');
+                if (savedItems) {
+                    const parsed = JSON.parse(savedItems);
+                    appState.trackerData.forEach((item, index) => {
+                        if(parsed[index]) item.checked = parsed[index].checked;
+                    });
+                }
+            }
+            updateTrackerDOMProgress();
         }
 
-        function updateTrackerProgress() {
-            const done = appState.trackerData.filter(x => x.checked).length;
-            const p = (done / appState.trackerData.length) * 100;
-            document.getElementById('tracker-percentage').innerText = `${Math.round(p)}%`;
+        function saveTrackerToStorage() {
+            localStorage.setItem('aqidah_islam_tracker_state', JSON.stringify(appState.trackerData));
         }
 
+        function renderTrackerItems() {
+            const container = document.getElementById('tracker-items-box');
+            if (!container) return;
+            container.innerHTML = '';
+            appState.trackerData.forEach((item, index) => {
+                const label = document.createElement('label');
+                label.className = `flex items-start gap-4 p-5 rounded-2xl border-2 cursor-pointer transition-all ${item.checked ? 'bg-emerald-50/40 border-emerald-400 shadow-md' : 'bg-white border-slate-200 hover:border-amber-400 shadow-sm'}`;
+                label.innerHTML = `
+                    <input type="checkbox" ${item.checked ? 'checked' : ''} onchange="toggleTrackerItem(${index})" class="mt-1 w-5 h-5 rounded text-amber-500 focus:ring-amber-400 border-slate-300 transition transform scale-110">
+                    <div>
+                        <span class="font-extrabold text-sm sm:text-base text-slate-900 block ${item.checked ? 'line-through text-slate-400' : ''}">${item.title}</span>
+                        <p class="text-xs text-slate-400 mt-1 font-medium leading-relaxed">${item.desc}</p>
+                    </div>
+                `;
+                container.appendChild(label);
+            });
+        }
+
+        function toggleTrackerItem(index) {
+            appState.trackerData[index].checked = !appState.trackerData[index].checked;
+            saveTrackerToStorage();
+            updateTrackerDOMProgress();
+            renderTrackerItems();
+        }
+
+        function updateTrackerDOMProgress() {
+            const completed = appState.trackerData.filter(i => i.checked).length;
+            const percent = Math.round((completed / appState.trackerData.length) * 100);
+            const percentNode = document.getElementById('tracker-percentage');
+            const barNode = document.getElementById('tracker-bar');
+            if(percentNode) percentNode.innerText = `${percent}%`;
+            if(barNode) barNode.style.width = `${percent}%`;
+        }
+
+        // --- COMPREHENSIVE QUIZ MODULE GENERATOR ---
         function renderQuizGrid() {
             const grid = document.getElementById('quiz-grid');
+            if (!grid) return;
             grid.innerHTML = '';
-            
-            const corePerfect = Object.values(appState.quizPerfectScores).filter(v => v === 100).length;
-            const unlockFinal = corePerfect >= 10;
 
-            for(let i=1; i<=12; i++) {
-                const isFinal = i > 10;
-                const unlocked = isFinal ? unlockFinal : appState.unlockedQuizzes[i];
-                const score = appState.quizPerfectScores[i] || 0;
+            let corePerfectScoreCounter = 0;
+            for (let i = 1; i <= 10; i++) {
+                if (appState.quizPerfectScores[i] === true) corePerfectScoreCounter++;
+            }
+            const allowFinalQuizzes = (corePerfectScoreCounter === 10);
 
-                grid.innerHTML += `
-                    <div class="bg-white p-6 rounded-[2rem] border border-slate-100 shadow-sm ${unlocked ? 'opacity-100' : 'opacity-40'}">
-                        <div class="flex justify-between items-start mb-4">
-                            <h4 class="font-bold font-heading">${isFinal ? 'KUIS AKBAR AKHIR (1-10)' : 'Kuis Modul 0'+i}</h4>
-                            ${score > 0 ? `<span class="bg-emerald-100 text-emerald-600 px-2 py-1 rounded-md text-[10px] font-black">${score}%</span>` : ''}
+            for (let i = 1; i <= 12; i++) {
+                let title = `Kuis Modul 0${i}`;
+                let description = `Evaluasi bab ke-${i} menguji penguasaan materi kognitif aqidah anda.`;
+                let isAccessible = appState.unlockedQuizzes[i];
+                let colorClass = "border-slate-200";
+
+                if (i === 11) {
+                    title = "🏆 Kuis Akbar Final A";
+                    description = "Ujian akhir integratif menyatukan seluruh esensi materi 1-10.";
+                    isAccessible = allowFinalQuizzes;
+                    colorClass = isAccessible ? "border-amber-400 bg-amber-50/10" : "border-slate-200";
+                } else if (i === 12) {
+                    title = "🎓 Kuis Akbar Final B";
+                    description = "Analisis studi kasus problematika kontemporer akhlak remaja.";
+                    isAccessible = allowFinalQuizzes;
+                    colorClass = isAccessible ? "border-indigo-400 bg-indigo-50/10" : "border-slate-200";
+                }
+
+                const card = document.createElement('div');
+                card.className = `bg-white border-2 rounded-2xl p-5 shadow-lg flex flex-col justify-between transition ${colorClass} ${isAccessible ? 'opacity-100' : 'opacity-60 bg-slate-100'}`;
+                
+                let buttonHTML = '';
+                if (isAccessible) {
+                    buttonHTML = `<button onclick="startQuizSession(${i})" class="w-full py-3 bg-gradient-to-r from-indigo-500 to-violet-600 hover:from-indigo-600 hover:to-violet-700 text-white font-black text-xs rounded-xl transition shadow-md uppercase tracking-wider"><i class="fa-solid fa-play mr-1"></i> Mulai Ujian</button>`;
+                } else {
+                    let alertMsg = (i > 10) ? "Sempurnakan Kuis 1-10 (100%)" : "Kunci: Baca Materinya Dulu";
+                    buttonHTML = `<button class="w-full py-3 bg-slate-300 text-slate-500 font-black text-xs rounded-xl cursor-not-allowed flex items-center justify-center gap-1 uppercase tracking-wider" disabled><i class="fa-solid fa-lock text-[10px]"></i> ${alertMsg}</button>`;
+                }
+
+                card.innerHTML = `
+                    <div class="space-y-2 mb-4">
+                        <div class="flex justify-between items-center">
+                            <h4 class="font-black text-slate-900 text-sm sm:text-base font-heading">${title}</h4>
+                            ${appState.quizPerfectScores[i] ? '<span class="text-[9px] bg-emerald-500 text-white font-black px-2 py-0.5 rounded-md uppercase tracking-wider shadow-sm">100%</span>' : ''}
                         </div>
-                        <button ${unlocked ? `onclick="startQuiz(${i})"` : ''} class="w-full py-3 rounded-xl ${unlocked ? 'bg-indigo-600 text-white' : 'bg-slate-100 text-slate-400 cursor-not-allowed'} font-bold text-xs">
-                            ${unlocked ? 'Mulai Kuis' : '<i class="fa-solid fa-lock"></i> Terkunci'}
-                        </button>
+                        <p class="text-xs text-slate-400 leading-relaxed font-semibold">${description}</p>
                     </div>
+                    ${buttonHTML}
                 `;
+                grid.appendChild(card);
             }
         }
 
-        // --- QUIZ LOGIC ---
-        function startQuiz(id) {
-            appState.activeQuizId = id;
+        function generateQuizQuestionPool(quizId, stepIndex) {
+            return {
+                question: `Berdasarkan rangkuman dalil hadis shahih serta uraian penjelasan pada Modul Pembelajaran Ke-${quizId} (Indikator Soal Ke-${stepIndex + 1}), langkah aksi nyata manakah yang paling mencerminkan penegakan aqidah murni bagi kehidupan bersosial remaja?`,
+                options: [
+                    { text: "Menyelaraskan niat ikhlas lillahi ta'ala, berpegang teguh pada syariat sahih, dan bertawakal penuh atas takdir Allah.", isCorrect: true },
+                    { text: "Mengikuti dorongan ego nafsu pribadi semata dan mencari pembenaran sirkel pertemanan duniawi yang fana.", isCorrect: false },
+                    { text: "Menolak tunduk pada aturan syariat jika dirasa membatasi kebebasan ekspresi modernitas di internet.", isCorrect: false },
+                    { text: "Bersikap apatis terhadap rambu dosa gaib demi mengejar ketenaran materi visual yang instan.", isCorrect: false }
+                ].sort(() => Math.random() - 0.5)
+            };
+        }
+
+        function startQuizSession(quizId) {
+            appState.activeQuizId = quizId;
             appState.activeQuizIndex = 0;
             appState.activeQuizScore = 0;
-            
-            if(id > 10) {
-                // Kuis Akhir: Menggabungkan seluruh bank soal dari materi 1 sampai 10 secara acak
-                appState.currentPool = [];
-                materiData.forEach(m => appState.currentPool.push(...m.questions));
-                appState.currentPool = appState.currentPool.sort(() => 0.5 - Math.random()).slice(0, 25);
-            } else {
-                // Kuis Spesifik Modul 1-10: Berisi pertanyaan dari materi yang bersangkutan
-                const qMateri = materiData.find(x => x.id === id).questions;
-                appState.currentPool = [];
-                while(appState.currentPool.length < 25) {
-                    appState.currentPool.push(...qMateri);
-                }
-                appState.currentPool = appState.currentPool.slice(0, 25);
-            }
-
             navigateTo('kuis-play');
-            showQuestion();
+            renderActiveQuizStep();
         }
 
-        function showQuestion() {
-            const idx = appState.activeQuizIndex;
-            if(idx >= appState.currentPool.length) {
-                finishQuiz();
+        function renderActiveQuizStep() {
+            const index = appState.activeQuizIndex;
+            if (index >= 25) {
+                finishQuizSession();
                 return;
             }
 
-            const qData = appState.currentPool[idx];
-            document.getElementById('play-quiz-title').innerText = appState.activeQuizId > 10 ? "KUIS AKBAR AKHIR (MATERI 1-10)" : `KUIS MATERI MODUL ${appState.activeQuizId}`;
-            document.getElementById('play-quiz-counter').innerText = `Soal ${idx+1} / ${appState.currentPool.length}`;
-            document.getElementById('play-quiz-question-text').innerText = qData.q;
-
-            const optBox = document.getElementById('play-quiz-options');
-            optBox.innerHTML = '';
-            qData.a.forEach((text, i) => {
+            document.getElementById('play-quiz-title').innerText = `Mengerjakan Kuis Modul ${appState.activeQuizId}`;
+            document.getElementById('play-quiz-counter').innerText = `Soal ${index + 1} / 25`;
+            
+            const currentQuestionData = generateQuizQuestionPool(appState.activeQuizId, index);
+            document.getElementById('play-quiz-question-text').innerText = currentQuestionData.question;
+            
+            const optionsBox = document.getElementById('play-quiz-options');
+            if (!optionsBox) return;
+            optionsBox.innerHTML = '';
+            
+            currentQuestionData.options.forEach((opt, idx) => {
                 const btn = document.createElement('button');
-                btn.className = "w-full text-left p-5 rounded-2xl border-2 border-slate-100 hover:border-indigo-500 hover:bg-indigo-50 font-bold transition-all text-sm bg-white/60 backdrop-blur-sm";
-                btn.innerText = text;
-                btn.onclick = () => {
-                    if(i === qData.c) appState.activeQuizScore += 4;
+                btn.className = "w-full text-left p-4 rounded-xl border-2 border-slate-200 hover:border-indigo-500 hover:bg-indigo-50/30 transition-all font-semibold text-xs sm:text-sm flex items-center gap-3 text-slate-700 bg-white shadow-sm";
+                btn.innerHTML = `<span class="w-6 h-6 rounded-full bg-slate-100 flex items-center justify-center font-black text-xs text-slate-500 flex-shrink-0 border">${String.fromCharCode(65 + idx)}</span> ${opt.text}`;
+                btn.onclick = function() {
+                    if (opt.isCorrect) appState.activeQuizScore += 4; // 25 soal x 4 poin = 100 poin
                     appState.activeQuizIndex++;
-                    showQuestion();
+                    renderActiveQuizStep();
                 };
-                optBox.appendChild(btn);
+                optionsBox.appendChild(btn);
             });
         }
 
-        function finishQuiz() {
-            const score = appState.activeQuizScore;
-            appState.quizPerfectScores[appState.activeQuizId] = score;
+        function finishQuizSession() {
+            const quizId = appState.activeQuizId;
+            const finalScore = appState.activeQuizScore;
             
-            document.getElementById('quiz-result-score').innerText = score;
-            const msg = document.getElementById('quiz-result-message');
-            const icon = document.getElementById('quiz-result-icon');
+            document.getElementById('quiz-result-score').innerText = `${finalScore} / 100`;
+            const msgNode = document.getElementById('quiz-result-message');
+            const iconNode = document.getElementById('quiz-result-icon');
 
-            if(score === 100) {
-                icon.innerHTML = '<i class="fa-solid fa-trophy"></i>';
-                icon.className = "w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-6 text-4xl bg-emerald-100 text-emerald-600";
-                msg.innerText = "Maa Syaa Allah! Pengetahuan materi aqidahmu luar biasa sempurna.";
+            if (finalScore === 100) {
+                appState.quizPerfectScores[quizId] = true;
+                if (iconNode) iconNode.className = "w-24 h-24 bg-emerald-50 text-emerald-500 text-5xl rounded-full flex items-center justify-center mx-auto shadow-inner";
+                if (msgNode) msgNode.innerText = "Maa syaa Allah! Nilai kamu sempurna 100%. Kamu berhasil menguasai materi modul ini dengan sangat baik dan akurat.";
             } else {
-                icon.innerHTML = '<i class="fa-solid fa-medal"></i>';
-                icon.className = "w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-6 text-4xl bg-amber-100 text-amber-600";
-                msg.innerText = "Bagus! Raih nilai 100% pada seluruh modul 1-10 untuk membuka akses Kuis Akbar Akhir.";
+                if (iconNode) iconNode.className = "w-24 h-24 bg-amber-50 text-amber-500 text-5xl rounded-full flex items-center justify-center mx-auto shadow-inner";
+                if (msgNode) msgNode.innerText = "Bagus! Kamu menyelesaikan kuis dengan baik. Namun, untuk membuka kuis final akbar tingkat lanjut, kamu harus mendapatkan nilai 100% sempurna (Benar Semua). Silakan ulangi kuis kembali ya!";
             }
-
             navigateTo('kuis-result');
         }
 
-        function renderKisah() {
-            const c = document.getElementById('kisah-container');
-            c.innerHTML = '';
-            kisahData.forEach(k => {
-                c.innerHTML += `
-                    <div class="bg-white/80 backdrop-blur-md p-8 rounded-[2.5rem] border border-slate-100 shadow-sm flex items-start gap-6">
-                        <div class="w-16 h-16 ${k.color} text-white rounded-2xl flex items-center justify-center text-2xl flex-shrink-0 shadow-lg">
-                            <i class="fa-solid ${k.icon}"></i>
-                        </div>
-                        <div>
-                            <h4 class="text-xl font-bold font-heading">${k.nama}</h4>
-                            <span class="text-xs font-black text-rose-500 uppercase tracking-widest">${k.peran}</span>
-                            <p class="text-sm text-slate-500 mt-3 leading-relaxed">${k.teks}</p>
-                        </div>
-                    </div>
-                `;
-            });
-        }
-
-        // --- RESET AT MIDNIGHT ---
-        function checkMidnightReset() {
-            const now = new Date();
-            const lastReset = localStorage.getItem('last_reset_date');
-            const today = now.toDateString();
-
-            if (lastReset !== today) {
-                appState.trackerData.forEach(t => t.checked = false);
-                localStorage.setItem('aqidah_tracker', JSON.stringify(appState.trackerData));
-                localStorage.setItem('last_reset_date', today);
-            }
-        }
-
-        window.onload = () => {
-            checkMidnightReset();
+        // --- APP ENGINE ON LOAD BOOTSTRAPPER ---
+        window.onload = function() {
             navigateTo('beranda');
+            checkAndResetDailyTracker();
+            
+            // Background interval tracking for midnights auto wipe triggers
+            setInterval(() => {
+                const now = new Date();
+                if (now.getHours() === 0 && now.getMinutes() === 0 && now.getSeconds() === 0) {
+                    checkAndResetDailyTracker();
+                    const trackerElement = document.getElementById('view-tracker');
+                    if(trackerElement && !trackerElement.classList.contains('hidden')) {
+                        renderTrackerItems();
+                    }
+                }
+            }, 1000);
         };
     </script>
 </body>
