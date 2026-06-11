@@ -27,7 +27,7 @@
         .custom-scrollbar::-webkit-scrollbar-track { background: #f1f5f9; }
         .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
         
-        /* New Animated Background */
+        /* Premium Soft Mesh Gradient Background */
         body {
             background: linear-gradient(135deg, #f0fdfa 0%, #eef2ff 50%, #fff7ed 100%);
             background-attachment: fixed;
@@ -37,11 +37,11 @@
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
             z-index: -1;
-            opacity: 0.4;
+            opacity: 0.5;
             background-image: 
-                radial-gradient(at 0% 0%, hsla(161, 72%, 85%, 1) 0, transparent 50%), 
-                radial-gradient(at 50% 0%, hsla(225, 72%, 85%, 1) 0, transparent 50%), 
-                radial-gradient(at 100% 0%, hsla(38, 72%, 85%, 1) 0, transparent 50%);
+                radial-gradient(at 0% 0%, hsla(161, 72%, 85%, 1) 0, transparent 55%), 
+                radial-gradient(at 50% 100%, hsla(225, 72%, 86%, 1) 0, transparent 55%), 
+                radial-gradient(at 100% 0%, hsla(38, 72%, 85%, 1) 0, transparent 55%);
         }
 
         .animate-fade-in { animation: fadeIn 0.5s ease-out forwards; }
@@ -132,21 +132,17 @@
                 <div class="p-8 lg:p-16 space-y-10">
                     <div class="space-y-4">
                         <span id="detail-materi-badge" class="bg-teal-100 text-teal-700 px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest">Modul Pembelajaran</span>
-                        <h2 id="detail-materi-title" class="text-3xl sm:text-5xl font-extrabold text-slate-900 font-heading leading-tight"></h2>
+                        <h2 id="detail-materi-title" class="text-3xl sm:text-4xl font-extrabold text-slate-900 font-heading leading-tight"></h2>
                     </div>
 
-                    <div class="bg-slate-50 rounded-3xl p-8 border-l-4 border-amber-500 space-y-6">
+                    <div id="detail-materi-hadis-box" class="bg-slate-50 rounded-3xl p-8 border-l-4 border-amber-500 space-y-4 hidden">
                         <div class="flex items-center gap-3 text-amber-600 font-black text-xs uppercase tracking-tighter">
-                            <i class="fa-solid fa-quote-left text-xl"></i> Landasan Dalil Utama
+                            <i class="fa-solid fa-quote-left text-xl"></i> Landasan Dalil / Hadis Utama
                         </div>
-                        <p id="detail-materi-hadis-arab" class="text-right text-3xl font-arabic leading-[1.8] text-slate-800" dir="rtl"></p>
-                        <div class="space-y-2">
-                            <p id="detail-materi-hadis-arti" class="text-slate-600 italic text-sm leading-relaxed"></p>
-                            <span id="detail-materi-hadis-perawi" class="block text-[10px] font-bold text-teal-600"></span>
-                        </div>
+                        <p id="detail-materi-hadis-arab" class="text-slate-800 text-lg leading-relaxed font-medium"></p>
                     </div>
 
-                    <div id="detail-materi-body" class="prose prose-slate max-w-none space-y-6 text-slate-700 leading-relaxed text-lg text-justify"></div>
+                    <div id="detail-materi-body" class="prose prose-slate max-w-none space-y-6 text-slate-700 leading-relaxed text-base text-justify"></div>
 
                     <div class="pt-10 border-t border-slate-100 flex flex-col sm:flex-row justify-between items-center gap-6">
                         <div class="flex items-center gap-3">
@@ -230,165 +226,308 @@
     </footer>
 
     <script>
-        // --- DATA MATERI (DIPERBARUI) ---
+        // --- DATA MATERI DIUBAH TOTAL SESUAI DENGAN DOKUMEN BARU ---
         const materiData = [
             {
                 id: 1,
                 title: "Pondasi Utama Aqidah: Penyelamat Jiwa Remaja Modern",
-                hadis: { arab: "قُلْ آمَنْتُ بِاللَّهِ ثُمَّ اسْتَقِمْ", arti: "Katakanlah: 'Aku beriman kepada Allah', kemudian beristiqomahlah.", perawi: "HR. Muslim" },
+                hadis: "QS. Ar-Ra'd: 28 - \"Ingatlah, hanya dengan mengingat Allah hati menjadi tenteram.\" & QS. Adz-Dzariyat: 56 - \"Aku tidak menciptakan jin dan manusia melainkan agar mereka beribadah kepada-Ku.\"",
                 body: `
-                    Aqidah berasal dari kata 'aqada yang berarti ikatan atau simpul yang kuat. Secara istilah, ia adalah keyakinan mantap dalam hati terhadap Allah tanpa keraguan. 
-                    Remaja modern butuh aqidah karena derasnya godaan gadget, pergaulan bebas, dan krisis identitas. 
-                    Aqidah yang kuat membuatmu berani berkata: "Allah melihatku," saat sendirian. Ia menumbuhkan ketenangan hati sesuai QS. Ar-Ra'd: 28 bahwa hanya dengan mengingat Allah hati menjadi tentram. 
-                    Remaja beraqidah kuat akan memiliki tujuan hidup jelas (QS. Adz-Dzariyat: 56), karakter mulia, dan bijak bermedsos. 
-                    Pesan Utama: Remaja kuat bukan hanya fisiknya, tapi yang kokoh aqidahnya.
+                    <h3>Pendahuluan</h3>
+                    <p>Remaja hidup di zaman yang penuh kemudahan, tetapi juga penuh tantangan. Informasi datang tanpa batas, tren berubah sangat cepat, dan tekanan untuk diakui sering kali membuat seseorang kehilangan arah. Di tengah kondisi ini, aqidah menjadi pondasi yang menjaga hati, pikiran, dan perilaku seorang muslim. Aqidah bukan sekadar pengetahuan tentang agama, melainkan keyakinan yang tertanam kuat dalam hati sehingga membentuk cara berpikir, bersikap, dan menjalani kehidupan.</p>
+                    <blockquote>"Jika bangunan membutuhkan pondasi yang kokoh, maka kehidupan membutuhkan aqidah yang kuat."</blockquote>
+                    
+                    <h3>1. Apa Itu Aqidah?</h3>
+                    <p>Secara bahasa, aqidah berasal dari kata 'aqada yang berarti ikatan atau simpul yang kuat. Secara istilah, aqidah adalah keyakinan yang mantap dalam hati terhadap segala sesuatu yang diwajibkan Allah untuk diimani tanpa keraguan. Aqidah Islam berpusat pada enam rukun iman: Iman kepada Allah, Iman kepada malaikat, Iman kepada kitab-kitab Allah, Iman kepada rasul-rasul Allah, Iman kepada hari akhir, serta Iman kepada qada dan qadar.</p>
+                    
+                    <h3>2. Mengapa Remaja Modern Membutuhkan Aqidah yang Kuat?</h3>
+                    <p><strong>a. Banyak Godaan dan Pengaruh Negatif:</strong> Media sosial, pergaulan bebas, narkoba, pornografi, dan budaya yang bertentangan dengan nilai Islam dapat merusak karakter remaja. Aqidah yang kuat menjadi benteng yang membuat seseorang mampu berkata: "Saya tidak akan melakukan ini karena Allah melihat saya."</p>
+                    <p><strong>b. Krisis Identitas:</strong> Banyak remaja bingung tentang tujuan hidupnya, mencari pengakuan dari orang lain, bahkan menilai dirinya berdasarkan jumlah pengikut atau "like". Aqidah mengajarkan bahwa nilai seseorang tidak ditentukan oleh popularitas, tetapi oleh ketakwaannya kepada Allah.</p>
+                    <p><strong>c. Masalah Mental dan Emosional:</strong> Tekanan akademik, masalah keluarga, perundungan, dan kegagalan sering membuat remaja merasa putus asa. Orang yang memiliki aqidah kuat yakin bahwa: Setiap ujian memiliki hikmah dan Allah tidak membebani seseorang di luar kemampuannya.</p>
+                    
+                    <h3>3. Aqidah sebagai Penyelamat Jiwa</h3>
+                    <p><strong>A. Menumbuhkan Ketenangan Hati:</strong> Ketika seseorang mengenal Allah dengan benar, ia menyadari bahwa hidupnya berada dalam pengawasan dan kasih sayang-Nya. Firman Allah: "Ingatlah, hanya dengan mengingat Allah hati menjadi tenteram." (QS. Ar-Ra'd: 28). Ketenangan ini tidak dapat dibeli dengan uang ataupun popularitas.</p>
+                    <p><strong>B. Memberikan Tujuan Hidup:</strong> Banyak orang hidup tanpa arah sehingga mudah terjerumus pada hal-hal yang merugikan. Aqidah mengajarkan bahwa tujuan hidup manusia adalah beribadah kepada Allah. Firman Allah: "Aku tidak menciptakan jin dan manusia melainkan agar mereka beribadah kepada-Ku." (QS. Adz-Dzariyat: 56). Dengan tujuan yang jelas, hidup menjadi lebih bermakna.</p>
+                    <p><strong>C. Menjaga dari Perilaku Menyimpang:</strong> Remaja yang memahami aqidah akan sadar bahwa setiap perbuatan akan dimintai pertanggungjawaban. Kesadaran ini menjadi kontrol diri yang kuat, bahkan ketika tidak ada orang yang melihat.</p>
+                    <p><strong>D. Membentuk Karakter Mulia:</strong> Aqidah yang benar melahirkan kejujuran, tanggung jawab, disiplin, kesabaran, rendah hati, dan kepedulian terhadap sesama. Karakter tersebut sangat dibutuhkan dalam kehidupan modern.</p>
+                    
+                    <h3>4. Ciri-Ciri Remaja yang Memiliki Aqidah Kuat</h3>
+                    <p>1. Rajin Beribadah: Ia menjaga salat, membaca Al-Qur'an, dan berusaha mendekatkan diri kepada Allah.<br>
+                    2. Memiliki Prinsip Hidup: Tidak mudah terbawa arus pergaulan atau tren yang bertentangan dengan syariat.<br>
+                    3. Optimis dan Tidak Mudah Putus Asa: Yakin bahwa Allah selalu memberikan jalan keluar bagi hamba-Nya.<br>
+                    4. Menjaga Akhlak: Bersikap sopan kepada orang tua, guru, dan teman-temannya.<br>
+                    5. Bijak Menggunakan Media Sosial: Menggunakan teknologi untuk hal yang bermanfaat dan menghindari konten yang merusak iman.</p>
+                    
+                    <h3>5. Cara Memperkuat Aqidah di Era Modern</h3>
+                    <p>a. Memperdalam Ilmu Agama: Belajar Al-Qur'an, hadis, dan ilmu tauhid dari guru yang terpercaya.<br>
+                    b. Memilih Lingkungan yang Baik: Teman yang baik akan membantu menjaga iman dan akhlak.<br>
+                    c. Membiasakan Ibadah Harian: Salat tepat waktu, membaca Al-Qur'an, berzikir, dan berdoa.<br>
+                    d. Mengontrol Penggunaan Media Sosial: Saring informasi dan hindari konten yang dapat melemahkan iman.<br>
+                    e. Merenungkan Tanda-Tanda Kekuasaan Allah: Melihat alam, kehidupan, dan berbagai nikmat yang Allah berikan akan memperkuat keyakinan kepada-Nya.</p>
+                    
+                    <h3>Kisah Inspiratif Singkat</h3>
+                    <p>Seorang remaja pernah ditawari untuk ikut dalam pergaulan yang buruk. Saat teman-temannya mengajak, ia menolak dengan berkata: "Mungkin orang tua saya tidak melihat, guru saya tidak melihat, tetapi Allah selalu melihat saya." Keyakinan sederhana itu menyelamatkannya dari banyak kesalahan yang dapat merusak masa depannya. Inilah kekuatan aqidah: menjaga seseorang bahkan ketika ia sedang sendirian.</p>
+                    
+                    <h3>Penutup & Pesan Utama</h3>
+                    <p>Aqidah adalah pondasi utama kehidupan seorang muslim. Di tengah derasnya arus modernisasi, aqidah menjadi penyelamat jiwa remaja dari kebingungan, penyimpangan, dan keputusasaan. Remaja yang memiliki aqidah kuat akan memiliki tujuan hidup yang jelas, hati yang tenang, akhlak yang baik, serta keteguhan dalam menghadapi berbagai tantangan zaman.</p>
+                    <p><strong>"Remaja yang kuat bukan hanya yang kuat fisiknya, tetapi yang kokoh aqidahnya. Karena aqidah yang benar akan menjaga hati, mengarahkan langkah, dan menyelamatkan kehidupan dunia serta akhirat."</strong></p>
                 `,
                 questions: [
-                    { q: "Secara bahasa, Aqidah berasal dari kata 'aqada' yang artinya...", a: ["Ikatan/Simpul", "Pelepasan", "Keraguan", "Pikiran"], c: 0 },
-                    { q: "Apa pusat dari Aqidah Islam?", a: ["6 Rukun Iman", "5 Rukun Islam", "Adat Istiadat", "Opini Publik"], c: 0 },
-                    { q: "Mengapa remaja modern butuh Aqidah?", a: ["Banyak follower", "Benteng pengaruh negatif", "Agar terlihat keren", "Koleksi buku"], c: 1 }
+                    { q: "Secara bahasa, kata aqidah berasal dari 'aqada' yang berarti...", a: ["Ikatan atau simpul yang kuat", "Pelepasan ikatan", "Pikiran yang bebas", "Keraguan hati"], c: 0 },
+                    { q: "Apa landasan utama dari pusat Aqidah Islam?", a: ["Adat kebiasaan", "Enam rukun iman", "Teknologi modern", "Opini masyarakat"], c: 1 },
+                    { q: "Ayat yang menyatakan bahwa dengan mengingat Allah hati menjadi tenteram adalah...", a: ["QS. Ar-Ra'd: 28", "QS. Adz-Dzariyat: 56", "QS. At-Tin: 4", "QS. Ath-Thur: 35"], c: 0 }
                 ]
             },
             {
                 id: 2,
-                title: "Mengenal Allah (Ma'rifatullah) Lewat Logika Sains",
-                hadis: { arab: "أَفَلَا تَتَفَكَّرُونَ", arti: "Maka apakah kamu tidak merenungkan?", perawi: "QS. Al-An'am: 50" },
+                title: "Mengenal Allah melalui Logika, Ilmu Pengetahuan, Dalil Al-Qur’an dan Hadis",
+                hadis: "QS. Ali ‘Imran: 190–191 | QS. Ath-Thur: 35 | QS. Al-Mulk: 3 | QS. Fussilat: 53 | HR. Bukhari & Muslim tentang Fitrah",
                 body: `
-                    Islam menempatkan akal pada posisi penting. QS. Ali 'Imran 190-191 memerintahkan kita berpikir tentang penciptaan langit dan bumi. 
-                    Argumen Kausalitas (Sebab-Akibat) dalam QS. Ath-Thur: 35 menyentak logika: tidak mungkin sesuatu ada tanpa pencipta. 
-                    Keteraturan alam semesta (QS. Al-Mulk: 3) membuktikan adanya Pengatur yang Bijaksana. 
-                    Sains (seperti DNA atau Big Bang) adalah jalan tafakkur untuk mengenal Allah lebih dalam sesuai QS. Fussilat: 41:53. 
-                    Kesimpulan: Iman bukan cuma perasaan, tapi hasil logika dan pengamatan alam.
+                    <h3>1. Pendahuluan</h3>
+                    <p>Islam menempatkan akal dan ilmu pada posisi penting. Banyak ayat Al-Qur’an yang mengajak manusia untuk berpikir, mengamati alam, dan menggunakan logika untuk sampai pada pengakuan akan keberadaan Allah (وجود Allah).</p>
+                    
+                    <h3>2. Alam sebagai Tanda Kebesaran Allah (Ayat Kauniyah)</h3>
+                    <p><strong>Dalil (QS. Ali ‘Imran: 190–191):</strong> “Sesungguhnya dalam penciptaan langit dan bumi, dan pergantian malam dan siang terdapat tanda-tanda bagi orang yang berakal… (yaitu) orang-orang yang mengingat Allah sambil berdiri, duduk, dan berbaring, dan mereka memikirkan penciptaan langit dan bumi…”</p>
+                    <p>Maknanya, Allah secara langsung memerintahkan manusia untuk berpikir (tafakkur). Alam semesta adalah “bukti terbuka” yang bisa dipahami dengan akal dan observasi.</p>
+                    
+                    <h3>3. Argumen Kausalitas (Sebab-Akibat)</h3>
+                    <p><strong>Dalil (QS. Ath-Thur: 35):</strong> “Apakah mereka tercipta tanpa sesuatu pun ataukah mereka yang menciptakan (diri mereka sendiri)?”</p>
+                    <p>Ayat ini mengajak berpikir logis: Tidak mungkin sesuatu ada tanpa sebab, tidak mungkin manusia menciptakan dirinya sendiri, maka harus ada Pencipta pertama.</p>
+                    
+                    <h3>4. Keteraturan Alam Semesta</h3>
+                    <p><strong>Dalil (QS. Al-Mulk: 3):</strong> “Engkau tidak akan melihat ketidakseimbangan pada ciptaan Ar-Rahman…”</p>
+                    <p>Alam semesta memiliki keteraturan sempurna dan sistem kosmos berjalan konsisten. Secara logika ilmiah, hukum alam yang stabil menunjukkan adanya Pengatur yang Maha Bijaksana.</p>
+                    
+                    <h3>5. Ilmu Pengetahuan sebagai Jalan Tafakkur</h3>
+                    <p><strong>Dalil (QS. Fussilat: 53):</strong> “Kami akan memperlihatkan kepada mereka tanda-tanda Kami di segenap ufuk dan pada diri mereka sendiri, hingga jelas bagi mereka bahwa itu adalah Al-Haqq (kebenaran).”</p>
+                    <p>Sains dan penelitian alam adalah bagian dari proses mengenal Allah. Semakin dalam ilmu, semakin jelas tanda-tanda ketuhanan.</p>
+                    
+                    <h3>6. Fitrah Manusia Mengenal Tuhan</h3>
+                    <p><strong>Hadis Sahih:</strong> Rasulullah ﷺ bersabda: “Setiap anak dilahirkan dalam keadaan fitrah…” (HR. Bukhari & Muslim). Manusia memiliki kecenderungan alami untuk mengenal Tuhan, dan logika akal bekerja sejalan dengan fitrah ini.</p>
+                    
+                    <h3>7. Perintah Menggunakan Akal & Hadis Tafakkur</h3>
+                    <p>Banyak ayat berulang menggunakan kalimat “Afala ta’qilun” (Apakah kamu tidak berpikir?) atau “Afala tatafakkarun” (Apakah kamu tidak merenung?) seperti pada QS. Al-Baqarah: 164. Rasulullah ﷺ juga bersabda: “Berpikir sejenak tentang ciptaan Allah lebih baik daripada ibadah 60 tahun.” (Atsar/Hadis disepakati keutamaannya).</p>
+                    
+                    <h3>8. Ilmu Pengetahuan Modern sebagai Penguat</h3>
+                    <p>Walaupun bukan dalil agama langsung, sains modern (Teori Big Bang, kode informasi DNA, presisi Hukum Fisika) memperkuat proses tafakkur dan selaras dengan janji Allah dalam QS. Fussilat: 53.</p>
                 `,
                 questions: [
-                    { q: "Ayat mana yang menyebut tanda kebesaran Allah bagi orang berakal?", a: ["QS. Ali Imran: 190", "QS. Al-Ikhlas: 1", "QS. Al-Baqarah: 1", "QS. An-Nas: 1"], c: 0 },
-                    { q: "Apa inti dari argumen kausalitas?", a: ["Semua ada secara kebetulan", "Tidak mungkin ada akibat tanpa sebab", "Manusia pencipta dirinya sendiri", "Alam ada selamanya"], c: 1 },
-                    { q: "Ilmu pengetahuan modern berfungsi sebagai...", a: ["Pengganti agama", "Musuh iman", "Penguat tafakkur", "Hiasan semata"], c: 2 }
+                    { q: "Surat dan ayat mana yang memerintahkan manusia bertafakkur merenungkan penciptaan langit dan bumi serta pergantian malam dan siang?", a: ["QS. Ali 'Imran: 190-191", "QS. At-Tin: 4", "QS. Al-Hujurat: 13", "QS. Qaf: 18"], c: 0 },
+                    { q: "Argumen logika sebab-akibat yang menanyakan apakah manusia tercipta tanpa sesuatu pun tercantum dalam...", a: ["QS. Ath-Thur: 35", "QS. Al-Mulk: 3", "QS. Al-Baqarah: 164", "QS. Yunus: 61"], c: 0 },
+                    { q: "Menurut hadis sahih, setiap anak dilahirkan dalam keadaan...", a: ["Penuh dosa", "Fitrah (kecenderungan alami mengenal Tuhan)", "Sombong", "Pintar sains"], c: 1 }
                 ]
             },
             {
                 id: 3,
-                title: "Menghancurkan Overthinking dengan Tauhid Rububiyah",
-                hadis: { arab: "الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ", arti: "Segala puji bagi Allah, Rabb semesta alam.", perawi: "QS. Al-Fatihah: 2" },
+                title: "Menghentikan Overthinking dengan Tauhid Rububiyah",
+                hadis: "QS. Al-Fatihah: 2 | QS. At-Tawbah: 51 | QS. At-Talaq: 3 | HR. Tirmidzi tentang Ketetapan Allah",
                 body: `
-                    Overthinking muncul karena "Ilusi Kontrol"—merasa semua hasil bergantung pada diri sendiri. 
-                    Tauhid Rububiyah mengajarkan bahwa Allah adalah satu-satunya Rabb: Pencipta, Pengatur, dan Pengendali. 
-                    Masa depanmu bukan di tanganmu, tapi di tangan Allah (QS. At-Tawbah: 51). 
-                    Rasulullah mengajarkan bahwa jika seluruh umat bersatu menjatuhkanmu, mereka takkan bisa kecuali atas izin-Nya (HR. Tirmidzi). 
-                    Tawakal berbasis Rububiyah berarti: Berusaha maksimal (tugasmu), Hasil akhir (Tugas Allah). Stop menjadi "Tuhan kecil" dalam pikiranmu.
+                    <h3>1. Apa itu Tauhid Rububiyah?</h3>
+                    <p>Tauhid rububiyah adalah keyakinan bahwa Allah adalah satu-satunya Rabb (Pengatur, Pencipta, Pemilik, dan Pengendali seluruh alam semesta). Sesuai <strong>QS. Al-Fatihah: 2</strong>: “Segala puji bagi Allah, Rabb semesta alam.” Makna “Rabb” mencakup Pencipta, Pengatur, Pemberi rezeki, dan Pengendali segala kejadian.</p>
+                    
+                    <h3>2. Akar Overthinking: Ingin Mengontrol Segalanya</h3>
+                    <p>Overthinking sering muncul dari keinginan mengendalikan masa depan, takut kehilangan hasil, dan merasa semua bergantung pada diri sendiri. Secara psikologis, pikiran menjadi kacau ketika beban kontrol terasa terlalu besar.</p>
+                    
+                    <h3>3. Tauhid Rububiyah Menghancurkan Ilusi Kontrol</h3>
+                    <p>Ketika seseorang memahami rububiyah, ia sadar masa depan dan hasil akhir bukan sepenuhnya di tangan atau tanggung jawab manusia. Skema hidup diatur oleh Allah. <strong>QS. At-Tawbah: 51</strong> menyatakan: “Katakanlah: tidak akan menimpa kami kecuali apa yang telah Allah tetapkan bagi kami…” Kekhawatiran berlebihan tidak mengubah ketetapan, melainkan hanya menguras pikiran.</p>
+                    
+                    <h3>4. Rasulullah ﷺ dan Ketenteraman Qadar</h3>
+                    <p>Rasulullah ﷺ bersabda: “Ketahuilah, jika seluruh umat berkumpul untuk memberi manfaat kepadamu, mereka tidak akan bisa kecuali apa yang Allah telah tetapkan untukmu…” (HR. Tirmidzi). Ini secara langsung memotong sumber overthinking yaitu rasa takut terhadap berbagai kemungkinan.</p>
+                    
+                    <h3>5. Overthinking vs Tawakal Berbasis Rububiyah</h3>
+                    <p>Overthinking dipenuhi ketakutan gagal atau salah. Sementara Tawakal menyerahkan hasil akhir kepada pengaturan Allah setelah berusaha maksimal. Sesuai <strong>QS. At-Talaq: 3</strong>: “Barang siapa bertawakal kepada Allah, maka Allah akan mencukupkannya.”</p>
+                    
+                    <h3>6. Langkah Praktis Menanamkan Tauhid Rububiyah</h3>
+                    <p>1. Ubah kalimat kontrol: Dari "Aku harus memastikan semua aman" menjadi "Aku berusaha, Allah yang mengatur hasil".<br>
+                    2. Pisahkan tugas dan takdir: Tugasmu hanya ikhtiar dan keputusan, hasil akhir adalah tugas Allah.<br>
+                    3. Resapi <strong>QS. Al-Baqarah: 286</strong>: “Allah tidak membebani seseorang melainkan sesuai kesanggupannya…”<br>
+                    4. Stop mencoba menjadi "Tuhan kecil" dalam pikiran dengan mensimulasikan skenario tak berujung.</p>
                 `,
                 questions: [
-                    { q: "Apa akar utama dari overthinking menurut psikologi tauhid?", a: ["Kurang makan", "Ilusi kontrol/ingin mengatur segalanya", "Banyak tugas", "Kurang tidur"], c: 1 },
-                    { q: "Makna 'Rabb' dalam Tauhid Rububiyah adalah...", a: ["Pemberi hadiah", "Teman bicara", "Pencipta & Pengatur", "Penonton saja"], c: 2 },
-                    { q: "Surat At-Tawbah 51 mengajarkan kita untuk...", a: ["Cemas", "Yakin ketetapan Allah", "Lari dari masalah", "Berhenti berusaha"], c: 1 }
+                    { q: "Keyakinan bahwa Allah adalah satu-satunya Pencipta, Pemilik, dan Pengendali alam semesta disebut...", a: ["Tauhid Uluhiyah", "Tauhid Rububiyah", "Tauhid Asma' wa Shifat", "Ihsan"], c: 1 },
+                    { q: "Kutipan ayat 'Katakanlah: tidak akan menimpa kami kecuali apa yang telah Allah tetapkan bagi kami' berasal dari...", a: ["QS. At-Tawbah: 51", "QS. Al-Fatihah: 2", "QS. At-Talaq: 3", "QS. Al-Baqarah: 286"], c: 0 },
+                    { q: "Menurut psikologi tauhid, overthinking bermula dari...", a: ["Ilusi ingin mengontrol segala hasil masa depan", "Malas berusaha", "Kurang tidur malam", "Terlalu banyak berdzikir"], c: 0 }
                 ]
             },
             {
                 id: 4,
-                title: "Merdeka dari Kecanduan Validasi via Tauhid Uluhiyah",
-                hadis: { arab: "وَمَا خَلَقْتُ الْجِنَّ وَالْإِنْسَ إِلَّا لِيَعْبُدُونِ", arti: "Aku tidak menciptakan jin dan manusia melainkan agar mereka beribadah kepada-Ku.", perawi: "QS. Adz-Dzariyat: 56" },
+                title: "Merdeka dari Kecanduan Validasi Makhluk melalui Tauhid Uluhiyah",
+                hadis: "QS. Adz-Dzariyat: 56 | QS. Al-Ma’un: 6 | QS. Al-Hujurat: 13 | HR. Muslim tentang Hati dan Amal",
                 body: `
-                    Kecanduan validasi (riya') adalah saat penilaian manusia menjadi standar nilai diri. 
-                    Tauhid Uluhiyah memindahkan fokus hidup dari makhluk ke Allah (QS. Adz-Dzariyat: 56). 
-                    Pujian manusia bersifat subyektif dan berubah-ubah; ridha Allah itu stabil. 
-                    Rasulullah bersabda Allah tidak melihat rupa, tapi melihat hati dan amal (HR. Muslim). 
-                    Latih "Detoks Validasi" dengan ibadah tanpa penonton (sedekah rahasia) dan sadari bahwa nilai dirimu diukur dari ketaqwaan (QS. Al-Hujurat: 13).
+                    <h3>1. Apa itu Tauhid Uluhiyah?</h3>
+                    <p>Tauhid uluhiyah adalah keyakinan dan penghambaan bahwa hanya Allah yang berhak disembah, dicintai secara absolut, ditaati secara mutlak, dan dijadikan tujuan utama ibadah. <strong>QS. Adz-Dzariyat: 56</strong>: “Tidaklah Aku menciptakan jin dan manusia kecuali untuk beribadah kepada-Ku.” Fokus hidup dialihkan dari manusia menuju Allah, sehingga nilai diri tidak lagi ditentukan makhluk.</p>
+                    
+                    <h3>2. Akar Kecanduan Validasi: Salah “Arah Ibadah”</h3>
+                    <p>Kecanduan validasi terjadi ketika pujian manusia dan penilaian orang menjadi standar nilai diri atau tujuan tersembunyi. Ulama menyebut ini sebagai <strong>riya’ (ingin dilihat manusia)</strong>. Allah memperingatkan dalam <strong>QS. Al-Ma’un: 6</strong>: “Celakalah orang-orang yang shalat, yang lalai dari shalatnya, yang berbuat riya’.”</p>
+                    
+                    <h3>3. Tauhid Uluhiyah Memutus Ketergantungan</h3>
+                    <p>Dengan memprioritaskan ridha Allah, pujian manusia menjadi bonus saja, penilaian menjadi sekadar informasi, dan penolakan bukan lagi kehinaan. Standar nilai diri dipindahkan ke penilaian Allah sesuai <strong>QS. Al-Hujurat: 49:13</strong>: “Sesungguhnya yang paling mulia di sisi Allah adalah yang paling bertakwa.”</p>
+                    
+                    <h3>4. Rasulullah ﷺ: Tidak Tergantung Pujian</h3>
+                    <p>Rasulullah ﷺ menghadapi penolakan, hinaan, dan fitnah tanpa mengubah orientasi dakwah beliau. Beliau bersabda: “Sesungguhnya Allah tidak melihat rupa dan harta kalian, tetapi Dia melihat hati dan amal kalian.” (HR. Muslim).</p>
+                    
+                    <h3>5. Logika Tauhid dan Detoks Validasi</h3>
+                    <p>Menggantungkan nilai diri pada makhluk adalah sistem yang rapuh karena manusia berubah-ubah dan subjektif. Langkah praktisnya adalah: mengubah pertanyaan kepala menjadi "Allah ridha atau tidak?", melatih ibadah tanpa penonton (sedekah diam-diam), serta menyadari bahwa pujian adalah ujian.</p>
                 `,
                 questions: [
-                    { q: "Apa itu Tauhid Uluhiyah?", a: ["Yakin Allah Pencipta", "Menjadikan Allah tujuan ibadah & ridha", "Hafal nama malaikat", "Bisa baca Quran"], c: 1 },
-                    { q: "Apa istilah ulama untuk ingin dilihat manusia?", a: ["Ghibah", "Hasad", "Riya'", "Qana'ah"], c: 2 },
-                    { q: "Standar kemuliaan di sisi Allah (QS. Al-Hujurat 13) adalah...", a: ["Kekayaan", "Ketakwaan", "Popularitas", "Kecantikan"], c: 1 }
+                    { q: "Menjadikan hanya Allah sebagai tujuan utama ibadah, kecintaan absolut, dan ketaatan mutlak adalah esensi...", a: ["Tauhid Rububiyah", "Tauhid Uluhiyah", "Iman kepada Malaikat", "Sains Islam"], c: 1 },
+                    { q: "Istilah bagi perbuatan ibadah yang ditujukan agar dilihat atau dipuji oleh manusia dinamakan...", a: ["Riya'", "Tawakal", "Ihsan", "Itqan"], c: 0 },
+                    { q: "Berdasarkan HR. Muslim, apa yang sejatinya dilihat oleh Allah dari diri manusia?", a: ["Rupa dan bentuk fisik", "Harta dan popularitas", "Hati dan amal perbuatan", "Jumlah pengikut media sosial"], c: 2 }
                 ]
             },
             {
                 id: 5,
                 title: "Mengobati Insecure Memakai Pendekatan Asma' wa Shifat",
-                hadis: { arab: "لَقَدْ خَلَقْنَا الْإِنْسَانَ فِي أَحْسَنِ تَقْوِيْمٍ", arti: "Sungguh, Kami telah menciptakan manusia dalam bentuk yang sebaik-baiknya.", perawi: "QS. At-Tin: 4" },
+                hadis: "QS. At-Tin: 4 | QS. Hud: 6 | QS. Al-Hujurat: 13 | Hadits Qudsi HR. Bukhari tentang Kedekatan Allah",
                 body: `
-                    Insecure terhadap fisik? Ingat Allah Al-Mushawwir (Maha Membentuk Rupa). Tidak ada ciptaan-Nya yang gagal (QS. At-Tin: 4). 
-                    Insecure masa depan? Ingat Allah Ar-Razzaq (Maha Pemberi Rezeki). Rezekimu tidak akan tertukar (QS. Hud: 6). 
-                    Merasa sendiri? Ingat Allah Al-Wadud (Maha Mencintai). Dekati Allah, maka Allah akan mendekat lebih cepat (Hadis Qudsi). 
-                    Cukup menjadi berharga di mata Allah, maka pandangan manusia takkan lagi menyiksamu.
+                    <h3>1. Menyembuhkan Insecure terhadap Fisik & Potensi Diri</h3>
+                    <p>Rasa minder terhadap fisik atau potensi diobati dengan memahami Allah sebagai <strong>Al-Khaliq</strong> (Maha Pencipta) dan <strong>Al-Mushawwir</strong> (Maha Membentuk Rupa). <strong>QS. At-Tin: 4</strong>: “Sungguh, Kami telah menciptakan manusia dalam bentuk yang sebaik-baiknya.” Setiap desain ciptaan Allah tidak ada yang gagal; kita indah dengan cara yang Allah kehendaki.</p>
+                    
+                    <h3>2. Menyembuhkan Insecure tentang Rezeki & Masa Depan</h3>
+                    <p>Takut tidak sukses, miskin, atau tertinggal secara materi disembuhkan dengan mengenal Allah sebagai <strong>Ar-Razzaq</strong> (Maha Pemberi Rezeki) dan <strong>Al-Basith</strong> (Maha Melapangkan Rezeki). <strong>QS. Hud: 6</strong>: “Dan tidak satu pun makhluk bergerak (bernyawa) di bumi melainkan semuanya dijamin Allah rezekinya...” Jatah rezeki kita sudah dijamin dan tidak akan tertukar.</p>
+                    
+                    <h3>3. Menyembuhkan Insecure karena Sering Merasa Sendiri</h3>
+                    <p>Kesepian atau merasa tidak berharga dipulihkan dengan mendekat kepada Allah <strong>Al-Wadud</strong> (Maha Pencinta) dan <strong>Al-Karim</strong> (Maha Mulia). Allah berfirman dalam Hadits Qudsi (HR. Bukhari): “Jika ia mendekat kepada-Ku sejengkal, Aku mendekat kepadanya sehasta... Jika ia datang kepada-Ku dengan berjalan, Aku datang kepadanya dengan berlari.”</p>
+                    
+                    <h3>4. Menyembuhkan Insecure atas Penilaian & Cemoohan Orang Lain</h3>
+                    <p>Ingatlah sifat Allah <strong>Al-Hakam</strong> (Maha Menetapkan Hukum/Adil) dan <strong>Al-Alim</strong> (Maha Mengetahui). Manusia hanya melihat casing luar melalui asumsi, sedangkan Allah tahu isi hati dan perjuanganmu. Sesuai <strong>QS. Al-Hujurat: 13</strong>, yang paling mulia adalah yang paling bertakwa.</p>
+                    
+                    <h3>Kesimpulan & Langkah Praktis (3M)</h3>
+                    <p>1. Mengenal (Ma'rifat): Pelajari makna mendalam 99 Asmaul Husna.<br>
+                    2. Menghayati (Tadabbur): Sebut nama Allah yang sesuai saat minder (misal sebut <i>Ya Qawiyyu</i> saat merasa lemah).<br>
+                    3. Menerima (Ridha): Menyadari pilihan Allah adalah kunci ketenangan tertinggi.</p>
                 `,
                 questions: [
-                    { q: "Nama Allah yang berarti Maha Membentuk Rupa adalah...", a: ["Ar-Razzaq", "Al-Mushawwir", "Al-Alim", "Al-Hakam"], c: 1 },
-                    { q: "Ayat penyembuh insecure fisik (QS. At-Tin 4) berbunyi...", a: ["Manusia bentuk terbaik", "Manusia itu lemah", "Manusia itu rugi", "Manusia itu sombong"], c: 0 },
-                    { q: "Sifat Al-Wadud menyembuhkan rasa...", a: ["Lapuk", "Kesepian/Tak dicintai", "Marah", "Kenyang"], c: 1 }
+                    { q: "Nama Allah (Asmaul Husna) yang bermakna Maha Membentuk Rupa makhluk-Nya adalah...", a: ["Ar-Razzaq", "Al-Mushawwir", "Al-Alim", "Al-Hakam"], c: 1 },
+                    { q: "Ayat yang menegaskan bahwa Allah telah menjamin rezeki setiap makhluk bernyawa di bumi adalah...", a: ["QS. Hud: 6", "QS. At-Tin: 4", "QS. Qaf: 18", "QS. Al-Mulk: 3"], c: 0 },
+                    { q: "Metode 3M untuk mengatasi insecure meliputi...", a: ["Membaca, Menulis, Menghafal", "Mengenal, Menghayati, Menerima", "Melihat, Membandingkan, Menangis", "Membeli, Memakai, Memamerkan"], c: 1 }
                 ]
             },
             {
                 id: 6,
                 title: "Integritas Karakter Unggul Lewat Iman Kepada Malaikat",
-                hadis: { arab: "مَا يَلْفِظُ مِنْ قَوْلٍ إِلَّا لَدَيْهِ رَقِيبٌ عَتِيدٌ", arti: "Tidak ada suatu kata pun yang diucapkannya melainkan ada di sisinya malaikat pengawas.", perawi: "QS. Qaf: 18" },
+                hadis: "QS. Qaf: 18 | QS. At-Tahrim: 6 | QS. As-Saffat: 1 | Hadits Bukhari & Muslim tentang Kesucian Malaikat",
                 body: `
-                    Integritas adalah melakukan hal benar meski tak ada orang melihat. Iman kepada Malaikat Raqib & Atid menciptakan kesadaran 'CCTV Langit' (QS. Qaf: 18). 
-                    Malaikat juga contoh etos kerja sempurna (Professionalism); mereka tidak menunda tugas dan selalu totalitas (QS. At-Tahrim: 6). 
-                    Keimanan ini mendidik disiplin (seperti pergantian malaikat subuh & ashar) serta menjaga kebersihan pikiran & lisan karena malaikat menyukai kesucian.
+                    <h3>1. Menumbuhkan Muraqabah (Kesadaran Selalu Diawasi)</h3>
+                    <p>Integritas berarti melakukan hal benar meski tak ada orang yang melihat. Iman kepada Malaikat <strong>Raqib dan Atid</strong> memotong sifat oportunis (jujur hanya saat diawasi manusia). Seseorang yang beriman tahu bahwa hidupnya direkam real-time melalui "CCTV langit" tanpa blind spot. <strong>QS. Qaf: 18</strong>: “Tidak ada suatu kata pun yang diucapkannya melainkan ada di sisinya malaikat pengawas yang selalu siap (mencatat).”</p>
+                    
+                    <h3>2. Profesionalisme dan Totalitas dalam Tugas</h3>
+                    <p>Malaikat adalah contoh etos kerja (work ethic) yang sempurna. Mereka tidak menunda pekerjaan, tidak mengeluh, dan selalu totalitas menyelesaikan tugas. <strong>QS. At-Tahrim: 6</strong>: “...yang tidak mendurhakai Allah terhadap apa yang diperintahkan-Nya kepada mereka dan selalu mengerjakan apa yang diperintahkan.”</p>
+                    
+                    <h3>3. Disiplin dan Keteraturan Hidup</h3>
+                    <p>Kehidupan malaikat sangat terstruktur dan presisi (pergantian tugas Malaikat Subuh & Ashar, ketepatan Malaikat Mikail, dll). Tidak ada kata terlambat. <strong>QS. As-Saffat: 1</strong>: “Demi (rombongan malaikat) yang berbaris bersaf-saf.” Keimanan ini mendidik manusia menghargai waktu dan aturan.</p>
+                    
+                    <h3>4. Menjaga Kebersihan Pikiran dan Lingkungan</h3>
+                    <p>Malaikat menyukai kesucian hati, lisan, serta kebersihan fisik. Rasulullah SAW bersabda: “Sesungguhnya malaikat itu merasa terganggu (dengan bau tidak sedap) sebagaimana manusia terganggu.” (HR. Bukhari & Muslim). Karakter iman ini menjauhkan manusia dari hoaks, ghibah, dan fitnah.</p>
                 `,
                 questions: [
-                    { q: "Malaikat pengawas ucapan dan perbuatan adalah...", a: ["Jibril & Mikail", "Munkar & Nakir", "Raqib & Atid", "Malik & Ridwan"], c: 2 },
-                    { q: "Karakter 'Muraqabah' berarti...", a: ["Merasa selalu diawasi Allah & Malaikat", "Merasa paling benar", "Takut pada polisi", "Ingin dipuji"], c: 0 },
-                    { q: "Sifat Malaikat dalam QS. At-Tahrim 6 adalah...", a: ["Sering lupa", "Selalu taat & tidak durhaka", "Makan dan minum", "Bisa sombong"], c: 1 }
+                    { q: "Ayat yang menjelaskan bahwa ada malaikat pengawas yang selalu siap mencatat setiap ucapan manusia adalah...", a: ["QS. Qaf: 18", "QS. At-Tahrim: 6", "QS. As-Saffat: 1", "QS. Ali 'Imran: 190"], c: 0 },
+                    { q: "Sifat mutlak malaikat dalam menjalankan perintah Allah tanpa ingkar dijelaskan dalam...", a: ["QS. At-Tahrim: 6", "QS. Al-Baqarah: 282", "QS. Ar-Ra'd: 28", "QS. Ath-Thur: 35"], c: 0 },
+                    { q: "Iman kepada malaikat mengubah motif takut pada hukum manusia menjadi takut pada...", a: ["Hukum adat", "Konsekuensi Ilahi", "Opini media", "Kehilangan jabatan"], c: 1 }
                 ]
             },
             {
                 id: 7,
                 title: "Menjadikan Al-Qur'an Petunjuk Operasional Kehidupan",
-                hadis: { arab: "كَانَ خُلُقُهُ الْقُرْآنَ", arti: "Akhlak beliau (Rasulullah) adalah Al-Qur'an.", perawi: "HR. Muslim" },
+                hadis: "QS. Al-Isra': 9 | QS. Al-Hujurat: 6 | QS. Al-Muthaffifin: 1-3 | QS. Al-Baqarah: 282 | HR. Muslim \"Akhlak Beliau Al-Qur'an\"",
                 body: `
-                    Al-Qur'an adalah 'Manual Book' agar hidup manusia tidak error (QS. Al-Isra: 9). 
-                    Ia mengatur SOP Komunikasi (Anti-Hoaks di QS. Al-Hujurat: 6), SOP Bisnis (Larangan menipu di QS. Al-Muthaffifin), dan SOP Mental Health (Zikir penenang hati di QS. Ar-Ra'd: 28). 
-                    Gunakan formula 4T: Tilawah (Baca), Tadabbur (Resapi), Tafahhum (Pahami), dan Tanfidz (Eksekusi). Rasulullah adalah 'Al-Qur'an Berjalan'.
+                    <h3>1. Memahami Fungsi Al-Qur'an sebagai \"SOP\" Kehidupan</h3>
+                    <p>Sama seperti membeli barang elektronik yang membutuhkan manual book agar tidak rusak, manusia membutuhkan Al-Qur'an sebagai peta jalan aktif agar hidupnya tidak error. <strong>QS. Al-Isra': 9</strong>: “Sesungguhnya Al-Qur'an ini memberikan petunjuk kepada (jalan) yang lebih lurus...”</p>
+                    
+                    <h3>2. Implementasi dalam Berbagai Aspek Operasional</h3>
+                    <p><strong>A. SOP Komunikasi & Manajemen Konflik:</strong> Mengatur gaya bicara spesifik (<i>Qaulan Sadida</i>/jujur tepat sasaran, <i>Qaulan Layyina</i>/lemah lembut, <i>Qaulan Ma'rufa</i>/santun). Mengatur SOP validasi informasi (Anti-Hoaks) lewat tabayyun di <strong>QS. Al-Hujurat: 6</strong>.</p>
+                    <p><strong>B. SOP Bisnis & Finansial:</strong> Larangan menipu dalam deskripsi produk atau mengurangi timbangan (<strong>QS. Al-Muthaffifin: 1-3</strong>). Perintah administrasi pencatatan utang-piutang di <strong>QS. Al-Baqarah: 282</strong> (ayat terpanjang).</p>
+                    <p><strong>C. SOP Kesehatan Mental & Stres:</strong> Stabilisasi psikologis dengan mengombinasikan ikhtiar, sabar, dan salat (<strong>QS. Al-Baqarah: 45</strong>) serta mengingat Allah sebagai tombol refresh hati (<strong>QS. Ar-Ra'd: 28</strong>).</p>
+                    
+                    <h3>3. Formula 4T: Teks Menjadi Tindakan</h3>
+                    <p>Proses membumikan Al-Qur'an melalui empat tahapan: <strong>Tilawah</strong> (Membaca), <strong>Tadabbur</strong> (Meresapi makna), <strong>Tafahhum</strong> (Memahami hukum & asbabun nuzul), dan <strong>Tanfidz</strong> (Aksi nyata/eksekusi harian).</p>
+                    <p>Ummul Mukminin Aisyah radhiyallahu 'anha menyatakan tentang akhlak Nabi: “Akhlak beliau adalah Al-Qur'an.” (HR. Muslim). Beliau adalah bukti hidup "Al-Qur'an berjalan".</p>
                 `,
                 questions: [
-                    { q: "Apa fungsi Al-Qur'an dalam QS. Al-Isra 9?", a: ["Hiasan rak", "Petunjuk ke jalan paling lurus", "Buku sejarah saja", "Alat ramalan"], c: 1 },
-                    { q: "SOP Anti-Hoaks diatur dalam surat...", a: ["Al-Hujurat: 6", "Al-Baqarah: 1", "Al-Ikhlas: 1", "An-Nas: 1"], c: 0 },
-                    { q: "Tahap 'Tanfidz' dalam 4T berarti...", a: ["Membaca", "Menghafal", "Aksi Nyata/Eksekusi", "Meresapi"], c: 2 }
+                    { q: "Formula 4T untuk mengubah teks Al-Qur'an menjadi aksi nyata secara berurutan adalah...", a: ["Tilawah, Tadabbur, Tafahhum, Tanfidz", "Tadabbur, Tilawah, Tanfidz, Tafahhum", "Tanfidz, Tafahhum, Tilawah, Tadabbur", "Tilawah, Tanfidz, Tadabbur, Tafahhum"], c: 0 },
+                    { q: "SOP tabayyun (cek & ricek informasi) untuk menangkal berita hoaks berada pada...", a: ["QS. Al-Hujurat: 6", "QS. Al-Muthaffifin: 1-3", "QS. Al-Baqarah: 282", "QS. Al-Isra': 9"], c: 0 },
+                    { q: "Siapa nama periwayat hadis yang merekam kutipan bahwa 'Akhlak Rasulullah adalah Al-Qur'an'?", a: ["HR. Muslim", "HR. Tirmidzi", "HR. Thabrani", "HR. Ahmad"], c: 0 }
                 ]
             },
             {
                 id: 8,
                 title: "Nabi Muhammad SAW Sebagai Idola Hakiki Pemuda",
-                hadis: { arab: "أَنْتَ مَعَ مَنْ أَحْبَبْتَ", arti: "Kamu akan bersama dengan orang yang kamu cintai.", perawi: "HR. Bukhari & Muslim" },
+                hadis: "QS. Al-Ahzab: 21 | HR. Bukhari & Muslim \"Anda bersama orang yang Anda cintai\"",
                 body: `
-                    Era digital menjebak pemuda dalam 'Celebrity Worship'. Rasulullah adalah idola utuh yang divalidasi Allah (QS. Al-Ahzab: 21). 
-                    Beliau pernah muda: mandiri finansial (dagang), agen perubahan (Hilful Fudhul), dan berintegritas (gelar Al-Amin). 
-                    Beliau paket lengkap: pemimpin negara, sahabat yang humoris, dan kepala keluarga romantis. Ingat: Kamu akan dikumpulkan bersama idolamu di akhirat kelak.
+                    <h3>1. Validasi Langsung dari Pencipta Alam Semesta</h3>
+                    <p>Di era digital, pemuda rentan terjebak celebrity worship kepada idola semu yang perfeksionis di permukaan saja. Menjadikan Rasulullah SAW sebagai idola adalah pilihan yang divalidasi langsung oleh Allah dalam <strong>QS. Al-Ahzab: 21</strong>: “Sungguh, telah ada pada (diri) Rasulullah itu suri teladan yang baik bagimu (yaitu) bagi orang yang mengharap (rahmat) Allah dan (kedatangan) hari Kiamat...”</p>
+                    
+                    <h3>2. Rasulullah Pernah Muda dan Menghadapi Dinamika Pemuda</h3>
+                    <p>Sejak muda, beliau melewati fase kehidupan dengan tangguh (resilient):<br>
+                    • <strong>Mandiri Finansial:</strong> Menggembala kambing dan magang berdagang ke Syam sejak remaja (entrepreneurial spirit).<br>
+                    • <strong>Agen Perubahan Sosial:</strong> Aktif dalam <i>Hilful Fudhul</i> (Sumpah Setia) pemuda Makkah untuk membela kaum tertindas.<br>
+                    • <strong>Gelar Al-Amin:</strong> Integritas, kejujuran, dan personal branding beliau diakui universal jauh sebelum diangkat menjadi nabi.</p>
+                    
+                    <h3>3. Paket Komplet Multi-Dimensi</h3>
+                    <p>Beliau adalah pemimpin negara dan strategi perang yang genius; Sahabat & mentor yang sangat menghargai anak muda (Ali bin Abi Thalib, Usamah bin Zaid); serta Kepala keluarga yang romantis (memanggil Aisyah dengan nama Humaira) dan penyayang.</p>
+                    
+                    <h3>4. Dampak Psikologis: Kamu Bersama Idolamu</h3>
+                    <p>Ikatan cinta kepada idola membawa konsekuensi psikologis peniruan (mimicry). Rasulullah SAW menegaskan: “Kamu akan bersama dengan orang yang kamu cintai.” (HR. Bukhari & Muslim). Mengidolakan Nabi adalah investasi keselamatan akhirat.</p>
                 `,
                 questions: [
-                    { q: "Gelar Rasulullah karena kejujurannya sejak muda adalah...", a: ["As-Siddiq", "Al-Amin", "Al-Faruq", "Dzul Nurain"], c: 1 },
-                    { q: "Ayat tentang Rasulullah sebagai teladan baik (Uswatun Hasanah)...", a: ["QS. Al-Ahzab: 21", "QS. Al-Fatihah: 1", "QS. Al-Alaq: 1", "QS. Al-Fil: 1"], c: 0 },
-                    { q: "Siapa pemuda di lingkaran utama Rasulullah?", a: ["Ali bin Abi Thalib", "Firaun", "Abu Lahab", "Namrud"], c: 0 }
+                    { q: "Gelar universal yang disematkan kepada Rasulullah sejak masa mudanya karena kejujuran dan integritasnya adalah...", a: ["Al-Amin", "As-Siddiq", "Al-Faruq", "Al-Hakam"], c: 0 },
+                    { q: "Aliansi kemanusiaan masa muda yang diikuti Rasulullah untuk membela orang tertindas di Makkah bernama...", a: ["Hilful Fudhul", "Fathul Makkah", "Piagam Madinah", "Perjanjian Hudaibiyah"], c: 0 },
+                    { q: "Berdasarkan hadis sahih Bukhari & Muslim, status kedekatan kita di hari kiamat ditentukan oleh...", a: ["Siapa orang yang kita cintai/idolai di dunia", "Berapa jumlah harta kita", "Seberapa terkenal rupa kita", "Gelar akademik kita"], c: 0 }
                 ]
             },
             {
                 id: 9,
                 title: "Resiliensi Mental Baja Berbasis Iman Takdir",
-                hadis: { arab: "قَدَّرَ اللَّهُ وَمَا شَاءَ فَعَلَ", arti: "Allah telah menakdirkan, dan apa yang Dia kehendaki pasti terjadi.", perawi: "HR. Muslim" },
+                hadis: "QS. Al-Hadid: 22-23 | QS. Al-Insyirah: 5-6 | HR. Muslim tentang Urusan Mengagumkan Seorang Mukmin",
                 body: `
-                    Resiliensi adalah kemampuan bangkit. Mental baja lahir dari iman takdir: yakin Allah Maha Mengetahui dan setiap ketetapan adalah Khair (Baik). 
-                    Ujian sudah tertulis di Lauh Mahfuzh agar kita tidak terlalu sedih saat gagal dan tak sombong saat sukses (QS. Al-Hadid: 22-23). 
-                    Ingat: Bersama kesulitan ada kemudahan (QS. Al-Insyirah: 5-6). Fokuslah pada respons imanmu terhadap hal yang tak bisa kau kontrol.
+                    <h3>1. Pengertian Resiliensi Mental Baja</h3>
+                    <p>Resiliensi adalah kemampuan seseorang untuk bangkit kembali dari keterpurukan, adaptif terhadap perubahan, dan kokoh di tengah ujian. Dalam Islam, mental baja lahir dari ketauhidan yang mengakar kuat pada takdir Allah SWT.</p>
+                    
+                    <h3>2. Tiga Kunci Fondasi Takdir</h3>
+                    <p><strong>A. Allah Maha Mengetahui dan Adil:</strong> Ujian diukur presisi dan tidak membebani di luar batas kemampuan.<br>
+                    <strong>B. Konsep "Khair":</strong> Meyakini semua ketetapan-Nya memiliki hikmah kebaikan yang tersembunyi.<br>
+                    <strong>C. Dunia Tempat Ujian:</strong> Dinamika suka duka pasti terjadi, sukses tidak membuat jumawa, gagal tidak membuat putus asa.</p>
+                    
+                    <h3>3. Dalil Jangka Resiliensi</h3>
+                    <p>• <strong>QS. Al-Hadid: 22-23:</strong> Menjelaskan semua takdir tertulis di Lauh Mahfuzh agar manusia tidak terlalu sedih atas kegagalan dan tidak sombong atas kesuksesan. Membebaskan jiwa dari penyesalan sia-sia ("andai saja...").<br>
+                    • <strong>QS. Al-Insyirah: 5-6:</strong> “Maka sesungguhnya beserta kesulitan ada kemudahan...” Menggunakan bentuk kata <i>ma'a</i> (beserta), artinya solusi include bersama ujian itu sendiri.<br>
+                    • <strong>HR. Muslim:</strong> “Sungguh menakjubkan urusan seorang mukmin... Jika mendapat kesenangan dia bersyukur maka itu baik... Jika ditimpa kesusahan dia bersabar...”</p>
+                    
+                    <h3>4. Langkah Praktis Aplikasi</h3>
+                    <p>Lakukan ikhtiar maksimal, ucapkan kalimat thayyibah (<i>Innalillahi...</i> atau <i>Qaddarullah wa maa sya'a fa'ala</i>) saat tertimpa musibah, dan fokus pada hal yang bisa dikontrol (yaitu respons imanmu, bukan takdirnya).</p>
                 `,
                 questions: [
-                    { q: "Mental baja dalam Islam lahir dari iman kepada...", a: ["Kekuatan otot", "Takdir Allah", "Jumlah uang", "Ramalan cuaca"], c: 1 },
-                    { q: "Makna QS. Al-Insyirah 5-6 adalah...", a: ["Hidup itu susah", "Beserta kesulitan ada kemudahan", "Jangan bekerja", "Tidur saja"], c: 1 },
-                    { q: "Sikap mukmin saat tertimpa musibah (HR. Muslim) adalah...", a: ["Marah", "Sabar", "Putus asa", "Menyalahkan orang"], c: 1 }
+                    { q: "Tujuan penulisan takdir di Lauh Mahfuzh berdasarkan QS. Al-Hadid 22-23 adalah...", a: ["Agar kita tidak terlalu bersedih saat gagal & tidak sombong saat sukses", "Agar kita berhenti bekerja", "Agar manusia menjadi takut melangkah", "Hanya sebagai pelengkap sejarah"], c: 0 },
+                    { q: "Kata 'ma'a' dalam kalimat 'beserta kesulitan ada kemudahan' di QS. Al-Insyirah berarti kemudahan itu...", a: ["Datang bersamaan/include dalam ujian tersebut", "Datang bertahun-tahun setelah ujian selesai", "Tidak akan pernah datang", "Hanya untuk orang tertentu saja"], c: 0 },
+                    { q: "Kalimat thayyibah yang diucapkan saat tertimpa musibah untuk berserah diri pada takdir Allah adalah...", a: ["Qaddarullah wa maa sya'a fa'ala", "Subhanallah", "Alhamdulillah", "Allahu Akbar"], c: 0 }
                 ]
             },
             {
                 id: 10,
                 title: "Konsep Ihsan: Seni Merasakan Pengawasan Tuhan",
-                hadis: { arab: "أَنْ تَعْبُدَ اللَّهَ كَأَنَّكَ تَرَاهُ", arti: "Engkau menyembah Allah seakan-akan engkau melihat-Nya.", perawi: "HR. Muslim" },
+                hadis: "Hadits Jibril HR. Muslim tentang Ihsan | QS. Qaf: 16 | QS. Al-Hadid: 4 | QS. Yunus: 61 | HR. Thabrani tentang Itqan",
                 body: `
-                    Ihsan adalah puncak spiritualitas. Hadits Jibril membaginya dua: Maqam Musyahadah (merasa melihat Allah) dan Maqam Muraqabah (merasa diawasi Allah). 
-                    Ini bukan rasa takut yang mencekam, tapi pengawasan penuh kasih seperti anak yang ingin tampil terbaik di depan ibunya. 
-                    Ihsan melahirkan profesionalisme (Itqan) dan integritas saat sendirian. Allah lebih dekat dari urat leher (QS. Qaf: 16).
+                    <h3>1. Fondasi Ihsan: Hadits Jibril</h3>
+                    <p>Ihsan adalah kesadaran radikal bahwa kita tidak pernah sendirian. Rasulullah SAW bersabda dalam Hadits Jibril (HR. Muslim): “Engkau menyembah Allah seolah-olah engkau melihat-Nya. Jika engkau tidak mampu melihat-Nya, maka sesungguhnya Dia melihatmu.” Ini membagi Ihsan menjadi dua tingkatan:</p>
+                    <p><strong>A. Maqam Musyahadah:</strong> Beribadah seakan-akan melihat Allah dengan mata hati (bashirah). Penuh cinta (mahabbah), rindu, dan khusyuk total.<br>
+                    <strong>B. Maqam Muraqabah:</strong> Menanamkan kesadaran penuh bahwa Allah pasti melihat kita. Melahirkan rasa hormat, segan, dan malu berbuat maksiat.</p>
+                    
+                    <h3>2. Mengapa Disebut \"Seni\"?</h3>
+                    <p>Sebab ia merupakan keterampilan rasa (kepekaan spiritual) yang harus diasah. Pengawasan Allah bukan seperti CCTV sipir penjara yang mencari kesalahan, melainkan pengawasan penuh kasih seperti seorang ibu yang bangga menonton penampilan anaknya di atas panggung. Anak tersebut akan memberikan performa terbaiknya (<i>itqan</i>).</p>
+                    
+                    <h3>3. Anatomi Muraqabah & Dalil Kedekatan</h3>
+                    <p>Seni ini bekerja sebelum berbuat (menata niat), saat berbuat (menjaga kualitas kerja/itqan sesuai HR. Thabrani), dan saat sendirian (ujian integritas sejati).<br>
+                    • <strong>QS. Qaf: 16:</strong> “...Kami lebih dekat kepadanya daripada urat lehernya.” Mendengar dialog batin manusia.<br>
+                    • <strong>QS. Al-Hadid: 4:</strong> “...Dan Dia bersama kamu di mana saja kamu berada.”<br>
+                    • <strong>QS. Yunus: 61:</strong> Menjadi saksi atas setiap detail terkecil aktivitasmu.</p>
+                    
+                    <h3>4. Cara Melatih Mental Ihsan</h3>
+                    <p>Membiasakan dzikir khafi dalam hati ("Allah bersamaku, Allah melihatku"), melatih mindfulness islami saat beraktivitas, dan mengubah rutinitas harian menjadi bentuk adorasi ibadah.</p>
                 `,
                 questions: [
-                    { q: "Apa definisi Ihsan menurut Hadits Jibril?", a: ["Membaca Quran", "Sholat malam", "Menyembah Allah seakan melihat-Nya", "Haji tiap tahun"], c: 2 },
-                    { q: "Tingkatan 'Maqam Muraqabah' berarti...", a: ["Yakin Allah pasti melihat kita", "Melihat hantu", "Dilihat cctv", "Ingin dilihat orang"], c: 0 },
-                    { q: "Sifat kerja orang yang mengamalkan Ihsan adalah...", a: ["Asal-asalan", "Itqan (Profesional/Sempurna)", "Lambat", "Malas"], c: 1 }
+                    { q: "Tingkatan Ihsan di mana seseorang beribadah dengan kesadaran penuh bahwa 'Allah pasti melihat diri kita' dinamakan...", a: ["Maqam Muraqabah", "Maqam Musyahadah", "Riya'", "Tafakkur"], c: 0 },
+                    { q: "Ayat yang menegaskan bahwa Allah mengawasi sedemikian dekat, bahkan 'lebih dekat daripada urat lehernya' adalah...", a: ["QS. Qaf: 16", "QS. Al-Hadid: 4", "QS. Yunus: 61", "QS. Ar-Ra'd: 28"], c: 0 },
+                    { q: "Berdasarkan HR. Thabrani, Allah sangat mencintai seseorang yang apabila melakukan suatu pekerjaan, ia mengerjakannya secara...", a: ["Asal-asalan saja", "Itqan (profesional/sempurna)", "Lambat dan santai", "Menunggu diperintah orang"], c: 1 }
                 ]
             }
         ];
@@ -415,11 +554,11 @@
         };
 
         const moodQuotes = [
-            "Allah tidak membebani seseorang melainkan sesuai kesanggupannya.",
-            "Boleh jadi kamu membenci sesuatu, padahal ia amat baik bagimu.",
-            "Tawakal bukan berarti berhenti, tapi menyerahkan hasil setelah lari.",
-            "Nilai dirimu bukan pada pandangan manusia, tapi pada ridha Pencipta.",
-            "Fokuslah memperbaiki hubungan dengan Allah, maka Allah perbaiki duniamu."
+            "Allah tidak membebani seseorang melainkan sesuai kesanggupannya. (QS. Al-Baqarah: 286)",
+            "Ingatlah, hanya dengan mengingat Allah hati menjadi tenteram. (QS. Ar-Ra'd: 28)",
+            "Barang siapa bertawakal kepada Allah, maka Allah akan mencukupkannya. (QS. At-Talaq: 3)",
+            "Sesungguhnya yang paling mulia di sisi Allah adalah yang paling bertakwa. (QS. Al-Hujurat: 13)",
+            "Dan Dia bersama kamu di mana saja kamu berada. (QS. Al-Hadid: 4)"
         ];
 
         const kisahData = [
@@ -454,7 +593,6 @@
             const grid = document.getElementById('materi-grid');
             grid.innerHTML = '';
             materiData.forEach(m => {
-                const isUnlocked = appState.unlockedQuizzes[m.id];
                 grid.innerHTML += `
                     <div class="bg-white/70 backdrop-blur-md p-6 rounded-[2rem] border border-white shadow-sm flex flex-col justify-between">
                         <div class="space-y-3">
@@ -471,12 +609,16 @@
             const m = materiData.find(x => x.id === id);
             appState.unlockedQuizzes[id] = true;
             document.getElementById('detail-materi-title').innerText = m.title;
-            document.getElementById('detail-materi-hadis-arab').innerText = m.hadis.arab;
-            document.getElementById('detail-materi-hadis-arti').innerText = `Artinya: ${m.hadis.arti}`;
-            document.getElementById('detail-materi-hadis-perawi').innerText = m.hadis.perawi;
             
-            const body = document.getElementById('detail-materi-body');
-            body.innerHTML = m.body.split('. ').map(p => `<p>${p}.</p>`).join('');
+            const hadisBox = document.getElementById('detail-materi-hadis-box');
+            if (m.hadis) {
+                hadisBox.classList.remove('hidden');
+                document.getElementById('detail-materi-hadis-arab').innerText = m.hadis;
+            } else {
+                hadisBox.classList.add('hidden');
+            }
+            
+            document.getElementById('detail-materi-body').innerHTML = m.body;
 
             const btn = document.getElementById('detail-materi-quiz-btn');
             btn.innerText = `Kerjakan Kuis Modul ${id}`;
@@ -528,7 +670,7 @@
                 grid.innerHTML += `
                     <div class="bg-white p-6 rounded-[2rem] border border-slate-100 shadow-sm ${unlocked ? 'opacity-100' : 'opacity-40'}">
                         <div class="flex justify-between items-start mb-4">
-                            <h4 class="font-bold font-heading">${isFinal ? 'KUIS AKBAR' : 'Modul 0'+i}</h4>
+                            <h4 class="font-bold font-heading">${isFinal ? 'KUIS AKBAR AKHIR (1-10)' : 'Kuis Modul 0'+i}</h4>
                             ${score > 0 ? `<span class="bg-emerald-100 text-emerald-600 px-2 py-1 rounded-md text-[10px] font-black">${score}%</span>` : ''}
                         </div>
                         <button ${unlocked ? `onclick="startQuiz(${i})"` : ''} class="w-full py-3 rounded-xl ${unlocked ? 'bg-indigo-600 text-white' : 'bg-slate-100 text-slate-400 cursor-not-allowed'} font-bold text-xs">
@@ -545,14 +687,13 @@
             appState.activeQuizIndex = 0;
             appState.activeQuizScore = 0;
             
-            // Generate bank soal
             if(id > 10) {
-                // Final Quiz: Campur dari semua materi
+                // Kuis Akhir: Menggabungkan seluruh bank soal dari materi 1 sampai 10 secara acak
                 appState.currentPool = [];
                 materiData.forEach(m => appState.currentPool.push(...m.questions));
                 appState.currentPool = appState.currentPool.sort(() => 0.5 - Math.random()).slice(0, 25);
             } else {
-                // Modul kuis: Pakai soal materi tersebut, diulang sampai 25 jika kurang
+                // Kuis Spesifik Modul 1-10: Berisi pertanyaan dari materi yang bersangkutan
                 const qMateri = materiData.find(x => x.id === id).questions;
                 appState.currentPool = [];
                 while(appState.currentPool.length < 25) {
@@ -573,7 +714,7 @@
             }
 
             const qData = appState.currentPool[idx];
-            document.getElementById('play-quiz-title').innerText = appState.activeQuizId > 10 ? "KUIS AKBAR FINAL" : `MODUL ${appState.activeQuizId}`;
+            document.getElementById('play-quiz-title').innerText = appState.activeQuizId > 10 ? "KUIS AKBAR AKHIR (MATERI 1-10)" : `KUIS MATERI MODUL ${appState.activeQuizId}`;
             document.getElementById('play-quiz-counter').innerText = `Soal ${idx+1} / ${appState.currentPool.length}`;
             document.getElementById('play-quiz-question-text').innerText = qData.q;
 
@@ -581,7 +722,7 @@
             optBox.innerHTML = '';
             qData.a.forEach((text, i) => {
                 const btn = document.createElement('button');
-                btn.className = "w-full text-left p-5 rounded-2xl border-2 border-slate-100 hover:border-indigo-500 hover:bg-indigo-50 font-bold transition-all text-sm";
+                btn.className = "w-full text-left p-5 rounded-2xl border-2 border-slate-100 hover:border-indigo-500 hover:bg-indigo-50 font-bold transition-all text-sm bg-white/60 backdrop-blur-sm";
                 btn.innerText = text;
                 btn.onclick = () => {
                     if(i === qData.c) appState.activeQuizScore += 4;
@@ -603,11 +744,11 @@
             if(score === 100) {
                 icon.innerHTML = '<i class="fa-solid fa-trophy"></i>';
                 icon.className = "w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-6 text-4xl bg-emerald-100 text-emerald-600";
-                msg.innerText = "Maa Syaa Allah! Pengetahuan aqidahmu luar biasa sempurna.";
+                msg.innerText = "Maa Syaa Allah! Pengetahuan materi aqidahmu luar biasa sempurna.";
             } else {
                 icon.innerHTML = '<i class="fa-solid fa-medal"></i>';
                 icon.className = "w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-6 text-4xl bg-amber-100 text-amber-600";
-                msg.innerText = "Bagus! Terus tingkatkan pemahamanmu untuk membuka kuis akbar.";
+                msg.innerText = "Bagus! Raih nilai 100% pada seluruh modul 1-10 untuk membuka akses Kuis Akbar Akhir.";
             }
 
             navigateTo('kuis-result');
@@ -618,7 +759,7 @@
             c.innerHTML = '';
             kisahData.forEach(k => {
                 c.innerHTML += `
-                    <div class="bg-white p-8 rounded-[2.5rem] border border-slate-100 shadow-sm flex items-start gap-6">
+                    <div class="bg-white/80 backdrop-blur-md p-8 rounded-[2.5rem] border border-slate-100 shadow-sm flex items-start gap-6">
                         <div class="w-16 h-16 ${k.color} text-white rounded-2xl flex items-center justify-center text-2xl flex-shrink-0 shadow-lg">
                             <i class="fa-solid ${k.icon}"></i>
                         </div>
